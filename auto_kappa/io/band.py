@@ -11,6 +11,7 @@
 # or http://opensource.org/licenses/mit-license.php for information.
 #
 import os
+import sys
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.collections import LineCollection
@@ -137,21 +138,29 @@ class Band:
     def _adjust_kpoints(self, frac_kmin=0.08):
         """ Adjust kpoints to expand the small sections
         """
+        if len(self.kpoints.shape) == 1:
+            kpoints = self.kpoints
+        elif len(self.kpoints.shape) == 2:
+            kpoints = self.kpoints[0]
+        else:
+            logger.error("\n Error: kpoints shape is invalid.")
+            return None
+        
         ## Total k-length and minimum k-length for a section
-        lk_tot = self.kpoints[-1] - self.kpoints[0]
+        lk_tot = kpoints[-1] - kpoints[0]
         lk_min = lk_tot * frac_kmin
         
         ## Get indices for each section
         section_ids, _, _ = get_band_section_indices_labels(
-            self.kpoints, self.symmetry_kpoints, self.symmetry_labels,
+            kpoints, self.symmetry_kpoints, self.symmetry_labels,
         )
         
         koffset = 0.
-        _kpoints = np.zeros_like(self.kpoints)
+        _kpoints = np.zeros_like(kpoints)
         _symmetry_kpoints = []
         for isec, idx in enumerate(section_ids):
             (i0, i1) = idx
-            ksec = self.kpoints[i0:i1+1] + koffset
+            ksec = kpoints[i0:i1+1] + koffset
             lk_sec = ksec[-1] - ksec[0]
             
             if lk_sec < lk_min:
@@ -170,7 +179,13 @@ class Band:
         
         ## Update k-point info
         self.symmetry_kpoints = _symmetry_kpoints
-        self.kpoints = _kpoints
+        if len(self.kpoints.shape) == 1:
+            self.kpoints = _kpoints
+        elif len(self.kpoints.shape) == 2:
+            self.kpoints = np.array([_kpoints for _ in range(self.kpoints.shape[0])])
+        else:
+            logger.error("\n Error: kpoints shape is invalid.")
+            return None
     
     def plot_bands(self, **args):
         msg = "\n Warning: plot_bands() will be deprecated. Use plot() method instead."
@@ -278,7 +293,15 @@ class SCPHBand(Band):
         self.band_type = 'scph'
         self.temperatures = None
         if filename is not None:
-            self.read_bfile(filename)
+            self.read_bfile_scph(filename)
+    
+    def read_bfile_scph(self, bfile, adjust_kpoints=True):
+        """Read band file
+        """
+        self.set_symmetry_points(bfile)
+        self.set_eigen_values_scph(bfile)
+        if adjust_kpoints:
+            self._adjust_kpoints()
     
     @property
     def kmax(self): # for SCPH
@@ -296,9 +319,9 @@ class SCPHBand(Band):
             return None
         return len(self.temperatures)
     
-    def set_eigen_values(self, bfile): # for SCPH
+    def set_eigen_values_scph(self, bfile): # for SCPH
         """ Read band file crated by ALAMODE """
-        out = get_eigen(bfile)
+        out = get_eigen(bfile)        
         if len(out) != 3:
             logger.error("\n Error: The band file is not valid.")
             return None
@@ -308,13 +331,11 @@ class SCPHBand(Band):
         
     def plot(self, ax, color=None, lw=0.3, linestyle='-',
              ylabel="Frequency (${\\rm cm^{-1}}$)", 
-             temperature=None, label=None, show_legend=True, set_xticks=True):
+             temperature=None, show_legend=True, set_xticks=True,
+             plot_G2G=False):
         """ Plot SCPH band structure. See Band.plot for details.
         """
         from auto_kappa.plot.bandos import set_xticks_labels
-        
-        msg = "\n SCPHBand.plot will be modified in the future."
-        logger.warning(msg)
         
         cmap = get_customized_cmap(len(self.temperatures))
             
@@ -324,27 +345,26 @@ class SCPHBand(Band):
                 if abs(temp - temperature) > 0.1:
                     continue
             
-            for ib in range(self.nbands):
-                if temperature is None:
-                    ## Only the first and last branches are labeled
-                    if ib == 0 and (it == 0 or it == len(self.temperatures) - 1 or temperature is not None):
-                        lab = "%dK" % int(temp)
-                    else:
-                        lab = None
-                    col = cmap(it)
-                else:
-                    lab = label if ib == 0 else None
-                    col = color if color is not None else cmap(it)
-                
-                ax.plot(self.kpoints[it], self.frequencies[it][:, ib], 
-                        c=col, linestyle=linestyle, lw=lw, label=lab)
+            ## Set color
+            if temperature is None:
+                col = cmap(it)
+            else:
+                col = color if color is not None else cmap(it)
             
-        ## set x-axis
-        if set_xticks:
-            set_xticks_labels(ax, self.kmax, self.symmetry_kpoints, self.symmetry_labels)
-        ax.set_ylabel(ylabel)
-        set_axis(ax)
-        
+            if (it == 0 or it == len(self.temperatures) - 1 or temperature is not None):
+                lab = "%dK" % int(temp)
+            else:
+                lab = None
+            
+            _plot_bands(ax,
+                        self.symmetry_kpoints, self.symmetry_labels,
+                        self.kpoints[it], self.frequencies[it],
+                        plot_G2G=plot_G2G, set_xticks=set_xticks, 
+                        ylabel=None, label=lab,
+                        color=col, lw=lw, linestyle=linestyle)
+            
+            ax.set_ylabel(ylabel)
+            
         if show_legend:
             set_legend(ax, fs=6, loc='lower left', loc2=(0.0, 1.0), ncol=2)
 

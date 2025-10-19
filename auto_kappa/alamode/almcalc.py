@@ -663,6 +663,7 @@ class AlamodeCalc(AlamodeForceCalculator, AlamodeInputWriter, AlamodePlotter,
     def get_fmin_scph(self, temperature=None):
         from auto_kappa.calculators.scph import get_fmin_scph
         filename = self.out_dirs['higher']['scph'] + f"/{self.prefix}.scph_bands"
+        fmin = get_fmin_scph(filename, temperature=temperature)
         return get_fmin_scph(filename, temperature=temperature)
         
     def get_minimum_frequency(self, which="both"):

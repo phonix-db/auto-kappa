@@ -71,7 +71,7 @@ def conduct_scph_calculation(almcalc, order=6, temperatures=100*np.arange(1,11))
         dir_scph = almcalc.out_dirs['higher']['scph']
         fig_width = 3.0
         aspect = 0.6
-        lw = 0.5
+        lw = 0.3
         
         ## Plot band & DOS
         figname = f"{dir_scph}/fig_scph_bands.png"
@@ -281,7 +281,7 @@ def get_availabilities(logfile):
     return availabilities
 
 def _plot_scph_bands(filename, figname='fig_scph_bands.png',
-                     lw=0.5, fig_width=3.0, aspect=0.6, dpi=600):
+                     lw=0.3, fig_width=3.0, aspect=0.6, dpi=600):
     
     from auto_kappa.io.band import SCPHBand
     
@@ -290,13 +290,10 @@ def _plot_scph_bands(filename, figname='fig_scph_bands.png',
     fig, axes = make_figure(1, 1, fig_width=fig_width, aspect=aspect)
     ax = axes[0][0]
     
-    ## ver.1
-    # plot_scph_bands(ax, filename, logfile=logfile)
-    #
-    ## ver.2
     band = SCPHBand(filename)
+    
     band.plot(ax, lw=lw)
-    ax.axhline(0, color='grey', lw=0.5, ls='-')
+    ax.axhline(0, color='grey', lw=0.2, ls='-')
     
     fig.savefig(figname, bbox_inches='tight', dpi=dpi)
     if os.path.isabs(figname):

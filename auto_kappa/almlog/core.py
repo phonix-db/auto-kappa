@@ -147,7 +147,7 @@ def read_alamode_log(filename):
             try:
                 log_info['frequencies'] = read_frequencies(lines)
             except Exception as e:
-                logger.info(f"Warning: Failed to read frequencies section: {e}")
+                logger.info(f"Warning: Failed to read frequencies section in {filename}: {e}")
                 log_info['frequencies'] = None
     
     ## Duration [seconds]
