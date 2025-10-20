@@ -20,6 +20,7 @@ import subprocess
 import shutil
 import multiprocessing as mp
 import ase.io
+from ase.geometry import get_distances
 
 from auto_kappa.io import AlmInput
 from auto_kappa.io.born import BORNINFO, read_born_info
@@ -468,13 +469,15 @@ def check_previous_structures(outdirs, primitive, unitcell, prim_mat=None, sc_ma
             ref_file = fn
             ref_sc = sc.copy()
         else:
-            diff = ref_sc.get_positions() - sc.get_positions()
+            D, D_len = get_distances(ref_sc.get_positions(), sc.get_positions(), ref_sc.cell, pbc=True)
+            diff = np.diag(D_len)
             if np.max(np.abs(diff)) > 1e-4:
                 ref_fn = _relative_path(ref_file)
                 fn = _relative_path(fn)
                 msg = "\n Error: max. diff. = %.6f between" % (np.max(np.abs(diff)))
                 msg += f"\n {ref_fn} and {fn}"
                 logger.error(msg)
+                sys.exit()
     
     if ref_sc is None:
         return

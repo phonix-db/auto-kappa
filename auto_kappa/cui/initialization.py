@@ -163,7 +163,7 @@ def _get_previously_used_parameters(outdir, cell_types=None):
     
     ### check k-meshes and transformation matrices
     structures_cell = {}
-    kpts_cell = {}
+    # kpts_cell = {}
     calc_types = ["relax", "nac", "harm", "cube"]
     for i, calc_type in enumerate(calc_types):
         if i == 0: 
@@ -213,9 +213,10 @@ def _get_previously_used_parameters(outdir, cell_types=None):
                         msg += f"\n {kpts} : currently suggested"
                         logger.warning(msg)
                         sys.exit()
+                
                 params_prev[calc_type]['kpts'] = kpts
-                kpts_cell[cell_type] = kpts
-        
+                # kpts_cell[cell_type] = params_prev[calc_type]['kpts']
+    
     ## Get transformation matrices
     trans_matrices = {}
     if 'primitive' in structures_cell and 'unitcell' in structures_cell:
