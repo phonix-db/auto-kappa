@@ -28,6 +28,7 @@ from auto_kappa.cui import ak_log
 from auto_kappa.calculators.compat import remove_old_kappa_data
 from auto_kappa.calculators.scph import calculate_high_order_force_constants
 from auto_kappa.alamode.plotter import plot_kappa_vs_grain_size
+from auto_kappa.almlog import ALMLOG
 
 import logging
 logger = logging.getLogger(__name__)
@@ -484,7 +485,6 @@ def analyze_harmonic_properties(
     almcalc.write_alamode_input(propt='suggest', order=1)
     almcalc.run_alamode(propt='suggest', order=1, ignore_log=True)
     
-    # from auto_kappa.almlog import ALMLOG
     # logfile = almcalc.out_dirs['harm']['suggest'] + '/suggest.log'
     # almlog = ALMLOG(logfile)
     
@@ -716,7 +716,12 @@ def calculate_thermal_conductivities(
                     propt=propt, ignore_log=ignore_log, 
                     outdir=outdir, **kwargs)
         
-        # ================================== #
+        ### Print calculation time
+        almlog = ALMLOG(kappa_log)
+        if almlog.duration is not None:
+            duration = almlog.duration / 60.  # in minutes
+            logger.info(f"\n Computation time: {duration:.2f} mins")
+        
         # === Plot anharmonic properties === #
         # ================================== #
         ## Kind of scattering process

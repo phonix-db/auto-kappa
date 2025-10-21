@@ -695,6 +695,10 @@ class AlamodePlotter:
         """
         dirs_kappa = self.get_kappa_directories(calc_type=calc_type)
         keys = dirs_kappa.keys()
+        try:
+            keys = sorted(keys, key=lambda x: eval(x.replace('x', '*')))
+        except Exception:
+            pass
         
         ## Scale of kappa for 2D systems
         if self.dim == 2:

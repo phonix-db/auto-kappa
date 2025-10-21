@@ -27,6 +27,13 @@ class ALMLOG():
             self._info = read_alamode_log(self.filename)
     
     @property
+    def duration(self):
+        try:
+            return self._info['duration']
+        except:
+            return None
+    
+    @property
     def sections(self):
         try:
             return list(self._info.keys())

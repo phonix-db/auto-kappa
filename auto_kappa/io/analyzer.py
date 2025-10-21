@@ -66,7 +66,7 @@ def get_average_at_degenerate_point(omega, tau, eps=1e-3):
                     np.average(tau[ik,idx_deg]))
     return tau_ave
 
-def get_kmode(volume, temp, frequencies, multiplicity, velocities, lifetime):
+def get_kmode(volume, temp, frequencies, multiplicity, velocities, lifetime, verbose=True):
     """
     Calculate and return thermal conductivity of every modes
 
@@ -118,9 +118,10 @@ def get_kmode(volume, temp, frequencies, multiplicity, velocities, lifetime):
                         ) / multi)
             # -- heat capacity
             if frequencies[ik,ib] < 0.:
-                msg = " SKIP ik: %d  ib: %d  %.2f cm^-1"%(
-                    ik, ib, frequencies[ik,ib])
-                logger.info(msg)
+                if verbose:
+                    msg = " SKIP ik: %d  ib: %d  %.2f cm^-1"%(
+                        ik, ib, frequencies[ik,ib])
+                    logger.info(msg)
                 kmode[ik,ib] = np.zeros((3,3))
             else:
                 Cph = get_heat_capacity(frequencies[ik,ib], temp)   # J/K
