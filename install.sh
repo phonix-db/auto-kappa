@@ -7,6 +7,10 @@ uv pip install -e ./matbench-discovery
 # Install MLIPs
 # fairchem-core-1.10.0
 uv pip install -e packages/fairchem-core
+# you need to setup the eSEN model path in auto-kappa/auto_kappa/calculators/mlips.py
+
+# mace
+# Note: if you try to use mace, please install it.
 # Install auto-kappa
 uv pip install dist/auto_kappa-1.1.0.tar.gz
 
