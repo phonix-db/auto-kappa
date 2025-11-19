@@ -712,8 +712,9 @@ class ApdbVasp():
 
             if out == -1:
 
-                ### backup failed result
-                backup_vasp(dir_cur, delete_files=True)
+                ### backup failed result (MLIPS specific files)
+                mlips_files = {"POSCAR", "CONTCAR", "forces.xyz", "energy.txt", "stress.txt"}
+                backup_vasp(dir_cur, filenames=mlips_files, delete_files=True)
 
                 count_err += 1
                 if max_sym_err == count_err:

@@ -151,7 +151,10 @@ def main():
         ))
     
     ### NONANALYTIC (primitive)
-    if nac != 0:
+    # Force NAC to 0 if all_mlips is enabled
+    if ak_params['all_mlips']:
+        nac = 0
+    elif nac != 0:
         if ak_params['nonanalytic'] is not None:
             nac = ak_params['nonanalytic']
         
