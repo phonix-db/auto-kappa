@@ -203,7 +203,7 @@ def get_sym_ops_from_pymatgen(primitive, symprec=1e-5):
     
     return rotations
 
-def is_diagonal_matrix(A, tol=1e-3):
+def is_diagonal_matrix(A, tol=1e-8):
     """ Check if a given 3x3 matrix A is diagonal within a specified tolerance.
     
     Args
@@ -331,7 +331,7 @@ def set_parameters_scph(inp, primitive=None, scell=None, mat_p2s=None, deltak=0.
     
     inp.set_kpoint(deltak=deltak)
     
-    if is_diagonal_matrix(mat_p2s):
+    if is_diagonal_matrix(scell.cell.array):
         ## orthogonal case
         kmesh_interpolate = [int(mat_p2s[i][i]) for i in range(3)]
     else:
