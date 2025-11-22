@@ -126,6 +126,21 @@ G. Kresse, and J. Furthmuller, Phys. Rev. B 54, 11169-11186 (1996).
 
 - [**ASE**](https://ase-lib.org/): A. H. Larsen et al., J. Phys.: Cond. Matter 29, 273002 (2017).
 
+
+Developpers
+-------------
+
+- Tianqie Deng, 
+Michimasa Morita, 
+Wei Nong, 
+Masato Ohnishi, 
+Terumasa Tadano, 
+Pol Torres, 
+Zeyu Wang
+
+(alphabetical order)
+
+
 <!-- To Do
 ------
 
