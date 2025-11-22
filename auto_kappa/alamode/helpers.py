@@ -23,6 +23,7 @@ from auto_kappa.vasp.params import get_previous_parameters, get_amin_parameter
 from auto_kappa.alamode.io import wasfinished_alamode, write_displacement_info
 from auto_kappa.alamode.errors import found_rank_deficient
 from auto_kappa.calculators.vasp import run_vasp, backup_vasp
+from auto_kappa.structure.crystal import get_transformation_matrix_prim2scell
 
 import logging
 logger = logging.getLogger(__name__)
@@ -482,9 +483,35 @@ class AlamodeInputWriter():
             self._set_emin_emax_delta_e(inp)
             
         elif propt == "scph":
+            
             from auto_kappa.calculators.scph import set_parameters_scph
+            
+            # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+            mat_p2s = get_transformation_matrix_prim2scell(
+                self.primitive_matrix, self.scell_matrix)
+            
+            # from auto_kappa.units import AToBohr
+            # print("# supercell")
+            # print(np.asarray(self.supercell.cell) * AToBohr)
+            # print("# conventional cell")
+            # print(np.asarray(self.unitcell.cell) * AToBohr)
+            # print("# primitive cell")
+            # print(np.asarray(self.primitive.cell) * AToBohr)
+            # print()
+            # print(self.primitive_matrix)
+            # print(self.scell_matrix)
+            # print(mat_p2s)
+            # sys.exit()
+            
             set_parameters_scph(
-                inp, primitive=self.primitive, deltak=deltak, kdensities=[30, 10])
+                inp, 
+                primitive=self.primitive, 
+                scell=self.supercell,
+                mat_p2s=mat_p2s, 
+                deltak=deltak, 
+                kdensity_limit=10,
+                )
+            # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
             
         elif propt in ['cv', 'lasso', 'fc2', 'fc3', 'suggest']:
             """

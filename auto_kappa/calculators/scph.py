@@ -14,12 +14,13 @@ import os
 import os.path
 import numpy as np
 import subprocess
+import shlex
+from pymatgen.symmetry.analyzer import SpacegroupAnalyzer
 
 from auto_kappa.io.fcs import FCSxml
 from auto_kappa.plot import make_figure, get_customized_cmap
-# from auto_kappa.plot.bandos import plot_bands, set_xticks_labels
-# from auto_kappa.io.band import get_symmetry_points_from_file, get_scph_bands
 from auto_kappa.io.band import get_scph_bands
+from auto_kappa.structure import change_structure_format
 
 import logging
 logger = logging.getLogger(__name__)
@@ -178,7 +179,7 @@ def _create_effective_harmonic_fcs(almcalc, temperature=300, workdir=None):
     os.chdir(workdir)
     
     ### run the job
-    cmd = "%s %s %s %s %d" % (command, xml_orig, xml_new, file_corr, temperature)
+    cmd = "%s %s %s %s %d" % (command, shlex.quote(xml_orig), shlex.quote(xml_new), shlex.quote(file_corr), temperature)
     
     logfile = "dfc2.log"
     file_err = "std_err.txt"
@@ -190,31 +191,138 @@ def _create_effective_harmonic_fcs(almcalc, temperature=300, workdir=None):
     os.chdir(dir_cur)
     return 0
 
-def set_parameters_scph(
-        inp, primitive=None, deltak=0.01, kdensities=[30, 10], **kwargs):
+def get_sym_ops_from_pymatgen(primitive, symprec=1e-5):
+    """ Get symmetry operations from a pymatgen Structure object.
+    """
+    sga = SpacegroupAnalyzer(primitive, symprec=symprec)
+    symm_ops = sga.get_symmetry_operations()
+    
+    rotations = []
+    for op in symm_ops:
+        rotations.append(op.rotation_matrix)   # 3x3 numpy array
+    
+    return rotations
+
+def is_diagonal_matrix(A, tol=1e-3):
+    """ Check if a given 3x3 matrix A is diagonal within a specified tolerance.
+    
+    Args
+    ------
+    A : array-like
+        Input 3x3 matrix to be checked.
+    tol: float
+        Tolerance for checking off-diagonal elements.
+    """
+    A = np.array(A)
+    if A.shape != (3, 3):
+        raise ValueError("Matrix must be 3x3")
+    
+    # Check if all off-diagonal elements are within the tolerance
+    offdiag = A - np.diag(np.diag(A))
+    return np.all(np.abs(offdiag) < tol)
+
+def safe_kmesh_from_supercell(supercell_lattice, sym_ops, min_nk=2, atol=1e-5):
+    """ Propose safe kmesh for ALAMODE SCPH calculation based on symmetry operations.
+    
+    Args
+    -----
+    supercell_lattice : (3,3) ndarray with row = a1, a2, a3 (direct lattice)
+    sym_ops : list of symmetry rotation matrices in direct space (3x3 matrices)
+    min_nk : minimum nk required (ALAMODE SCPH requires ≥2)
+    
+    Returns:
+        tuple (nk1, nk2, nk3)
+    """
+    # 1. Calculate reciprocal lattice vectors
+    A = np.array(supercell_lattice).T        # columns = a1,a2,a3
+    B = 2 * np.pi * np.linalg.inv(A).T       # columns = b1,b2,b3
+    bvecs = B.T                              # rows: b1,b2,b3
+    
+    # 2. symmetry operations check
+    # direct space rotation R acts on reciprocal as (R^-1)^T
+    safe = [True, True, True]   # safe[i] = True -> direction i can have nk >= 2
+    for R in sym_ops:
+        Rrec = np.linalg.inv(R).T
+        for i in range(3):
+            b_i = bvecs[i]
+            Rb = Rrec @ b_i
+            
+            # Solve for coefficients in bvecs basis
+            coeff = np.linalg.solve(bvecs.T, Rb)
+            
+            # Check if all coefficients are integers
+            for j in range(3):
+                if not np.isclose(coeff[j], round(coeff[j]), atol=atol):
+                    # Non-integer -> direction i cannot have nk > 1
+                    safe[i] = False
+                    break
+    
+    # 3. Determine KMESH based on safe[i]
+    km = []
+    for i in range(3):
+        if safe[i]:
+            km.append(int(min_nk))     # safe direction
+        else:
+            km.append(1)          # fixed to 1 due to symmetry
+    return list(km)
+
+def get_kmesh_scph(primitive, kmesh_interpolate, kdensity_limit, dim=3):
+    """ Propose kmesh_scph based on kmesh_interpolate and kdensity_limit.
+    
+    Args
+    -----
+    kmesh_interpolate : list of int
+        Proposed kmesh_interpolate for SCPH calculation.
+    kdensity_limit : float
+        Minimum kdensity for SCPH calculation.
+    dim : int
+        Dimension of the system (default: 3)
+    
+    Returns
+    -------
+    list of int
+        Proposed kmesh_scph for SCPH calculation.
+    """
+    from auto_kappa.structure.crystal import get_automatic_kmesh
+    
+    # Minimum kmesh_scph based on kdensity_limit
+    kmesh_scph_limit = get_automatic_kmesh(
+        primitive, reciprocal_density=kdensity_limit, dim=dim)
+    
+    # Find smallest kmesh_scph that is equal to or a multiple of kmesh_interpolate
+    n = 1
+    while True:
+        kmesh_scph_n = [n * ki for ki in kmesh_interpolate]
+        ratio = np.asarray(kmesh_scph_n) / np.asarray(kmesh_scph_limit)
+        if all(ratio >= 1):
+            break
+        n += 1
+    
+    kmesh_scph = [n * ki for ki in kmesh_interpolate]
+    return kmesh_scph
+
+def set_parameters_scph(inp, primitive=None, scell=None, mat_p2s=None, deltak=0.01, kdensity_limit=20, **kwargs):
     """ Set ALAMODE parameters for SCPH calculation.
     
     Args
     =====
-    
     inp : auto_kappa.io.AnphonInput
-    
+    primitive : primitive structure
+    mat_p2s : 3x3 integer matrix (list or numpy array) 
+        supercell matrix wrt primitive cell
     deltak : integer, 0.01
-    
-    kdensity : array of float,
-        kdensity for SCPH calculation and interpolated kmesh
-    
+    kdensity_limit : array of float,
+        minimum kdensity for SCPH calculation
+        proposed kmesh_scph will be equal to or larger than this limit
     """
-    from auto_kappa.structure.crystal import get_automatic_kmesh
-    
     scph_params = {
             ### general
             "tmin": 100,
             "tmax": 1000,
             "dt"  : 100,
             ### scph
-            #"kmesh_scph": [1,1,1],
-            "kmesh_interpolate": [1,1,1],
+            # "kmesh_scph": [1,1,1],
+            # "kmesh_interpolate": [1,1,1],
             "self_offdiag": 1,    ## not default (0)
             "mixalpha": 0.1,      ## default
             "maxiter": 2000,      ## double of default
@@ -223,24 +331,26 @@ def set_parameters_scph(
     
     inp.set_kpoint(deltak=deltak)
     
-    ### kmesh_scph
-    kmesh_scph = get_automatic_kmesh(
-            primitive, reciprocal_density=kdensities[0], dim=inp.dim)
+    if is_diagonal_matrix(mat_p2s):
+        ## orthogonal case
+        kmesh_interpolate = [int(mat_p2s[i][i]) for i in range(3)]
+    else:
+        ## skewed case
+        prim_pmg = change_structure_format(primitive, format='pymatgen')
+        sym_ops = get_sym_ops_from_pymatgen(prim_pmg)
+        kmesh_interpolate = safe_kmesh_from_supercell(scell.cell.array, sym_ops, min_nk=2)
+        
+        msg = "\n Proposed KMESH_INTERPOLATE for SCPH calculation: %s" % str(kmesh_interpolate)
+        msg += "\n Please note that this kmesh determination procedure is still experimental."
+        msg += "\n If you will get unexpected results, please set KMESH_INTERPOLATE and KMESH_SCPH manually."
+        logger.info(msg)
     
-    ### kmesh_interpolate
-    kmesh_int = get_automatic_kmesh(
-            primitive, reciprocal_density=kdensities[1], dim=inp.dim)
-    
-    ### kmesh_scph should be equal to or a multiple of the number of
-    ### kmesh_interpolate in the same direction.
-    ratio = np.asarray(kmesh_scph) / np.asarray(kmesh_int)
-    ratio = (ratio + 0.5*np.ones(3)).astype(int)
-    ratio = np.where(ratio < 1, 1, ratio)
-    kmesh_scph = list(np.asarray(kmesh_int) * ratio)
+    ### get kmesh_scph
+    kmesh_scph = get_kmesh_scph(primitive, kmesh_interpolate, kdensity_limit, dim=inp.dim)
     
     ### set parameters
     scph_params["kmesh_scph"] = kmesh_scph
-    scph_params["kmesh_interpolate"] = kmesh_int
+    scph_params["kmesh_interpolate"] = kmesh_interpolate
     
     ###
     scph_params.update(kwargs)

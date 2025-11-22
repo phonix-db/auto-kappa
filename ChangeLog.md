@@ -1,4 +1,12 @@
 
+# Ver. 1.0.0 (Nov. 22, 2025)
+
+## Fix
+
+- Run dfc2 command properly when the file name contains brackets
+
+- Modify the determination method of KMES_INTERPOLATE and KMESH_SCPH
+
 # Ver. 1.0.0 (Sept. 28, 2025)
 
 ## New

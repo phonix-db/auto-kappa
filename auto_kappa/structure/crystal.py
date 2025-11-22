@@ -105,11 +105,14 @@ def get_standardized_structure_spglib(struct_orig, to_primitive=False, format='a
         out = spglib.standardize_cell(structure, to_primitive=to_primitive)
     except Exception:
         ## PhonopyAtom => tuple
-        cell = (
-                structure.get_cell(),
-                structure.get_scaled_positions(),
-                structure.get_atomic_numbers()
-                )
+        try:
+            cell = (structure.cell,
+                    structure.scaled_positions,
+                    structure.numbers)
+        except AttributeError:
+            cell = (structure.get_cell(),
+                    structure.get_scaled_positions(),
+                    structure.get_atomic_numbers())
         out = spglib.standardize_cell(cell, to_primitive=to_primitive)
     
     ## make the structure with the given format
@@ -230,6 +233,27 @@ def inverse_transformation(supercell: ase.Atoms, sc_mat: np.ndarray) -> ase.Atom
     
     return unitcell
 
+def get_transformation_matrix_prim2scell(primitive_matrix, scell_matrix):
+    """ Get the transformation matrix from primitive cell to supercell.
+    Every matrix is in the Phonopy representation.
+    
+    Args
+    ------
+    primitive_matrix : ndarray, int, shape=(3,3)
+        transformation matrix from unitcell to primitive cell
+    scell_matrix : ndarray, int, shape=(3,3)
+        transformation matrix from unitcell to supercell
+    
+    Returns
+    -------
+    mat_p2s : ndarray, int, shape=(3,3)
+        transformation matrix from primitive cell to supercell
+    """
+    mat_p2s = np.linalg.inv(primitive_matrix) @ scell_matrix
+    if not np.allclose(mat_p2s, np.rint(mat_p2s)):
+        raise ValueError("mat_p2s is not an integer matrix.")
+    mat_p2s = np.rint(mat_p2s).astype(int)
+    return mat_p2s
 
 def get_formula(str_orig):    
     structure = change_structure_format(str_orig, format='pmg-istructure')
