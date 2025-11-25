@@ -74,13 +74,16 @@ def change_structure_format(structure, format='pymatgen-IStructure'):
     
     elif isinstance(structure, PhonopyAtoms):
         
-        try:
-            lattice = structure.cell
+        lattice = structure.cell
+        
+        try:    
             all_symbols = structure.get_chemical_symbols()
+        except AttributeError:
+            all_symbols = structure.symbols
+        
+        try:
             coords = structure.get_scaled_positions()
         except AttributeError:
-            lattice = structure.cell
-            all_symbols = structure.chemical_symbols
             coords = structure.scaled_positions
         
     else:
