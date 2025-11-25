@@ -341,7 +341,7 @@ def set_parameters_scph(inp, primitive=None, scell=None, mat_p2s=None, deltak=0.
         kmesh_interpolate = safe_kmesh_from_supercell(scell.cell.array, sym_ops, min_nk=2)
         
         msg = "\n Proposed KMESH_INTERPOLATE for SCPH calculation: %s" % str(kmesh_interpolate)
-        msg += "\n Please note that this kmesh determination procedure is still experimental."
+        msg += "\n Please note that the kmesh determination procedure is still experimental."
         msg += "\n If you will get unexpected results, please set KMESH_INTERPOLATE and KMESH_SCPH manually."
         logger.info(msg)
     
