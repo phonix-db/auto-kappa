@@ -331,7 +331,7 @@ def set_parameters_scph(inp, primitive=None, scell=None, mat_p2s=None, deltak=0.
     
     inp.set_kpoint(deltak=deltak)
     
-    if is_diagonal_matrix(scell.cell.array):
+    if is_diagonal_matrix(mat_p2s):
         ## orthogonal case
         kmesh_interpolate = [int(mat_p2s[i][i]) for i in range(3)]
     else:
