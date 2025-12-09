@@ -7,8 +7,8 @@
   </a>
 </p>
 
-Version 1.0.0
---------------
+Auto-kappa: ver1.0.0
+---------------------
 
 Auto-kappa is an automation framework for first-principles calculations of anharmonic phonon properties
 —including thermal conductivity and mode-dependent phonon lifetimes—based on VASP and ALAMODE.
