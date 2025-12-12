@@ -1,5 +1,3 @@
-<!-- Auto-kappa
-============ -->
 
 <p align='left'>
   <a href="https://masato1122.github.io/auto-kappa/" target="_blank">
@@ -7,11 +5,16 @@
   </a>
 </p>
 
-Version 1.0.0
---------------
 
-Auto-kappa is an automation framework for first-principles calculations of anharmonic phonon properties
-—including thermal conductivity and mode-dependent phonon lifetimes—based on VASP and ALAMODE.
+# Auto-kappa: v1.0.0
+
+**Auto-kappa** is an automated workflow tool for performing **first-principles calculations of anharmonic phonon properties**, including  
+- **lattice thermal conductivity**,  
+- **mode-dependent phonon lifetimes**,  
+- **three-phonon and four-phonon scattering**,  
+
+using **VASP** and **ALAMODE**.  
+It provides a streamlined pipeline that generates input files, submits calculations, checks convergence, and post-processes results automatically.
 
 Requirements
 -------------
@@ -126,10 +129,17 @@ G. Kresse, and J. Furthmuller, Phys. Rev. B 54, 11169-11186 (1996).
 
 - [**ASE**](https://ase-lib.org/): A. H. Larsen et al., J. Phys.: Cond. Matter 29, 273002 (2017).
 
-<!-- To Do
-------
 
-- Iterative calculation
+Developpers
+-------------
 
-- Cell size for 2D systems: fix cell size for VASP calculations -->
+- Tianqie Deng, 
+Michimasa Morita, 
+Wei Nong, 
+Masato Ohnishi, 
+Terumasa Tadano, 
+Pol Torres, 
+Zeyu Wang
+
+(alphabetical order)
 
