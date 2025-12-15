@@ -7,6 +7,7 @@ Submodules
 .. toctree::
    :maxdepth: 4
 
+   auto_kappa.vasp.kmesh
    auto_kappa.vasp.params
    auto_kappa.vasp.relax
 

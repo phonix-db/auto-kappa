@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>auto_kappa.cui.suggest module &mdash; auto-kappa 1.0.0 documentation</title>
+  <title>auto_kappa.cui.suggest module &mdash; auto-kappa 1.0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -17,7 +17,7 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/documentation_options.js?v=292eb321"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -43,7 +43,7 @@
           </a>
 
           <div class="project-version">
-            ver. 1.0.0
+            ver. 1.0.1
           </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -67,6 +67,8 @@
 <li class="toctree-l4"><a class="reference internal" href="auto_kappa.calculators.html">auto_kappa.calculators package</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="auto_kappa.cui.html">auto_kappa.cui package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="auto_kappa.io.html">auto_kappa.io package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.math.html">auto_kappa.math package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.parameters.html">auto_kappa.parameters package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="auto_kappa.plot.html">auto_kappa.plot package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="auto_kappa.structure.html">auto_kappa.structure package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="auto_kappa.utils.html">auto_kappa.utils package</a></li>
@@ -129,38 +131,6 @@ Row vectors</p></li>
 </p>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.cui.suggest.klength2mesh">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.cui.suggest.</span></span><span class="sig-name descname"><span class="pre">klength2mesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lattice</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rotations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.cui.suggest.klength2mesh" title="Link to this definition"></a></dt>
-<dd><p>Convert length to mesh for q-point sampling.</p>
-<p>This conversion for each reciprocal axis follows VASP convention by</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">N</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">l</span> <span class="o">*</span> <span class="o">|</span><span class="n">a</span><span class="o">|^*</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">))</span>
-</pre></div>
-</div>
-<p>int means rounding down, not rounding to nearest integer.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>length</strong> (<em>float</em>) – Length having the unit of direct space length.</p></li>
-<li><p><strong>lattice</strong> (<em>array_like</em>) – Basis vectors of primitive cell in row vectors.
-dtype=’double’, shape=(3, 3)</p></li>
-<li><p><strong>rotations</strong> (<em>array</em><em> of </em><em>int</em><em>, </em><em>shape=</em><em>(</em><em>3</em><em>,</em><em>)</em><em>, </em><em>optional</em>) – Rotation matrices in real space. When given, mesh numbers that are
-symmetrically reasonable are returned. Default is None.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>array_like</strong></p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>int, shape=(3,)</p>
-</dd>
-</dl>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This function is copied from Phonopy library.</p>
-</div>
 </dd></dl>
 
 <dl class="py function">

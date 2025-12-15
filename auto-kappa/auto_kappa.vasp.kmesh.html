@@ -1,0 +1,212 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>auto_kappa.vasp.kmesh module &mdash; auto-kappa 1.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=5938bb5a" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=292eb321"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="auto_kappa.vasp.params module" href="auto_kappa.vasp.params.html" />
+    <link rel="prev" title="auto_kappa.vasp package" href="auto_kappa.vasp.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            auto-kappa
+              <img src="../_static/ak_logo.png" class="logo" alt="Logo"/>
+          </a>
+
+          <div class="project-version">
+            ver. 1.0.1
+          </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">1. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">2. Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../params_ak.html">3. Parameters for auto-kappa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../params_vasp.html">4. Parameters for VASP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">5. Tutorial</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">6. auto_kappa</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="auto_kappa.html">6.1. auto_kappa package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="auto_kappa.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.alamode.html">auto_kappa.alamode package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.almlog.html">auto_kappa.almlog package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.calculators.html">auto_kappa.calculators package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.cui.html">auto_kappa.cui package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.io.html">auto_kappa.io package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.math.html">auto_kappa.math package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.parameters.html">auto_kappa.parameters package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.plot.html">auto_kappa.plot package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.structure.html">auto_kappa.structure package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.utils.html">auto_kappa.utils package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="auto_kappa.vasp.html">auto_kappa.vasp package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#module-auto_kappa">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">auto-kappa</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html"><span class="section-number">6. </span>auto_kappa</a></li>
+          <li class="breadcrumb-item"><a href="auto_kappa.html"><span class="section-number">6.1. </span>auto_kappa package</a></li>
+          <li class="breadcrumb-item"><a href="auto_kappa.vasp.html">auto_kappa.vasp package</a></li>
+      <li class="breadcrumb-item active">auto_kappa.vasp.kmesh module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/auto-kappa/auto_kappa.vasp.kmesh.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-auto_kappa.vasp.kmesh">
+<span id="auto-kappa-vasp-kmesh-module"></span><h1>auto_kappa.vasp.kmesh module<a class="headerlink" href="#module-auto_kappa.vasp.kmesh" title="Link to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="auto_kappa.vasp.kmesh.get_energy">
+<span class="sig-prename descclassname"><span class="pre">auto_kappa.vasp.kmesh.</span></span><span class="sig-name descname"><span class="pre">get_energy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">natoms</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.vasp.kmesh.get_energy" title="Link to this definition"></a></dt>
+<dd><p>Summarize each calculation</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="auto_kappa.vasp.kmesh.klength2mesh">
+<span class="sig-prename descclassname"><span class="pre">auto_kappa.vasp.kmesh.</span></span><span class="sig-name descname"><span class="pre">klength2mesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lattice</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rotations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.vasp.kmesh.klength2mesh" title="Link to this definition"></a></dt>
+<dd><p>Convert length to mesh for q-point sampling.
+Reference: phonopy.structure.grid_points.klength2mesh</p>
+<p>This conversion for each reciprocal axis follows VASP convention by</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">N</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">l</span> <span class="o">*</span> <span class="o">|</span><span class="n">a</span><span class="o">|^*</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>int means rounding down, not rounding to nearest integer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>length</strong> (<em>float</em>) – Length having the unit of direct space length.</p></li>
+<li><p><strong>lattice</strong> (<em>array_like</em>) – Basis vectors of primitive cell in row vectors.
+dtype=’double’, shape=(3, 3)</p></li>
+<li><p><strong>rotations</strong> (<em>array</em><em> of </em><em>int</em><em>, </em><em>shape=</em><em>(</em><em>3</em><em>,</em><em>)</em><em>, </em><em>optional</em>) – Rotation matrices in real space. When given, mesh numbers that are
+symmetrically reasonable are returned. Default is None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>array_like</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int, shape=(3,)</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function is copied from Phonopy library.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="auto_kappa.vasp.kmesh.optimize_klength">
+<span class="sig-prename descclassname"><span class="pre">auto_kappa.vasp.kmesh.</span></span><span class="sig-name descname"><span class="pre">optimize_klength</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">structure</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vasp_params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'mpirun':</span> <span class="pre">'mpirun',</span> <span class="pre">'nprocs':</span> <span class="pre">1,</span> <span class="pre">'vasp':</span> <span class="pre">'vasp'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">klengths</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[10,</span> <span class="pre">5,</span> <span class="pre">100]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_klength</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.002</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">potcar_setups</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pbesol'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'.'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.vasp.kmesh.optimize_klength" title="Link to this definition"></a></dt>
+<dd><p>Optimize kmesh density for a given structure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>structure</strong> (<em>object</em>) – The crystal structure for which to optimize the kmesh.</p></li>
+<li><p><strong>klengths</strong> (<em>list</em><em> of </em><em>int</em><em>, </em><em>optional</em>) – List containing [min_klength, delta_klength, max_klength] for the optimization (default is [10, 10, 100]).
+kl = 10 (large gap insulators) and kl = 100 (d metals).</p></li>
+<li><p><strong>tolerance</strong> (<em>float</em><em>, </em><em>optional</em>) – Tolerance for convergence (default is 1e-3 eV per atom).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="auto_kappa.vasp.kmesh.plot_kl_energy">
+<span class="sig-prename descclassname"><span class="pre">auto_kappa.vasp.kmesh.</span></span><span class="sig-name descname"><span class="pre">plot_kl_energy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xdat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ydat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'fig_kl_ene.png'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'blue'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dpi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">600</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fontsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aspect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lw</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.vasp.kmesh.plot_kl_energy" title="Link to this definition"></a></dt>
+<dd><p>Plot k-length vs. energy</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="auto_kappa.vasp.kmesh.print_result">
+<span class="sig-prename descclassname"><span class="pre">auto_kappa.vasp.kmesh.</span></span><span class="sig-name descname"><span class="pre">print_result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kpts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">energy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta_energy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.vasp.kmesh.print_result" title="Link to this definition"></a></dt>
+<dd><p>Print optimization results</p>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="auto_kappa.vasp.html" class="btn btn-neutral float-left" title="auto_kappa.vasp package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="auto_kappa.vasp.params.html" class="btn btn-neutral float-right" title="auto_kappa.vasp.params module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Masato Ohnishi.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>auto_kappa.calculators.vasp module &mdash; auto-kappa 1.0.0 documentation</title>
+  <title>auto_kappa.calculators.vasp module &mdash; auto-kappa 1.0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -17,7 +17,7 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/documentation_options.js?v=292eb321"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -43,7 +43,7 @@
           </a>
 
           <div class="project-version">
-            ver. 1.0.0
+            ver. 1.0.1
           </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -67,6 +67,8 @@
 <li class="toctree-l4 current"><a class="reference internal" href="auto_kappa.calculators.html">auto_kappa.calculators package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="auto_kappa.cui.html">auto_kappa.cui package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="auto_kappa.io.html">auto_kappa.io package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.math.html">auto_kappa.math package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.parameters.html">auto_kappa.parameters package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="auto_kappa.plot.html">auto_kappa.plot package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="auto_kappa.structure.html">auto_kappa.structure package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="auto_kappa.utils.html">auto_kappa.utils package</a></li>
@@ -143,13 +145,14 @@ series of error.1.tar.gz, error.2.tar.gz, … will be generated.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="auto_kappa.calculators.vasp.get_vasp_calculator">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.calculators.vasp.</span></span><span class="sig-name descname"><span class="pre">get_vasp_calculator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">directory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kpts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encut_scale_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setups</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'recommended'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pbesol'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.calculators.vasp.get_vasp_calculator" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">auto_kappa.calculators.vasp.</span></span><span class="sig-name descname"><span class="pre">get_vasp_calculator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vasp_params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">directory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kpts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encut_scale_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setups</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'W':</span> <span class="pre">'_sv',</span> <span class="pre">'base':</span> <span class="pre">'recommended'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pbesol'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.calculators.vasp.get_vasp_calculator" title="Link to this definition"></a></dt>
 <dd><p>Get VASP parameters for the given mode. Parameters are similar to those
 used for phonondb.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>mode</strong> (<em>string</em>) – “relax”, “relax-full”, “relax-freeze”, “force”, “nac”, or “md”</p></li>
+<li><p><strong>vasp_params</strong> (<em>dict</em>) – VASP parameters given as a dictionary
+e.g., {‘ediffg’: -1e-6, ‘ibrion’: 2, …}</p></li>
 <li><p><strong>atoms</strong> (<em>ASE Atoms object</em>)</p></li>
 <li><p><strong>directory</strong> (<em>string</em>) – output directory</p></li>
 <li><p><strong>kpts</strong> (<em>list</em><em> of </em><em>float</em><em>, </em><em>shape=</em><em>(</em><em>3</em><em>)</em>)</p></li>
@@ -157,16 +160,15 @@ used for phonondb.</p>
 <li><p><strong>Use</strong> (<em>How to</em>)</p></li>
 <li><p><strong>-----------</strong></p></li>
 <li><p><strong>get_vasp_calculator</strong> (<em>&gt;&gt;&gt; from auto_kappa.calculator import</em>)</p></li>
-<li><p><strong>&gt;&gt;&gt;</strong></p></li>
 <li><p><strong>ase.io.read</strong><strong>(</strong><strong>'POSCAR.primitive'</strong> (<em>&gt;&gt;&gt; atoms =</em>)</p></li>
 <li><p><strong>format='vasp'</strong><strong>)</strong></p></li>
 <li><p><strong>'relax'</strong> (<em>&gt;&gt;&gt; mode =</em>)</p></li>
-<li><p><strong>&gt;&gt;&gt;</strong></p></li>
-<li><p><strong>ase.io.read</strong><strong>(</strong><strong>'POSCAR.supercell'</strong> (<em>&gt;&gt;&gt; #atoms =</em>)</p></li>
-<li><p><strong>format='vasp'</strong><strong>)</strong></p></li>
-<li><p><strong>'force'</strong> (<em>&gt;&gt;&gt; #mode =</em>)</p></li>
-<li><p><strong>&gt;&gt;&gt;</strong></p></li>
-<li><p><strong>get_vasp_calculator</strong><strong>(</strong> (<em>&gt;&gt;&gt; calc =</em>) – mode, directory=’./out’, kpts=[10,10,10])</p></li>
+<li><p><strong>{'ediffg'</strong> (<em>&gt;&gt;&gt; vasp_params =</em>)</p></li>
+<li><p><strong>get_vasp_calculator</strong><strong>(</strong><strong>directory='./out'</strong> (<em>&gt;&gt;&gt; calc =</em>)</p></li>
+<li><p><strong>kpts=</strong><strong>[</strong><strong>10</strong></p></li>
+<li><p><strong>10</strong></p></li>
+<li><p><strong>10</strong><strong>]</strong></p></li>
+<li><p><strong>vasp_params=vasp_params</strong><strong>)</strong></p></li>
 <li><p><strong>vasp&quot;</strong> (<em>&gt;&gt;&gt; calc.command = &quot;mpirun -n 2</em>)</p></li>
 <li><p><strong>calc.write_input</strong><strong>(</strong><strong>structure</strong><strong>)</strong> (<em>&gt;&gt;&gt;</em>)</p></li>
 </ul>

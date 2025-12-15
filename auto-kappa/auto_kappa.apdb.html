@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>auto_kappa.apdb module &mdash; auto-kappa 1.0.0 documentation</title>
+  <title>auto_kappa.apdb module &mdash; auto-kappa 1.0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -17,7 +17,7 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/documentation_options.js?v=292eb321"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -43,7 +43,7 @@
           </a>
 
           <div class="project-version">
-            ver. 1.0.0
+            ver. 1.0.1
           </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -106,7 +106,7 @@
 <span id="auto-kappa-apdb-module"></span><h1>auto_kappa.apdb module<a class="headerlink" href="#module-auto_kappa.apdb" title="Link to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="auto_kappa.apdb.ApdbVasp">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">auto_kappa.apdb.</span></span><span class="sig-name descname"><span class="pre">ApdbVasp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unitcell</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">primitive_matrix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scell_matrix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encut_scale_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'mpirun':</span> <span class="pre">'mpirun',</span> <span class="pre">'nprocs':</span> <span class="pre">2,</span> <span class="pre">'vasp':</span> <span class="pre">'vasp'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amin_params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params_modified</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mater_dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_directory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.apdb.ApdbVasp" title="Link to this definition"></a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">auto_kappa.apdb.</span></span><span class="sig-name descname"><span class="pre">ApdbVasp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unitcell</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">primitive_matrix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scell_matrix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encut_scale_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'mpirun':</span> <span class="pre">'mpirun',</span> <span class="pre">'nprocs':</span> <span class="pre">2,</span> <span class="pre">'vasp':</span> <span class="pre">'vasp'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amin_params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vasp_config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'params':</span> <span class="pre">None,</span> <span class="pre">'setups':</span> <span class="pre">{'W':</span> <span class="pre">'_sv',</span> <span class="pre">'base':</span> <span class="pre">'recommended'},</span> <span class="pre">'xc':</span> <span class="pre">'pbesol'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mater_dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_directory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.apdb.ApdbVasp" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -117,12 +117,16 @@ the definition in Phonopy. Note that the definition in Phonopy is
 not same as that in Pymatgen and ASE</p></li>
 <li><p><strong>scell_matrix</strong> (<em>float</em><em>, </em><em>shape=</em><em>(</em><em>3</em><em>,</em><em>3</em><em>)</em>) – transformation matrix from the unitcell to the supercell with
 the definition in Phonopy, which is not same as Pymatgen and ASE</p></li>
-<li><p><strong>params_modified</strong> (<em>dict</em>) – INCAR parameters to be modified.
+<li><p><strong>vasp_config</strong> (<em>dict</em>) – <dl class="simple">
+<dt>vasp_params<span class="classifier">dict</span></dt><dd><p>INCAR parameters for different modes of VASP calculations.
 VASP calculation will be performed using the default parameters for
 different calculations, including relax, nac, force calculations,
 if this parameter is not given (None). If this parameter is given,
 the given VASP paremeters with this function parameter will be set
-for every calculations.</p></li>
+for every calculations.</p>
+</dd>
+</dl>
+</p></li>
 <li><p><strong>mater_dim</strong> (<em>int</em>) – Material dimension. Default is 3.</p></li>
 </ul>
 </dd>
@@ -157,7 +161,7 @@ $$</p>
 <li><p><strong>directory</strong> (<em>string</em>) – output directory</p></li>
 <li><p><strong>kpts</strong> (<em>list</em><em> of </em><em>float</em><em>, </em><em>shape=</em><em>(</em><em>3</em><em>,</em><em>)</em>) – k-mesh for VASP calculation</p></li>
 <li><p><strong>**args</strong> (<em>dict</em>) – VASP parameters that will be modified which are prior to
-<code class="docutils literal notranslate"><span class="pre">self.params_mod</span></code></p></li>
+<code class="docutils literal notranslate"><span class="pre">self.vasp_params</span></code></p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -186,8 +190,8 @@ transformation matrices.</p>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="auto_kappa.apdb.ApdbVasp.params_mod">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params_mod</span></span><a class="headerlink" href="#auto_kappa.apdb.ApdbVasp.params_mod" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="auto_kappa.apdb.ApdbVasp.potcar_setups">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">potcar_setups</span></span><a class="headerlink" href="#auto_kappa.apdb.ApdbVasp.potcar_setups" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -273,11 +277,6 @@ the vacuum thickness will be set to the given value.</p></li>
 <em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">scell_matrix</span></span><a class="headerlink" href="#auto_kappa.apdb.ApdbVasp.scell_matrix" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
-<dt class="sig sig-object py" id="auto_kappa.apdb.ApdbVasp.set_modified_params">
-<span class="sig-name descname"><span class="pre">set_modified_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params_mod</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.apdb.ApdbVasp.set_modified_params" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
 <dl class="py property">
 <dt class="sig sig-object py" id="auto_kappa.apdb.ApdbVasp.structures">
 <em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">structures</span></span><a class="headerlink" href="#auto_kappa.apdb.ApdbVasp.structures" title="Link to this definition"></a></dt>
@@ -310,6 +309,21 @@ the vacuum thickness will be set to the given value.</p></li>
 :param unitcell: unit cell structure
 :type unitcell: structures obj</p>
 </dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="auto_kappa.apdb.ApdbVasp.vasp_config">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">vasp_config</span></span><a class="headerlink" href="#auto_kappa.apdb.ApdbVasp.vasp_config" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="auto_kappa.apdb.ApdbVasp.vasp_params">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">vasp_params</span></span><a class="headerlink" href="#auto_kappa.apdb.ApdbVasp.vasp_params" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="auto_kappa.apdb.ApdbVasp.xc">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">xc</span></span><a class="headerlink" href="#auto_kappa.apdb.ApdbVasp.xc" title="Link to this definition"></a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 

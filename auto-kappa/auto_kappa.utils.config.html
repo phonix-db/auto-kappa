@@ -1,0 +1,283 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>auto_kappa.utils.config module &mdash; auto-kappa 1.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=5938bb5a" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=292eb321"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="auto_kappa.utils.isotopes module" href="auto_kappa.utils.isotopes.html" />
+    <link rel="prev" title="auto_kappa.utils package" href="auto_kappa.utils.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            auto-kappa
+              <img src="../_static/ak_logo.png" class="logo" alt="Logo"/>
+          </a>
+
+          <div class="project-version">
+            ver. 1.0.1
+          </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">1. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">2. Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../params_ak.html">3. Parameters for auto-kappa</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../params_vasp.html">4. Parameters for VASP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">5. Tutorial</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">6. auto_kappa</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="auto_kappa.html">6.1. auto_kappa package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="auto_kappa.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.alamode.html">auto_kappa.alamode package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.almlog.html">auto_kappa.almlog package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.calculators.html">auto_kappa.calculators package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.cui.html">auto_kappa.cui package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.io.html">auto_kappa.io package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.math.html">auto_kappa.math package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.parameters.html">auto_kappa.parameters package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.plot.html">auto_kappa.plot package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.structure.html">auto_kappa.structure package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="auto_kappa.utils.html">auto_kappa.utils package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.vasp.html">auto_kappa.vasp package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#module-auto_kappa">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">auto-kappa</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html"><span class="section-number">6. </span>auto_kappa</a></li>
+          <li class="breadcrumb-item"><a href="auto_kappa.html"><span class="section-number">6.1. </span>auto_kappa package</a></li>
+          <li class="breadcrumb-item"><a href="auto_kappa.utils.html">auto_kappa.utils package</a></li>
+      <li class="breadcrumb-item active">auto_kappa.utils.config module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/auto-kappa/auto_kappa.utils.config.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-auto_kappa.utils.config">
+<span id="auto-kappa-utils-config-module"></span><h1>auto_kappa.utils.config module<a class="headerlink" href="#module-auto_kappa.utils.config" title="Link to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="auto_kappa.utils.config.deep_update">
+<span class="sig-prename descclassname"><span class="pre">auto_kappa.utils.config.</span></span><span class="sig-name descname"><span class="pre">deep_update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update_dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.utils.config.deep_update" title="Link to this definition"></a></dt>
+<dd><p>Recursively update a dictionary with another dictionary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>base_dict</strong> – Base dictionary to update</p></li>
+<li><p><strong>update_dict</strong> – Dictionary with values to update</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Updated dictionary (modifies base_dict in place)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="auto_kappa.utils.config.get_potcar_setups">
+<span class="sig-prename descclassname"><span class="pre">auto_kappa.utils.config.</span></span><span class="sig-name descname"><span class="pre">get_potcar_setups</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.utils.config.get_potcar_setups" title="Link to this definition"></a></dt>
+<dd><p>Get POTCAR setups, merging defaults with user configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>user_config</strong> – User configuration dictionary (optional)</p></li>
+<li><p><strong>config_file</strong> – Path to configuration file (optional)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Merged POTCAR setups</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="auto_kappa.utils.config.get_vasp_parameters">
+<span class="sig-prename descclassname"><span class="pre">auto_kappa.utils.config.</span></span><span class="sig-name descname"><span class="pre">get_vasp_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.utils.config.get_vasp_parameters" title="Link to this definition"></a></dt>
+<dd><p>Get VASP parameters, merging defaults with user configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>user_config</strong> – User configuration dictionary (optional)</p></li>
+<li><p><strong>config_file</strong> – Path to configuration file (optional)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Merged VASP parameters</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="auto_kappa.utils.config.get_vasp_parameters_by_mode">
+<span class="sig-prename descclassname"><span class="pre">auto_kappa.utils.config.</span></span><span class="sig-name descname"><span class="pre">get_vasp_parameters_by_mode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all_params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.utils.config.get_vasp_parameters_by_mode" title="Link to this definition"></a></dt>
+<dd><p>Get VASP parameters for a specific mode, merging defaults with user configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mode</strong> – Calculation mode (e.g., ‘relax’, ‘nac’, ‘harm’, etc.)</p></li>
+<li><p><strong>all_params</strong> – Dictionary of all VASP parameters</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Merged VASP parameters for the specified mode</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="auto_kappa.utils.config.get_xc">
+<span class="sig-prename descclassname"><span class="pre">auto_kappa.utils.config.</span></span><span class="sig-name descname"><span class="pre">get_xc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.utils.config.get_xc" title="Link to this definition"></a></dt>
+<dd><p>Get exchange-correlation functional, merging defaults with user configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>user_config</strong> – User configuration dictionary (optional)</p></li>
+<li><p><strong>config_file</strong> – Path to configuration file (optional)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Exchange-correlation functional</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="auto_kappa.utils.config.load_default_config">
+<span class="sig-prename descclassname"><span class="pre">auto_kappa.utils.config.</span></span><span class="sig-name descname"><span class="pre">load_default_config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.utils.config.load_default_config" title="Link to this definition"></a></dt>
+<dd><p>Load default configuration from ak_default_config.yaml.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Default configuration dictionary</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="auto_kappa.utils.config.load_user_config">
+<span class="sig-prename descclassname"><span class="pre">auto_kappa.utils.config.</span></span><span class="sig-name descname"><span class="pre">load_user_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.utils.config.load_user_config" title="Link to this definition"></a></dt>
+<dd><p>Load user configuration from YAML or JSON file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>config_file</strong> – Path to configuration file. If None, searches for
+‘auto_kappa_config.yaml’ or ‘auto_kappa_config.json’
+in current directory.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>Configuration dictionary with keys:</dt><dd><ul class="simple">
+<li><p>’vasp_parameters’: VASP parameters to override defaults</p></li>
+<li><p>’potcar_setups’: POTCAR setups to override defaults</p></li>
+<li><p>’amin_parameters’: AMIN parameters to override defaults</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="auto_kappa.utils.html" class="btn btn-neutral float-left" title="auto_kappa.utils package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="auto_kappa.utils.isotopes.html" class="btn btn-neutral float-right" title="auto_kappa.utils.isotopes module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Masato Ohnishi.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

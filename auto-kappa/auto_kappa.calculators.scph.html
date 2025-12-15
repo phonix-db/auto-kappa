@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>auto_kappa.calculators.scph module &mdash; auto-kappa 1.0.0 documentation</title>
+  <title>auto_kappa.calculators.scph module &mdash; auto-kappa 1.0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -17,7 +17,7 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/documentation_options.js?v=292eb321"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -43,7 +43,7 @@
           </a>
 
           <div class="project-version">
-            ver. 1.0.0
+            ver. 1.0.1
           </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -67,6 +67,8 @@
 <li class="toctree-l4 current"><a class="reference internal" href="auto_kappa.calculators.html">auto_kappa.calculators package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="auto_kappa.cui.html">auto_kappa.cui package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="auto_kappa.io.html">auto_kappa.io package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.math.html">auto_kappa.math package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.parameters.html">auto_kappa.parameters package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="auto_kappa.plot.html">auto_kappa.plot package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="auto_kappa.structure.html">auto_kappa.structure package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="auto_kappa.utils.html">auto_kappa.utils package</a></li>
@@ -158,21 +160,81 @@ and minimum frequencies as values.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="auto_kappa.calculators.scph.get_kmesh_scph">
+<span class="sig-prename descclassname"><span class="pre">auto_kappa.calculators.scph.</span></span><span class="sig-name descname"><span class="pre">get_kmesh_scph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">primitive</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kmesh_interpolate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kdensity_limit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.calculators.scph.get_kmesh_scph" title="Link to this definition"></a></dt>
+<dd><p>Propose kmesh_scph based on kmesh_interpolate and kdensity_limit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>kmesh_interpolate</strong> (<em>list</em><em> of </em><em>int</em>) – Proposed kmesh_interpolate for SCPH calculation.</p></li>
+<li><p><strong>kdensity_limit</strong> (<em>float</em>) – Minimum kdensity for SCPH calculation.</p></li>
+<li><p><strong>dim</strong> (<em>int</em>) – Dimension of the system (default: 3)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Proposed kmesh_scph for SCPH calculation.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="auto_kappa.calculators.scph.get_sym_ops_from_pymatgen">
+<span class="sig-prename descclassname"><span class="pre">auto_kappa.calculators.scph.</span></span><span class="sig-name descname"><span class="pre">get_sym_ops_from_pymatgen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">primitive</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">symprec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-05</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.calculators.scph.get_sym_ops_from_pymatgen" title="Link to this definition"></a></dt>
+<dd><p>Get symmetry operations from a pymatgen Structure object.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="auto_kappa.calculators.scph.is_diagonal_matrix">
+<span class="sig-prename descclassname"><span class="pre">auto_kappa.calculators.scph.</span></span><span class="sig-name descname"><span class="pre">is_diagonal_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.calculators.scph.is_diagonal_matrix" title="Link to this definition"></a></dt>
+<dd><p>Check if a given 3x3 matrix A is diagonal within a specified tolerance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> (<em>array-like</em>) – Input 3x3 matrix to be checked.</p></li>
+<li><p><strong>tol</strong> (<em>float</em>) – Tolerance for checking off-diagonal elements.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="auto_kappa.calculators.scph.plot_scph_force_constants">
 <span class="sig-prename descclassname"><span class="pre">auto_kappa.calculators.scph.</span></span><span class="sig-name descname"><span class="pre">plot_scph_force_constants</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_work</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperatures</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_fc2_0K</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Distance</span> <span class="pre">(${\\rm</span> <span class="pre">\\AA}$)'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Eff.</span> <span class="pre">harm.</span> <span class="pre">FC</span> <span class="pre">(${\\rm</span> <span class="pre">eV/\\AA^2}$)'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aspect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dpi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">600</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.calculators.scph.plot_scph_force_constants" title="Link to this definition"></a></dt>
 <dd><p>Plot effective harmonic force constants obtained from SCPH calculation.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="auto_kappa.calculators.scph.safe_kmesh_from_supercell">
+<span class="sig-prename descclassname"><span class="pre">auto_kappa.calculators.scph.</span></span><span class="sig-name descname"><span class="pre">safe_kmesh_from_supercell</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">supercell_lattice</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sym_ops</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_nk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-05</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.calculators.scph.safe_kmesh_from_supercell" title="Link to this definition"></a></dt>
+<dd><p>Propose safe kmesh for ALAMODE SCPH calculation based on symmetry operations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>supercell_lattice</strong> (<em>(</em><em>3</em><em>,</em><em>3</em><em>) </em><em>ndarray with row = a1</em><em>, </em><em>a2</em><em>, </em><em>a3</em><em> (</em><em>direct lattice</em><em>)</em>)</p></li>
+<li><p><strong>sym_ops</strong> (<em>list</em><em> of </em><em>symmetry rotation matrices in direct space</em><em> (</em><em>3x3 matrices</em><em>)</em>)</p></li>
+<li><p><strong>min_nk</strong> (<em>minimum nk required</em><em> (</em><em>ALAMODE SCPH requires ≥2</em><em>)</em>)</p></li>
+<li><p><strong>Returns</strong> – tuple (nk1, nk2, nk3)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="auto_kappa.calculators.scph.set_parameters_scph">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.calculators.scph.</span></span><span class="sig-name descname"><span class="pre">set_parameters_scph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">primitive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deltak</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kdensities</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[30,</span> <span class="pre">10]</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.calculators.scph.set_parameters_scph" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">auto_kappa.calculators.scph.</span></span><span class="sig-name descname"><span class="pre">set_parameters_scph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">primitive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scell</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mat_p2s</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deltak</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kdensity_limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.calculators.scph.set_parameters_scph" title="Link to this definition"></a></dt>
 <dd><p>Set ALAMODE parameters for SCPH calculation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>inp</strong> (<em>auto_kappa.io.AnphonInput</em>)</p></li>
+<li><p><strong>primitive</strong> (<em>primitive structure</em>)</p></li>
+<li><p><strong>mat_p2s</strong> (<em>3x3 integer matrix</em><em> (</em><em>list</em><em> or </em><em>numpy array</em><em>)</em>) – supercell matrix wrt primitive cell</p></li>
 <li><p><strong>deltak</strong> (<em>integer</em><em>, </em><em>0.01</em>)</p></li>
-<li><p><strong>kdensity</strong> (<em>array</em><em> of </em><em>float</em><em>,</em>) – kdensity for SCPH calculation and interpolated kmesh</p></li>
+<li><p><strong>kdensity_limit</strong> (<em>array</em><em> of </em><em>float</em><em>,</em>) – minimum kdensity for SCPH calculation
+proposed kmesh_scph will be equal to or larger than this limit</p></li>
 </ul>
 </dd>
 </dl>
