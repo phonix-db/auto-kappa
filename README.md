@@ -26,7 +26,7 @@ while the required Python libraries are installed automatically along with auto-
 * ALAMODE : 1.4 or 1.5 (1.5 recommended) *
 * [Optional] anphon : 1.9.9 (required for four-phonon scattering)
 * Python : 3.9 or later
-* Phonopy
+* Phonopy : 2.43.2 or former
 * ASE
 * Pymatgen
 * Spglib
