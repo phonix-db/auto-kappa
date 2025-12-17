@@ -1,4 +1,4 @@
-auto\_kappa.vasp package
+auto\_kappa.math package
 ========================
 
 Submodules
@@ -7,14 +7,12 @@ Submodules
 .. toctree::
    :maxdepth: 4
 
-   auto_kappa.vasp.kmesh
-   auto_kappa.vasp.params
-   auto_kappa.vasp.relax
+   auto_kappa.math.statistics
 
 Module contents
 ---------------
 
-.. automodule:: auto_kappa.vasp
+.. automodule:: auto_kappa.math
    :members:
    :show-inheritance:
    :undoc-members:

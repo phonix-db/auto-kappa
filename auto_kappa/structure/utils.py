@@ -72,8 +72,16 @@ def change_structure_format(structure, format='pymatgen-IStructure'):
         
         ## from ase's Atoms and phonopy's PhonopyAtoms
         lattice = structure.cell
-        all_symbols = structure.get_chemical_symbols()
-        coords = structure.get_scaled_positions()
+        
+        try:
+            all_symbols = structure.get_chemical_symbols()
+        except:
+            all_symbols = structure.symbols
+        
+        try:
+            coords = structure.get_scaled_positions()
+        except:
+            coords = structure.scaled_positions
         
     else:
         logger.error(" Structure type {} is not supported".format(

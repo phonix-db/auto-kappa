@@ -7,6 +7,7 @@ Submodules
 .. toctree::
    :maxdepth: 4
 
+   auto_kappa.utils.config
    auto_kappa.utils.isotopes
    auto_kappa.utils.version
 
