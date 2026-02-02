@@ -78,7 +78,10 @@ def run_vasp_with_custodian(calc, atoms, max_errors=10):
     if os.path.exists(file_vasprun):
         final_atoms = ase.io.read(file_vasprun, index=-1)
         if not _same_structures(atoms, final_atoms):
-            logger.info("\n ❌ Final structure differs from initial structure.")
+            msg = "\n ❌ Final structure differs from initial structure."
+            msg += "\n This error could be avoided by resubmitting the job."
+            msg += "\n Please resubmit the job to check if the error persists."
+            logger.info(msg)
             sys.exit(1)
     
     return 1
