@@ -15,6 +15,7 @@ import os.path
 import numpy as np
 import shutil
 import glob
+import ase.io
 
 from auto_kappa import output_directories, output_files, default_amin_parameters
 from auto_kappa.structure import change_structure_format
@@ -664,8 +665,8 @@ class AlamodeCalc(AlamodeForceCalculator, AlamodeInputWriter, AlamodePlotter,
         from auto_kappa.calculators.scph import get_fmin_scph
         filename = self.out_dirs['higher']['scph'] + f"/{self.prefix}.scph_bands"
         fmin = get_fmin_scph(filename, temperature=temperature)
-        return get_fmin_scph(filename, temperature=temperature)
-        
+        return fmin
+    
     def get_minimum_frequency(self, which="both"):
         """ Read minimum frequencies from log files for band (band.log) and DOS
         (dos.log) calculations and return the value
@@ -949,6 +950,7 @@ class AlamodeCalc(AlamodeForceCalculator, AlamodeInputWriter, AlamodePlotter,
     def calc_forces(self, order: None, calculator=None, 
                     nmax_suggest=100, frac_nrandom=10., 
                     temperature=500., classical=False,
+                    max_abs_disp=10.0, max_rel_disp=0.1,
                     output_dfset=None,
                     amin_params={},
                     calculate_both_old_new_structures=False
@@ -984,6 +986,14 @@ class AlamodeCalc(AlamodeForceCalculator, AlamodeInputWriter, AlamodePlotter,
             (``nrandom``) to that of the suggested patterns with ALM
             (``nsuggest``).
             ``nrandom`` = max(``frac_nrandom`` x ``nsuggest``, ``nsuggest``)
+        
+        max_abs_disp : float, default=10.0
+            Maximum absolute displacement in Angstrom for each Cartesian direction.
+            This option is used when LASSO is applied.
+        
+        max_rel_disp : float, default=0.1
+            Maximum relative displacement to the nearest neighbor distance.
+            This option is used when LASSO is applied.
         
         output_dfset : int or bool, default=1
             If False or 0, DFSET file is not written.
@@ -1050,9 +1060,47 @@ class AlamodeCalc(AlamodeForceCalculator, AlamodeInputWriter, AlamodePlotter,
         prev_structures = None
         calculated_every_structure = False
         if fc_type == 'lasso':
-            structures, _ = self._get_suggested_structures_for_lasso(
+            
+            structures, displacements, adjust_info = self._get_suggested_structures_for_lasso(
                 order, nfcs, natoms, frac_nrandom, nmax_suggest,
-                temperature=temperature, classical=classical)
+                temperature=temperature, 
+                max_abs_disp=max_abs_disp,
+                max_rel_disp=max_rel_disp,
+                classical=classical)
+            
+            ## Write adjustment info of displacements
+            scph_params = {'temperature': temperature,
+                           'classical': classical,
+                           'max_abs_disp': max_abs_disp,
+                           'max_rel_disp': max_rel_disp}
+            
+            if adjust_info is not None:
+                for key, info in adjust_info.items():
+                    if len(info) != 0:
+                        outdir = f"{outdir0}/{key}"
+                        if not os.path.exists(outdir):
+                            os.makedirs(outdir, exist_ok=True)
+                            outfile = outdir + f"/adjust_disp_info.yaml"
+                            _write_adjustment_info(outfile, info, params=scph_params)
+                            
+                            outfile = outdir + f"/POSCAR"
+                            ase.io.write(outfile, self.supercell, format='vasp',
+                                         vasp5=True, direct=True, sort=False)
+            
+            ### Print average and maximum displacements
+            keys = list(displacements.keys())
+            ave_disp = 0.
+            max_disp = 0.
+            for key in keys:
+                disps = displacements[key]
+                ave_disp += np.mean(np.linalg.norm(disps, axis=1))
+                max_disp = max(max_disp, np.max(np.linalg.norm(disps, axis=1)))
+            if len(keys) > 0:
+                ave_disp /= len(keys)
+                msg =  "\n Average displacement : %.3f Ang" % ave_disp
+                msg += "\n Maximum displacement : %.3f Ang" % max_disp
+                logger.info(msg)
+            
         else:
             ## if order == 1 or (order == 2 and self.fc3_type == 'fd'):
             structures_tmp, _ = self.get_suggested_structures(order, disp_mode='fd')
@@ -1106,7 +1154,7 @@ class AlamodeCalc(AlamodeForceCalculator, AlamodeInputWriter, AlamodePlotter,
             self._job_for_each_structure(
                 ii, target_structures, outdir0, order, calculator, 
                 **amin_params_set)
-            
+        
         ### output DFSET
         nsuggest =  len(structures)
         if self._counter_done >= len(structures):
@@ -1116,7 +1164,7 @@ class AlamodeCalc(AlamodeForceCalculator, AlamodeInputWriter, AlamodePlotter,
                 fd2d = False
             self._make_dfset_file(order, nsuggest, outdir0, fd2d=fd2d)
         logger.info("")
-    
+        
     def _write_alamode_input_harmonic(
         self, propt, outdir=None, deltak=None, reciprocal_density=None, **kwargs):
         """ Make an input script for the ALAMODE job for an harmonic property
@@ -1603,6 +1651,8 @@ class AlamodeCalc(AlamodeForceCalculator, AlamodeInputWriter, AlamodePlotter,
                 filename = self.out_dirs['cube']['force_fd'] + '/fc3.log'
             elif propt == 'lasso':
                 filename = self.out_dirs['cube']['lasso'] + '/lasso.log'
+            elif propt == 'higher':
+                filename = self.out_dirs['higher']['lasso'] + '/lasso.log'
             else:
                 logger.error(f" Error: {propt} is not supported for printing force constant error.")
                 return
@@ -1617,7 +1667,21 @@ class AlamodeCalc(AlamodeForceCalculator, AlamodeInputWriter, AlamodePlotter,
                     name = key.capitalize().replace('_', ' ')
                     msg = f"\n {name}: {out[key]['value']} {out[key]['unit']}"
                     if out[key]['value'] > threshold:
-                        msg += "\n Warning: Force constant error may be too large!!"
+                        msg += "\n"
+                        msg += "\n " + "*" * 60
+                        msg += "\n WARNING: Force constant error may be too large!!"
+                        # rel_dir_fc = self.get_relative_path(os.path.dirname(filename))
+                        # msg += "\n Directory : %s" % rel_dir_fc
+                        msg += "\n The calculation is not stopped, but please consider"
+                        if propt in ['lasso', 'higher']:
+                            if propt == 'higher':
+                                option_name = "--frac_nrandom_higher"
+                            elif propt == 'lasso':
+                                option_name = "--frac_nrandom"
+                            msg += "\n to increase %s option for LASSO." % option_name
+                        else:
+                            msg += "\n to adjust --mag_cubic or decrease --nmax_suggest (to switch to LASSO)."
+                        msg += "\n " + "*" * 60
                     logger.info(msg)
         except Exception as e:
             if not self.calculate_forces:
@@ -1843,3 +1907,15 @@ class AlamodeCalc(AlamodeForceCalculator, AlamodeInputWriter, AlamodePlotter,
         ### move back to the initial directory
         os.chdir(dir_init)
         sys.exit()
+
+
+def _write_adjustment_info(outfile, df, params=None):
+    """ Write adjustment info """
+    comments = []
+    comments.append("# Adjustment info of displacements\n")
+    if params is not None:
+        for key, val in params.items():
+            comments.append(f"# {key}: {val}\n")
+    with open(outfile, 'w', encoding='utf-8') as f:
+        f.writelines(comments)
+    df.to_csv(outfile, index=False, float_format="%.8f")

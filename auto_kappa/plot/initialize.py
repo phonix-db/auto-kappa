@@ -168,3 +168,18 @@ def get_customized_cmap(nbins, color1='blue', color2='red'):
     cm = LinearSegmentedColormap.from_list('mylist', colors, N=nbins)
     return cm
 
+def sci2text(value, ndigits=2):
+    """ Convert a scientific notation number to text format.
+    """
+    fmt = "{:." + str(ndigits) + "e}"
+    sval = fmt.format(value)
+    if 'e' in sval:
+        base, exponent = sval.split('e')
+        exponent = int(exponent)
+        if exponent == 0:
+            return f"{base}"
+        else:
+            return f"{base} $\\times$ 10$^{{{exponent}}}$"
+    else:
+        return sval
+

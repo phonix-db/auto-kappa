@@ -12,6 +12,8 @@ import numpy as np
 import datetime
 import yaml
 
+from auto_kappa.utils.system import get_cpu_info, get_os_info
+
 import logging
 logger = logging.getLogger(__name__)
 
@@ -54,20 +56,64 @@ def end_autokappa():
     msg += " at " + time.strftime("%m/%d/%Y %H:%M:%S") + " \n"
     logger.info(msg)
 
-def print_machine_info():
-    """ """
-    msg = "\n"
+def print_system_info():
+    """ Print system information """
+    # ### Host name
+    # try:
+    #     print_hostname()
+    # except Exception:
+    #     pass
+    
+    ### CPU info
+    try:
+        print_cpu_info()
+    except Exception:
+        pass
+    
+    ### OS info
+    try:
+        print_os_info()
+    except Exception:
+        pass
+
+def print_hostname():
+    """ Print host name
+    """
     ### host name
+    msg = "\n"
     try:
         import socket
-        msg += "\n Hostname: %s" % socket.gethostname()
+        msg += " Hostname: %s" % socket.gethostname()
     except Exception:
         try:
-            msg += "\n Hostname: %s" % os.uname()[1]
+            msg += " Hostname: %s" % os.uname()[1]
         except Exception:
             pass
-    ### number of cores
-    #logger.info(msg)
+    logger.info(msg)
+
+def print_cpu_info():
+    """ Print CPU information
+    """
+    cpu_info = get_cpu_info()
+    msg = "\n CPU information:"
+    msg += "\n ----------------"
+    msg += "\n OS              : %s" % cpu_info["os"]
+    msg += "\n CPU model       : %s" % cpu_info["cpu_model"]
+    msg += "\n Physical cores  : %d" % cpu_info["physical_cores"]
+    msg += "\n Logical cores   : %d" % cpu_info["logical_cores"]
+    # msg += "\n Current freq.   : %.2f MHz" % cpu_info["freq_mhz_current"]
+    msg += "\n Max freq.       : %.2f GHz" % (cpu_info["freq_mhz_max"] * 1e-3)
+    logger.info(msg)
+
+def print_os_info():
+    """ Print OS information
+    """
+    os_info = get_os_info()
+    msg = "\n OS information:"
+    msg += "\n ---------------"
+    for key in os_info:
+        msg += "\n %15s : %s" % (key, str(os_info[key]))
+    logger.info(msg)
 
 def start_larger_supercell(almcalc):
     ### print

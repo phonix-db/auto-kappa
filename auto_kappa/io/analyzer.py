@@ -66,6 +66,8 @@ def get_average_at_degenerate_point(omega, tau, eps=1e-3):
                     np.average(tau[ik,idx_deg]))
     return tau_ave
 
+_skip_logged = set()
+
 def get_kmode(volume, temp, frequencies, multiplicity, velocities, lifetime, verbose=True):
     """
     Calculate and return thermal conductivity of every modes
@@ -106,6 +108,7 @@ def get_kmode(volume, temp, frequencies, multiplicity, velocities, lifetime, ver
     # mmax = int(np.max(multiplicity))
     kmode = np.zeros((((nk,nb,3,3))))
     
+    count = 0
     for ik in range(nk):
         multi = multiplicity[ik]
         for ib in range(nb):
@@ -119,15 +122,23 @@ def get_kmode(volume, temp, frequencies, multiplicity, velocities, lifetime, ver
             # -- heat capacity
             if frequencies[ik,ib] < 0.:
                 if verbose:
-                    msg = " SKIP ik: %d  ib: %d  %.2f cm^-1"%(
-                        ik, ib, frequencies[ik,ib])
-                    logger.info(msg)
+                    key = (ik, ib, round(frequencies[ik,ib], 2))
+                    if key not in _skip_logged:
+                        _skip_logged.add(key)
+                        msg = " SKIP ik: %d  ib: %d  %.2f cm^-1"%(
+                            ik, ib, frequencies[ik,ib])
+                        logger.info(msg)
+                        count += 1
                 kmode[ik,ib] = np.zeros((3,3))
             else:
                 Cph = get_heat_capacity(frequencies[ik,ib], temp)   # J/K
                 kmode[ik,ib] = (
                         v2tensor[:,:] * Cph * 1e-12*lifetime[ik,ib] * multi)
                                                                # m^3 * W/(m*K) 
+    
+    if count != 0 and verbose:
+        logger.info(" %d modes are skipped due to negative frequencies.\n" % count)
+    
     ## --- dk
     ## np.sum(multiplicity) : number of k-points
     kmode *= (

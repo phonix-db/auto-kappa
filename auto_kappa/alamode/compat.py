@@ -24,7 +24,8 @@ from ase.geometry import get_distances
 
 from auto_kappa.io import AlmInput
 from auto_kappa.io.born import BORNINFO, read_born_info
-from auto_kappa.structure.crystal import change_structure_format, inverse_transformation
+from auto_kappa.structure.crystal import (
+    change_structure_format, inverse_transformation, get_primitive_structure_spglib)
 from auto_kappa.structure.comparison import generate_mapping_s2p, match_structures
 
 import logging
@@ -485,9 +486,6 @@ def check_previous_structures(outdirs, primitive, unitcell, prim_mat=None, sc_ma
     try:
         generate_mapping_s2p(ref_sc, primitive, verbose=False)
     except:
-        
-        from auto_kappa.structure.crystal import get_primitive_structure_spglib
-        
         unit_new = inverse_transformation(ref_sc, sc_mat)
         prim_new = get_primitive_structure_spglib(unit_new)
         unitcell = unit_new.copy()
@@ -496,11 +494,6 @@ def check_previous_structures(outdirs, primitive, unitcell, prim_mat=None, sc_ma
         try:
             generate_mapping_s2p(ref_sc, unitcell, verbose=False)
         except:
-            #
-            # _generate_consistent_structure(ref_sc, unitcell, sc_mat)
-            #
-            # TODO: find the compatible unitcell
-            #
             msg = "\n Error(1): The unitcell does not match the supercell."
             msg += "\n Please report the bug to the developer."
             logger.error(msg)
@@ -509,17 +502,21 @@ def check_previous_structures(outdirs, primitive, unitcell, prim_mat=None, sc_ma
         try:
             generate_mapping_s2p(ref_sc, primitive, verbose=False)
         except:
-            #
-            # _generate_consistent_structure(unitcell, primitive, prim_mat)
-            #
-            # _regenerate_primitive_from_unitcell(unitcell)
-            #
-            # TODO: find the compatible primitive cell
-            #
             msg = "\n Error(2): The primitive cell does not match the supercell."
             msg += "\n Please report the bug to the developer."
             logger.error(msg)
             sys.exit()
+    
+    # Because the generate_mapping_s2p rounds the transformation matrix, 
+    # it can pass even if the lattice constants are different.
+    # If the lattice constants of ref_sc and primitive are not consistent,
+    # re-derive from ref_sc.
+    _cell_ratio = np.linalg.inv(primitive.cell.array) @ ref_sc.cell.array
+    if not np.allclose(_cell_ratio, np.rint(_cell_ratio), atol=1e-4):
+        unit_new = inverse_transformation(ref_sc, sc_mat)
+        prim_new = get_primitive_structure_spglib(unit_new)
+        unitcell = unit_new.copy()
+        primitive = prim_new.copy()
     
     try:
         generate_mapping_s2p(ref_sc, unitcell, verbose=False)
@@ -537,36 +534,3 @@ def check_previous_structures(outdirs, primitive, unitcell, prim_mat=None, sc_ma
         'unitcell': unitcell,
         'supercell': ref_sc
     }
-
-# def _generate_consistent_structure(ref_sc, unit_given, sc_mat):
-
-#     from auto_kappa.structure.crystal import transform_prim2unit, get_supercell
-    
-#     try:
-#         generate_mapping_s2p(ref_sc, unit_given)
-#         return unit_given
-#     except:
-#         # unit_check = transform_prim2unit(prim_given, prim_mat)
-        
-#         print(unit_given.cell.array)
-#         print(sc_mat)
-#         exit()
-        
-#         sc_check_pp = get_supercell(change_structure_format(unit_given, format='phonopy'), sc_mat)
-#         sc_check_pmg = change_structure_format(sc_check_pp, format='pmg')
-#         sc_check_ase = change_structure_format(sc_check_pmg, format='ase')
-        
-#         matcher = get_structure_matcher()
-#         transform = matcher.get_transformation(
-#             change_structure_format(ref_sc, format='pmg'), sc_check_pmg)
-        
-        
-#         print(ref_sc.cell.array)
-#         print(sc_check_pmg.lattice.matrix)
-#         print(transform)
-#         # tmat_pmg, frac_tvec_pmg, idx_map = transform
-    
-#     print("<<<<<<<<<<<<<")
-#     exit()
-#     pass
-    

@@ -1,0 +1,20 @@
+vasp_parameters:
+  relax:
+    ediffg: -1.0e-7      # Energy convergence criterion (default: -1e-6)
+    # prec: Normal       # Precision (default: Accurate)
+  
+  # Shared parameters for all calculations
+  shared:
+    sigma: 0.03          # Smearing width (default: 0.02)
+    # ediff: 1.0e-8      # Electronic convergence (default: 1e-8)
+
+# POTCAR Setups
+# Specify which pseudopotential variant to use for each element
+# See auto_kappa/ak_default_config.yaml for default values
+potcar_setups:
+  base: recommended      # Default: use recommended POTCAR for all elements
+  W: _sv                 # Tungsten: include semicore s electrons
+  # Li: _sv                # Lithium: include semicore s electrons (EXAMPLE)
+  # O: _h                # Oxygen: hard pseudopotential (EXAMPLE)
+  # Na: _pv              # Sodium: include semicore p electrons (EXAMPLE)
+

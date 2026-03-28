@@ -293,8 +293,9 @@ def _get_recommended_alpha(filename):
             return data
     return None
 
-def plot_times_with_pie(times, labels, figname="fig_times.png", 
-        dpi=600, fontsize=7, fig_width=2.0, aspect=0.9, lw=0.5, ms=2.0):
+def plot_times_with_pie(
+    times, labels, figname="fig_times.png", 
+    dpi=600, fontsize=7, fig_width=2.0, aspect=0.9):
     
     set_matplot(fontsize=fontsize)
     fig = plt.figure(figsize=(fig_width, aspect*fig_width))

@@ -9,17 +9,17 @@
 # Please see the file 'LICENCE.txt' in the root directory
 # or http://opensource.org/licenses/mit-license.php for information.
 #
-# import sys
 import os
 import os.path
 import numpy as np
 import subprocess
+import shlex
+from pymatgen.symmetry.analyzer import SpacegroupAnalyzer
 
 from auto_kappa.io.fcs import FCSxml
 from auto_kappa.plot import make_figure, get_customized_cmap
-# from auto_kappa.plot.bandos import plot_bands, set_xticks_labels
-# from auto_kappa.io.band import get_symmetry_points_from_file, get_scph_bands
 from auto_kappa.io.band import get_scph_bands
+# from auto_kappa.structure import change_structure_format
 
 import logging
 logger = logging.getLogger(__name__)
@@ -43,8 +43,12 @@ def calculate_high_order_force_constants(
     for propt in ['cv', 'lasso']:
         almcalc.write_alamode_input(propt=propt, order=order)
         almcalc.run_alamode(propt, order=order, ignore_log=False)
-    
-def conduct_scph_calculation(almcalc, order=6, temperatures=100*np.arange(1,11)):
+    almcalc.print_fc_error('higher')
+
+
+def conduct_scph_calculation(
+    almcalc, order=6, temperatures=100*np.arange(1,11), 
+    fcsxml=None, fc2xml=None, mat_p2s_fcs=None):
     """ Conduct SCPH calculation and obtain effective harmonic FCs 
     """
     msg =  "\n Conduct SCPH calculation"
@@ -58,12 +62,21 @@ def conduct_scph_calculation(almcalc, order=6, temperatures=100*np.arange(1,11))
     
     ### SCPH calculation
     propt = "scph"
-    almcalc.write_alamode_input(propt=propt, tmin=tmin, tmax=tmax, dt=dt)
+    extra = {}
+    if fcsxml: extra["fcsxml"] = fcsxml
+    if fc2xml: extra["fc2xml"] = fc2xml
+    if mat_p2s_fcs is not None:
+        from auto_kappa.calculators.kmesh_int import get_kmesh_interpolate
+        kmesh_int = get_kmesh_interpolate(mat_p2s_fcs)
+        kmesh_scph = get_kmesh_scph(almcalc.primitive, kmesh_int, kdensity_limit=10, dim=almcalc.dim)
+        extra["kmesh_interpolate"] = kmesh_int
+        extra["kmesh_scph"] = kmesh_scph
+    almcalc.write_alamode_input(propt=propt, tmin=tmin, tmax=tmax, dt=dt, **extra)
     almcalc.run_alamode(propt, order=order, ignore_log=False)
     
     ### Create effectvie harmonic FCs
     for temp in temperatures:
-        _create_effective_harmonic_fcs(almcalc, temperature=temp)
+        _create_effective_harmonic_fcs(almcalc, temperature=temp, fcsxml=fcsxml)
     
     if almcalc.calculate_forces:
         
@@ -105,7 +118,7 @@ def plot_scph_force_constants(
         availabilities = get_availabilities(f"{dir_work}/scph.log")
         idx_ua = [i for i, t in enumerate(temperatures) if availabilities.get(int(t), True) == False]
         temperatures = np.delete(temperatures, idx_ua)
-    except:
+    except Exception:
         availabilities = None
     
     nt = len(temperatures)
@@ -158,16 +171,15 @@ def plot_scph_force_constants(
     logger.info(f"\n Force constants were plotted in {figname}")
 
 
-def _create_effective_harmonic_fcs(almcalc, temperature=300, workdir=None):
+def _create_effective_harmonic_fcs(almcalc, temperature=300, workdir=None, fcsxml=None):
     """ Create effective harmonic FCs """
     
     prefix = almcalc.prefix
     command = almcalc.commands['alamode']['dfc2']
     
     ### get file names
-    xml_orig = os.path.relpath(
-            almcalc.out_dirs["higher"]["lasso"] + "/%s.xml" % prefix,
-            almcalc.out_dirs["higher"]["scph"])
+    _fcsxml = fcsxml or almcalc.out_dirs["higher"]["lasso"] + "/%s.xml" % prefix
+    xml_orig = os.path.relpath(_fcsxml, almcalc.out_dirs["higher"]["scph"])
     xml_new = "%s_%dK.xml" % (prefix, temperature)
     file_corr = "%s.scph_dfc2" % prefix
     
@@ -178,7 +190,7 @@ def _create_effective_harmonic_fcs(almcalc, temperature=300, workdir=None):
     os.chdir(workdir)
     
     ### run the job
-    cmd = "%s %s %s %s %d" % (command, xml_orig, xml_new, file_corr, temperature)
+    cmd = "%s %s %s %s %d" % (command, shlex.quote(xml_orig), shlex.quote(xml_new), shlex.quote(file_corr), temperature)
     
     logfile = "dfc2.log"
     file_err = "std_err.txt"
@@ -186,67 +198,123 @@ def _create_effective_harmonic_fcs(almcalc, temperature=300, workdir=None):
         proc = subprocess.Popen(
                 cmd, shell=True, env=os.environ, stdout=f, stderr=f_err)
     
+    proc.wait()
+    
     ### back to the original directory
     os.chdir(dir_cur)
     return 0
 
-def set_parameters_scph(
-        inp, primitive=None, deltak=0.01, kdensities=[30, 10], **kwargs):
+def get_sym_ops_from_pymatgen(primitive, symprec=1e-5):
+    """ Get symmetry operations from a pymatgen Structure object.
+    """
+    sga = SpacegroupAnalyzer(primitive, symprec=symprec)
+    symm_ops = sga.get_symmetry_operations()
+    
+    rotations = []
+    for op in symm_ops:
+        rotations.append(op.rotation_matrix)   # 3x3 numpy array
+    
+    return rotations
+
+def is_diagonal_matrix(A, tol=1e-8):
+    """ Check if a given 3x3 matrix A is diagonal within a specified tolerance.
+    
+    Args
+    ------
+    A : array-like
+        Input 3x3 matrix to be checked.
+    tol: float
+        Tolerance for checking off-diagonal elements.
+    """
+    A = np.array(A)
+    if A.shape != (3, 3):
+        raise ValueError("Matrix must be 3x3")
+    
+    # Check if all off-diagonal elements are within the tolerance
+    offdiag = A - np.diag(np.diag(A))
+    return np.all(np.abs(offdiag) < tol)
+
+def get_kmesh_scph(primitive, kmesh_interpolate, kdensity_limit, dim=3):
+    """ Propose kmesh_scph based on kmesh_interpolate and kdensity_limit.
+    
+    Args
+    -----
+    kmesh_interpolate : list of int
+        Proposed kmesh_interpolate for SCPH calculation.
+    kdensity_limit : float
+        Minimum kdensity for SCPH calculation.
+    dim : int
+        Dimension of the system (default: 3)
+    
+    Returns
+    -------
+    list of int
+        Proposed kmesh_scph for SCPH calculation.
+    """
+    from auto_kappa.structure.crystal import get_automatic_kmesh
+    
+    # Minimum kmesh_scph based on kdensity_limit
+    kmesh_scph_limit = get_automatic_kmesh(
+        primitive, reciprocal_density=kdensity_limit, dim=dim)
+    
+    # Find smallest kmesh_scph that is equal to or a multiple of kmesh_interpolate
+    n = 1
+    while True:
+        kmesh_scph_n = [n * ki for ki in kmesh_interpolate]
+        ratio = np.asarray(kmesh_scph_n) / np.asarray(kmesh_scph_limit)
+        if all(ratio >= 1):
+            break
+        n += 1
+    
+    kmesh_scph = [n * ki for ki in kmesh_interpolate]
+    return kmesh_scph
+
+def set_parameters_scph(inp, primitive=None, mat_p2s=None, deltak=0.01, kdensity_limit=20, **kwargs):
     """ Set ALAMODE parameters for SCPH calculation.
     
     Args
     =====
-    
     inp : auto_kappa.io.AnphonInput
-    
-    deltak : integer, 0.01
-    
-    kdensity : array of float,
-        kdensity for SCPH calculation and interpolated kmesh
-    
+    primitive : primitive structure
+    mat_p2s : 3x3 integer matrix (list or numpy array) 
+        supercell matrix wrt primitive cell
+    deltak : float, 0.01
+    kdensity_limit : array of float,
+        minimum kdensity for SCPH calculation
+        proposed kmesh_scph will be equal to or larger than this limit
     """
-    from auto_kappa.structure.crystal import get_automatic_kmesh
-    
     scph_params = {
             ### general
             "tmin": 100,
             "tmax": 1000,
             "dt"  : 100,
             ### scph
-            #"kmesh_scph": [1,1,1],
-            "kmesh_interpolate": [1,1,1],
+            # "kmesh_scph": [1,1,1],
+            # "kmesh_interpolate": [1,1,1],
             "self_offdiag": 1,    ## not default (0)
             "mixalpha": 0.1,      ## default
-            "maxiter": 2000,      ## double of default
+            "maxiter": 1000,      ## default
             "tol_scph": 1e-10,    ## default
             }
     
     inp.set_kpoint(deltak=deltak)
     
-    ### kmesh_scph
-    kmesh_scph = get_automatic_kmesh(
-            primitive, reciprocal_density=kdensities[0], dim=inp.dim)
+    ### KMESH_INTERPOLATE determination from reciprocal transformation matrix
+    from auto_kappa.calculators.kmesh_int import get_kmesh_interpolate
+    kmesh_interpolate = get_kmesh_interpolate(mat_p2s)
     
-    ### kmesh_interpolate
-    kmesh_int = get_automatic_kmesh(
-            primitive, reciprocal_density=kdensities[1], dim=inp.dim)
-    
-    ### kmesh_scph should be equal to or a multiple of the number of
-    ### kmesh_interpolate in the same direction.
-    ratio = np.asarray(kmesh_scph) / np.asarray(kmesh_int)
-    ratio = (ratio + 0.5*np.ones(3)).astype(int)
-    ratio = np.where(ratio < 1, 1, ratio)
-    kmesh_scph = list(np.asarray(kmesh_int) * ratio)
+    ### get kmesh_scph
+    kmesh_scph = get_kmesh_scph(primitive, kmesh_interpolate, kdensity_limit, dim=inp.dim)
     
     ### set parameters
     scph_params["kmesh_scph"] = kmesh_scph
-    scph_params["kmesh_interpolate"] = kmesh_int
+    scph_params["kmesh_interpolate"] = kmesh_interpolate
     
     ###
     scph_params.update(kwargs)
     
     ### update!
-    inp.update(scph_params) 
+    inp.update(scph_params)
 
 def get_availabilities(logfile):
     """ Check if SCPH calculation is available for each temperature.

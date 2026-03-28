@@ -95,7 +95,9 @@ class StrictRelaxation():
         command={'mpirun': 'mpirun', 'nprocs': 1, 'vasp': 'vasp'},
         encut_factor=1.3, 
         verbose=1,
-        params_mod=None
+        vasp_params=None,
+        potcar_setups=None,
+        xc='pbesol',
         ):
         """ Run VASP jobs for different volumes and calculate the energy.
         
@@ -115,8 +117,14 @@ class StrictRelaxation():
             The factor to scale the plane-wave cutoff energy
         verbose : int
             The verbose level for logging
-        params_mod : dict
-            A dictionary of parameters to modify in the VASP input
+        vasp_params : dict
+            VASP parameters given as a dictionary
+        potcar_setups : dict or None
+            POTCAR setups to be used in VASP calculations
+            e.g., {'base': 'recommended', 'W': '_sv'}
+        xc : string
+            Exchange-correlation functional to be used in VASP calculations
+            e.g., 'pbesol'
         """
         if tol_strain is None:
             tol_strain = (initial_strain_range[1] - initial_strain_range[0]) / nstrains / 2.
@@ -156,7 +164,9 @@ class StrictRelaxation():
                 #
                 kpts=kpts, encut_factor=encut_factor,
                 command=command,
-                params_mod=params_mod,
+                vasp_params=vasp_params,
+                potcar_setups=potcar_setups,
+                xc=xc,
                 verbose=verbose,
                 dim=self.dim
             )
@@ -609,7 +619,9 @@ def relaxation_with_different_volumes(
         tol_strain=1e-5,
         kpts=[2,2,2], encut_factor=1.3, 
         command={'mpirun': 'mpirun', 'nprocs': 1, 'vasp': 'vasp'},
-        params_mod=None,
+        vasp_params=None,
+        potcar_setups=None,
+        xc='pbesol',
         verbose=1, dim=3,
         ):
     """ Structure relaxation with the Birch-Murnaghan equation of state
@@ -617,6 +629,14 @@ def relaxation_with_different_volumes(
     ----
     strains : array of float, shape=(nstrains), unit=[-]
         strain values to be applied to the initial structure
+    
+    vasp_params : dict
+        VASP parameters given as a dictionary for different modes
+        e.g., {'relax': {...}, 'relax-freeze': {...}}
+    
+    potcar_setups : dict or None
+        POTCAR setups to be used in VASP calculations
+        e.g., {'base': 'recommended', 'W': '_sv'}
     
     nstrains : integer
         number of strains to be applied
@@ -671,15 +691,21 @@ def relaxation_with_different_volumes(
         atoms = get_strained_structure(struct_init, strain, format='ase', dim=dim)
         
         ### set calculator object
+        from auto_kappa.utils.config import get_vasp_parameters_by_mode
+        _params = get_vasp_parameters_by_mode(vasp_params, mode='relax-freeze')
+        
+        ## set VASP calculator
         calc = get_vasp_calculator(
-                'relax-freeze', 
+                _params,
                 directory=outdir,
                 atoms=atoms,
                 kpts=kpts,
                 encut_scale_factor=encut_factor,
-                **params_mod
+                setups=potcar_setups,
+                xc=xc,
                 )
         
+        ## set VASP command
         mpirun = command.get('mpirun', 'mpirun')
         nprocs = command.get('nprocs', 1)
         if list(kpts) == [1, 1, 1]:

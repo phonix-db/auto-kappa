@@ -46,7 +46,11 @@ class ApdbVasp():
             encut_scale_factor=1.3,
             command={'mpirun': 'mpirun', 'nprocs': 2, 'vasp': 'vasp'},
             amin_params = {},
-            params_modified = None,
+            vasp_config={
+                'params': None,
+                'setups': {'base': 'recommended', 'W': '_sv'},
+                'xc': 'pbesol',
+            },
             mater_dim=3,
             base_directory=None
             ):
@@ -65,13 +69,14 @@ class ApdbVasp():
             transformation matrix from the unitcell to the supercell with 
             the definition in Phonopy, which is not same as Pymatgen and ASE
         
-        params_modified : dict
-            INCAR parameters to be modified.
-            VASP calculation will be performed using the default parameters for
-            different calculations, including relax, nac, force calculations, 
-            if this parameter is not given (None). If this parameter is given,
-            the given VASP paremeters with this function parameter will be set 
-            for every calculations.
+        vasp_config : dict
+            vasp_params : dict
+                INCAR parameters for different modes of VASP calculations.
+                VASP calculation will be performed using the default parameters for
+                different calculations, including relax, nac, force calculations, 
+                if this parameter is not given (None). If this parameter is given,
+                the given VASP paremeters with this function parameter will be set 
+                for every calculations.
         
         mater_dim : int
             Material dimension. Default is 3.
@@ -129,7 +134,7 @@ class ApdbVasp():
                 self.amin_params[key] = default_amin_parameters[key]
         
         ### parameters that differ from the default values
-        self.set_modified_params(params_modified)
+        self._vasp_config = vasp_config
     
     @property
     def mater_dim(self):
@@ -153,14 +158,20 @@ class ApdbVasp():
         return self._command
     
     @property
-    def params_mod(self):
-        if self._params_mod is None:
-            return {}
-        else:
-            return self._params_mod
+    def vasp_config(self):
+        return self._vasp_config
     
-    def set_modified_params(self, params_mod):
-        self._params_mod = params_mod
+    @property
+    def vasp_params(self):
+        return self._vasp_config.get('params', {})
+    
+    @property
+    def potcar_setups(self):
+        return self._vasp_config.get('setups', {})
+    
+    @property
+    def xc(self):
+        return self._vasp_config.get('xc', 'pbesol')
     
     def update_command(self, val):
         self._command.update(val)
@@ -243,7 +254,7 @@ class ApdbVasp():
         
         **args : dict
             VASP parameters that will be modified which are prior to 
-            ``self.params_mod``
+            ``self.vasp_params``
         
         Return
         ------
@@ -258,17 +269,18 @@ class ApdbVasp():
         elif 'force' in mode.lower() or mode.lower() == 'md':
             structure = self.supercell
         
-        ### merge ``args`` and ``self.params_mod``
-        ### `args`` is prior to ``self.params_mod`
-        merged_params_mod = self.params_mod.copy()
-        merged_params_mod.update(args)
+        ## get VASP parameters for the mode: e.g. {'ediff': 1e-8, 'ibrion': 2, ...}
+        from auto_kappa.utils.config import get_vasp_parameters_by_mode
+        params_ = get_vasp_parameters_by_mode(self.vasp_params, mode=mode)
         
-        calc = get_vasp_calculator(mode, 
+        calc = get_vasp_calculator(params_,
                                    directory=directory, 
                                    atoms=structure,
                                    kpts=kpts,
                                    encut_scale_factor=self.encut_factor,
-                                   **merged_params_mod)
+                                   setups=self.potcar_setups,
+                                   xc=self.xc
+                                   )
         
         calc.command = f"{self.command['mpirun']} -n {self.command['nprocs']} "
         if list(kpts) == [1, 1, 1]:
@@ -507,7 +519,10 @@ class ApdbVasp():
             if struct_opt is None or test_job:
                 relax = StrictRelaxation(init_struct, outdir=outdir, dim=self.mater_dim)
                 Vs, Es = relax.with_different_volumes(
-                        kpts=kpts, command=self.command, params_mod=self.params_mod,
+                        kpts=kpts, command=self.command, 
+                        vasp_params=self.vasp_params,
+                        potcar_setups=self.potcar_setups,
+                        xc=self.xc,
                         initial_strain_range=[-0.03, 0.05], nstrains=15
                         )
                 

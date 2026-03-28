@@ -17,7 +17,7 @@ def get_parser():
         description="Parser for akrun command",
         formatter_class=argparse.RawTextHelpFormatter
     )
-
+    
     #### parameters that need to be modified for each calculation
     
     ## Input and output directories
@@ -37,7 +37,12 @@ def get_parser():
                       "using ``Structure.from_file`` module in ``Pymatgen.core.structure``.")
     
     parser.add_argument("--outdir", dest="outdir", type=str, default="./out", 
-                        help="Output directory name [./out]\n\n\n")
+                        help="Output directory name [./out]")
+    
+    parser.add_argument("--config", dest="config_file", type=str, default=None,
+                        help=
+                        "Path to configuration file (YAML or JSON) for custom parameters.\n"
+                        "Configuration file can override default VASP parameters and POTCAR setups. \n\n\n")
     
     ### Parameters that need to be modified depending on the environment
     parser.add_argument("-n", "--nprocs", dest="nprocs", type=int, default=2, 
@@ -81,12 +86,12 @@ def get_parser():
     parser.add_argument("--min_nearest", dest="min_nearest", type=int, default=3,
                         help="Minimum nearest neighbor atoms considered for cubic FCs [3]")
     
-    parser.add_argument("--nmax_suggest", dest="nmax_suggest", type=int, default=100, 
-                        help="Threshold of suggested patterns (``N_{suggest}``) for the finite-displacement method [100]:\n"
+    parser.add_argument("--nmax_suggest", dest="nmax_suggest", type=int, default=1, 
+                        help="Threshold of suggested patterns (``N_{suggest}``) for the finite-displacement method [1]:\n"
                         "If ``N_{suggest}`` exceeds ``nmax_suggest``, LASSO regression is applied \n"
                         "for computing cubic force constants.\n"
-                        "The default value will be changed to '1' in order to always use \n"
-                        "the LASSO regression method.")
+                        "The default value is set to 1. \n"
+                        "To use the finite-displacement method, set this option to a large value such as 10000.\n\n\n")
     
     parser.add_argument("--frac_nrandom", dest="frac_nrandom", type=float, default=1.0,
                         help=
@@ -97,8 +102,8 @@ def get_parser():
                         "{frac_nrandom} should be larger than 1/3.")
     
     parser.add_argument("--frac_nrandom_higher", 
-                        dest="frac_nrandom_higher", type=float, default=0.34, help=
-                        "``Npattern * Natom / Nfc4`` [0.34],\n"
+                        dest="frac_nrandom_higher", type=float, default=0.5, help=
+                        "``Npattern * Natom / Nfc4`` [0.5],\n"
                         "- ``Npattern``: number of generated random displacement patterns, \n"
                         "- ``Natom``   : number of atoms in the supercell,\n"
                         "- ``Nfc4``    : number of FC4\n"
@@ -132,6 +137,15 @@ def get_parser():
                         "``N = max(1, int(k_length * |a|^* + 0.5))``.\n"
                         "10 for large gap insulators and 100 for d metals are recommended.\n"
                         "See the official documentation at https://www.vasp.at/wiki/index.php/KPOINTS."
+                        )
+    
+    parser.add_argument("--optimize_klength", dest="optimize_klength", type=int, default=0, 
+                        help="Flag to optimize k-length for VASP calculations (0.off or 1.on) [0]\n"
+                        "This options prioritizes ``k_length`` option if both are given."
+                        )
+    parser.add_argument("--energy_tolerance", dest="energy_tolerance", type=float, default=2e-3, 
+                        help="Energy tolerance for optimizing k-length (eV/atom) [0.002]\n"
+                        "This option is used only when ``--optimize_klength = 1``."
                         )
     
     ### options for supercell
@@ -185,8 +199,6 @@ def get_parser():
     parser.add_argument("--harmonic_only", dest="harmonic_only", type=int, default=0, 
                         help="Calculate harmonic properties only (0.No, 1.Yes) [0]\n\n\n")
     
-    ## >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    
     ##############################################
     ### parameters for high-order (>= 4th) FCs ###
     ##############################################
@@ -195,8 +207,11 @@ def get_parser():
                         help="Command to run 'dfc2' implemented in ALAMODE package. [dfc2]")
     
     parser.add_argument("--scph", dest="scph", type=int, default=0, help=
-                        "Flag for considering the phonon renormalization \n"
-                        "using self-consistent phonon (SCP) approach. (0. off, 1. on) [0]")
+                        "Flag for self-consistent phonon (SCPH) calculation. (0: off, 1-2: on) [0]\n"
+                        "  1: Run SCPH. If negative frequencies are resolved by SCPH, stop\n"
+                        "     without proceeding to larger-supercell analysis.\n"
+                        "  2: Run SCPH. If --analyze_with_largersc is also 1, always proceed\n"
+                        "     to SCPH+larger-supercell analysis regardless of SCPH result.\n")
     
     ###### 4-phonon scattering
     parser.add_argument("--four", dest="four", type=int, default=0, help=
@@ -226,8 +241,12 @@ def get_parser():
     #########################
     ## parameters for VASP ##
     #########################
+    # VASP parameters are now configured via --config file
+    # See ak_default_config.yaml for available options
     parser.add_argument("--vasp_parameters", dest="vasp_parameters", type=str, default=None, 
-                        help="VASP parameters: For example, \"ISORBIT=False,DIFFG=1e-7\"\n\n\n")
+                        help=argparse.SUPPRESS)
+                        # "VASP parameters for the INCAR file, separated by commas: \n"
+                        # "e.g., \"ISORBIT=False,DIFFG=1e-7\"")
     
     #########################################
     ### Parameters for test calculations  ###
@@ -250,14 +269,6 @@ def get_parser():
                         # help=
                         # "Maximum number of errors for relaxation calculations with VASP.\n"
                         # "Set this option if the number of error is too many. [500]")
-    
-    ## ### author (deleted)
-    ## parser.add_argument(
-    ##         "--authors", dest="authors", type=str,
-    ##         default=None, help="authors' name (A^1, B^1, C^2)")
-    ## parser.add_argument(
-    ##         "--affiliations", dest="affiliations", type=str,
-    ##         default=None, help="affiliation (1. Univ. 1, 2. Univ. 2)")
     
     ######################
     ### Future options ###

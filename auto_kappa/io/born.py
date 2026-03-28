@@ -212,18 +212,18 @@ def _transform_born_charges(born_a, R_a2b, map_a2b):
     -----
     born_a (array) : Born effective charges for structure a
     R_a2b (array) : rotation matrix from structure a to b
-    map_a2b (list) : mapping of atom indices from structure a to b
-    
+    map_a2b (list) : mapping of atom indices from structure a to b,
+                     where map_a2b[idx_a] = idx_b
+
     Returns
     -------
     born_b (array) : Born effective charges for structure b
     """
     R = np.array(R_a2b)
-    born_b = []
-    for i in map_a2b:
-        Z = np.array(born_a[i])
-        born_b.append(R.T @ Z @ R)
-    return np.array(born_b)
+    # map_a2b[idx_a] = idx_b : invert to get inv_map[idx_b] = idx_a
+    inv_map = np.argsort(map_a2b)
+    born_a_arr = np.array(born_a)[inv_map]  # (N, 3, 3) reordered
+    return R.T @ born_a_arr @ R             # batched matmul: (3,3)@(N,3,3)@(3,3)
 
 def get_born_charges_from_vasprun(filename):
     """

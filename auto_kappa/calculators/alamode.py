@@ -21,12 +21,13 @@ from auto_kappa.alamode.plotter import plot_kappa_vs_grain_size
 from auto_kappa.apdb import ApdbVasp
 from auto_kappa.alamode.almcalc import AlamodeCalc
 from auto_kappa.alamode.helpers import should_rerun_alamode
-from auto_kappa.alamode.log_parser import AkLog
+from auto_kappa.alamode.log_parser import AkLog, read_log_fc
 from auto_kappa.structure.crystal import get_automatic_kmesh, get_supercell
 from auto_kappa.cui.suggest import klength2mesh
 from auto_kappa.cui import ak_log
 from auto_kappa.calculators.compat import remove_old_kappa_data
-from auto_kappa.calculators.scph import calculate_high_order_force_constants
+from auto_kappa.calculators.scph import (
+    calculate_high_order_force_constants, conduct_scph_calculation)
 from auto_kappa.alamode.plotter import plot_kappa_vs_grain_size
 from auto_kappa.almlog import ALMLOG
 
@@ -41,7 +42,7 @@ def analyze_phonon_properties(
         params_nac={'apdb': None, 'kpts': None},
         kdensities_for_kappa=None,
         ## SCPH
-        scph=0, disp_temp=500., frac_nrandom_higher=0.34,
+        scph=0, disp_temp=500., frac_nrandom_higher=0.5,
         scph_temperatures={'scph': 100*np.arange(1, 11), 'kappa': 300},
         ## 4-phonon
         four=0, frac_kdensity_4ph=0.2,
@@ -112,7 +113,7 @@ def analyze_phonon_properties(
         ### If SCPH is not used and negative frequencies were found, return -1.
         if scph == 0:
             return -1
-        
+    
     if harmonic_only:
         msg = "\n Harmonic properties have been calculated.\n"
         logger.info(msg)
@@ -130,9 +131,7 @@ def analyze_phonon_properties(
     almcalc.calculate_gruneisen_parameters()
     
     ## Calculate high-order FCs using LASSO
-    if scph or four:    
-        from auto_kappa.calculators.scph import (
-            calculate_high_order_force_constants, conduct_scph_calculation)
+    if scph > 0 or four > 0:
         
         ### calculate forces for SCPH
         calculate_high_order_force_constants(
@@ -141,7 +140,7 @@ def analyze_phonon_properties(
                 disp_temp=disp_temp)
         
         ### Perform SCPH calculation
-        if scph:
+        if scph > 0:
             
             conduct_scph_calculation(almcalc, temperatures=scph_temperatures['scph'])
             
@@ -160,11 +159,11 @@ def analyze_phonon_properties(
     if calc_kappa:
         if scph == 0 and four == 0:
             calc_type = "cubic"
-        elif scph == 0 and four == 1:
+        elif scph == 0 and four > 0:
             calc_type = "4ph"
-        elif scph == 1 and four == 0:
+        elif scph > 0 and four == 0:
             calc_type = "scph"
-        elif scph == 1 and four == 1:
+        elif scph > 0 and four > 0:
             calc_type = "scph_4ph"
         else:
             msg = f"\n Unknown combination of scph and four: {scph}, {four}"
@@ -173,7 +172,7 @@ def analyze_phonon_properties(
         
         ## k-mesh densities for thermal conductivity
         if kdensities_for_kappa is None:
-            if four or scph:
+            if four > 0 or scph > 0:
                 kdensities_for_kappa = [1500]
             else:
                 kdensities_for_kappa = [500, 1000, 1500]
@@ -188,7 +187,7 @@ def analyze_phonon_properties(
         params_kappa = {}
         
         ## FCs XML files
-        if scph == 1 or four == 1:
+        if scph > 0 or four > 0:
             
             ### Anharmonic FCs XML file (obtained using LASSO)
             fcsxml_abs = (
@@ -198,20 +197,20 @@ def analyze_phonon_properties(
                 fcsxml_abs, almcalc.out_dirs["higher"][f"kappa_{calc_type}"])
             
             ### Harmonic FCs XML file (obtained using SCPH)
-            if scph == 1:
+            if scph > 0:
                 fc2xml_abs = (
-                        almcalc.out_dirs["higher"]["scph"] + 
-                        "/%s_%dK.xml" % (almcalc.prefix, temp_kappa_scph))
+                    almcalc.out_dirs["higher"]["scph"] + 
+                    "/%s_%dK.xml" % (almcalc.prefix, temp_kappa_scph))
                 params_kappa['fc2xml'] = os.path.relpath(
                     fc2xml_abs, almcalc.out_dirs["higher"][f"kappa_{calc_type}"])
         
         ## Temperature
-        if scph:
+        if scph > 0:
             params_kappa['tmin'] = 300
             params_kappa['tmax'] = 301
             params_kappa['dt'] = 100
         
-        if four:
+        if four > 0:
             frac_kdensity_4ph = frac_kdensity_4ph if frac_kdensity_4ph is not None else 0.2
         
         calculate_thermal_conductivities(
@@ -230,7 +229,7 @@ def analyze_phonon_properties(
     
     return 0
 
-def _back_to_initial_sc_size(sc_matrix: Sequence[Sequence[int]]) -> None:
+def _use_the_initial_sc(sc_matrix: Sequence[Sequence[int]]) -> None:
     """Log a framed message about using the initial supercell size.
     
     Parameters
@@ -264,25 +263,36 @@ def _back_to_initial_sc_size(sc_matrix: Sequence[Sequence[int]]) -> None:
     logger.info("\n" + msg)
 
 def analyze_phonon_properties_with_larger_supercells(
-    base_dir, almcalc, calc_force,
-    max_natoms=300, delta_max_natoms=50, max_loop_for_largesc=2,
-    k_length=20, negative_freq=-1e-3, ignore_log=False,
-    restart=1, harmonic_only=False, 
-    nmax_suggest=100, frac_nrandom=1.0, frac_nrandom_higher=0.34,
-    random_disp_temperature=500.,
+    almcalc, calc_force,
+    negative_freq=-1e-3, 
+    ignore_log=False,
+    harmonic_only=False, 
+    nmax_suggest=100, frac_nrandom=1.0, 
+    #
+    vasp_config=None,
+    max_natoms=300, 
+    delta_max_natoms=50, 
+    max_loop_for_largesc=2,
+    k_length=20, 
+    restart=1, 
+    ## Higher-order FCs
+    frac_nrandom_higher=0.5,
+    disp_temp=500.,
+    ## SCPH
+    scph=0,
+    scph_temperatures={'scph': 100*np.arange(1, 11), 'kappa': 300},
+    ## 4-phonon
     four=0, frac_kdensity_4ph=0.13,
     pes=0
     ):
-    
+    """ Analyze phonon properties with larger supercells """
     almcalc_large = analyze_harmonic_with_larger_supercells(
-            almcalc,
-            base_dir=base_dir,
+            almcalc, vasp_config,
             max_natoms_init=max_natoms,
             delta_max_natoms=delta_max_natoms,
             max_loop=max_loop_for_largesc,
             k_length=k_length,
             negative_freq=negative_freq,
-            ignore_log=ignore_log,
             restart=restart,
             )
     
@@ -299,41 +309,71 @@ def analyze_phonon_properties_with_larger_supercells(
     ### the supercell of initial size
     if (almcalc_large.minimum_frequency > negative_freq and harmonic_only == 0):
         
-        _back_to_initial_sc_size(almcalc.scell_matrix)
-        
         ### calculate cubic force constants
-        calculate_cubic_force_constants(
-                almcalc, calc_force,
-                nmax_suggest=nmax_suggest, 
-                frac_nrandom=frac_nrandom, 
-                ignore_log=ignore_log,
-                )
-        
-        almcalc_large._fc3_type = almcalc.fc3_type
-        
-        ## Calculate Grüneisen parameters
-        almcalc.calculate_gruneisen_parameters()
-        
-        ### Calculate higher-order force constants
-        if four == 1:
-            calculate_high_order_force_constants(
+        # If scph is not 0, cubic FCs were already calculated.
+        if scph == 0:
+            
+            _use_the_initial_sc(almcalc.scell_matrix)
+            
+            calculate_cubic_force_constants(
                     almcalc, calc_force,
-                    frac_nrandom=frac_nrandom_higher,
-                    disp_temp=random_disp_temperature,
+                    nmax_suggest=nmax_suggest, 
+                    frac_nrandom=frac_nrandom, 
+                    ignore_log=ignore_log,
                     )
+            
+            almcalc_large._fc3_type = almcalc.fc3_type
+            
+            ## Calculate Grüneisen parameters
+            almcalc.calculate_gruneisen_parameters()
+            
+            ### Calculate higher-order force constants
+            if four > 0:
+                calculate_high_order_force_constants(
+                        almcalc, calc_force,
+                        frac_nrandom=frac_nrandom_higher,
+                        disp_temp=disp_temp,
+                        )
+            
+            fc2xml = almcalc_large.fc2xml
+            
+        else:
+            almcalc_large._fc3_type = almcalc.fc3_type
+            
+            ## Use the initial supercell for the kmesh in the SCPH calculation.
+            from auto_kappa.calculators.kmesh_int import get_transformation_matrix_prim2scell
+            mat_p2s_fcs = get_transformation_matrix_prim2scell(
+                almcalc.primitive_matrix, almcalc.scell_matrix)
+            
+            conduct_scph_calculation(
+                almcalc_large,
+                temperatures=scph_temperatures['scph'],
+                fcsxml=almcalc.higher_fcsxml,
+                fc2xml=almcalc_large.fc2xml,
+                mat_p2s_fcs=mat_p2s_fcs,
+            )
+            
+            _tmp = scph_temperatures['kappa']
+            fc2xml = almcalc_large.out_dirs['higher']['scph'] + "/%s_%dK.xml" % (
+                almcalc_large.prefix, _tmp)
         
         ### calculate kappa
-        if four == 0:
+        if scph == 0 and four == 0:
             kdensities = [500, 1000, 1500]
             calc_type = 'cubic'
-            xml_files = {'fc2xml': almcalc_large.fc2xml, 'fcsxml': almcalc.fc3xml}
+            xml_files = {'fc2xml': fc2xml, 'fcsxml': almcalc.fc3xml}
         else:
             kdensities = [1500]
-            calc_type = '4ph'
-            xml_files = {'fc2xml': almcalc_large.fc2xml, 'fcsxml': almcalc.higher_fcsxml}
+            xml_files = {'fc2xml': fc2xml, 'fcsxml': almcalc.higher_fcsxml}
+            if scph > 0 and four == 0:
+                calc_type = 'scph'
+            elif four > 0 and scph == 0:
+                calc_type = '4ph'
+            elif four > 0 and scph > 0:
+                calc_type = 'scph_4ph'
         
         calculate_thermal_conductivities(
-                almcalc_large, 
+                almcalc_large,
                 kdensities=kdensities,
                 calc_type=calc_type,
                 ignore_log=ignore_log,
@@ -341,16 +381,19 @@ def analyze_phonon_properties_with_larger_supercells(
                 frac_kdensity_4ph=frac_kdensity_4ph,
                 **xml_files
                 )
+        
     else:
         ak_log.negative_frequency(almcalc_large.minimum_frequency)
         ### calculate PES
         if pes > 0:
-            almcalc_large.calculate_pes(
-                    negative_freq=negative_freq)
+            almcalc_large.calculate_pes(negative_freq=negative_freq)
             sys.exit()
-
+    
+    return almcalc_large
+    
 def analyze_harmonic_with_larger_supercells(
-        almcalc_orig, base_dir=None,
+        almcalc_orig, vasp_config,
+        base_dir=None,
         #
         max_natoms_init=None,
         delta_max_natoms=50,
@@ -358,13 +401,17 @@ def analyze_harmonic_with_larger_supercells(
         #
         k_length=20,
         negative_freq=-1e-3,
-        ignore_log=False,
+        # ignore_log=False,
         restart=1,
         ):
     """ Analyze harmonic properties with larger supercell(s) """
     from auto_kappa.structure.supercell import estimate_supercell_matrix
     from auto_kappa.cui.ak_log import start_larger_supercell
-
+    
+    if base_dir is not None:
+        msg = " \n Warning: 'base_dir' option is deprecated and will be removed in future versions."
+        logger.warning(msg)
+    
     count = 0
     isc = 0
     sc_mat_prev = almcalc_orig.scell_matrix
@@ -436,13 +483,13 @@ def analyze_harmonic_with_larger_supercells(
                 scell_matrix=sc_mat,
                 command=almcalc_orig.commands["vasp"],
                 mater_dim=almcalc_orig.dim,
+                vasp_config=vasp_config,
                 )
         calc_force = apdb.get_calculator('force', kpts=kpts)
         
         ### analyze phonon properties with a supercell
         analyze_harmonic_properties(
-                almcalc_new, calc_force,
-                negative_freq=negative_freq)
+            almcalc_new, calc_force, negative_freq=negative_freq)
         
         ### If negative frequencies were eliminated, escape the loop
         if almcalc_new.minimum_frequency > negative_freq:

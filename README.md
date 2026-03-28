@@ -6,15 +6,25 @@
 </p>
 
 
+<<<<<<< HEAD
 # Auto-kappa: v1.0.1
 
 **Auto-kappa** is an automated workflow tool for performing **first-principles calculations of anharmonic phonon properties**, including  
+=======
+# auto-kappa v1.1.1
+
+**auto-kappa** is an automated framework for performing **first-principles calculations of anharmonic phonon properties**, including  
+>>>>>>> develop
 - **lattice thermal conductivity**,  
 - **mode-dependent phonon lifetimes**,  
 - **three-phonon and four-phonon scattering**,  
 
 using **VASP** and **ALAMODE**.  
 It provides a streamlined pipeline that generates input files, submits calculations, checks convergence, and post-processes results automatically.
+<<<<<<< HEAD
+=======
+
+>>>>>>> develop
 
 Requirements
 -------------
@@ -26,11 +36,19 @@ while the required Python libraries are installed automatically along with auto-
 * ALAMODE : 1.4 or 1.5 (1.5 recommended) *
 * [Optional] anphon : 1.9.9 (required for four-phonon scattering)
 * Python : 3.9 or later
+<<<<<<< HEAD
 * Phonopy : 2.43.2 or former
 * ASE
 * Pymatgen
 * Spglib
 * Custodian
+=======
+* Phonopy : 2.45.1
+* ASE : 3.26.0
+* Pymatgen : 2025.10.7
+* Spglib : 2.6.0
+* Custodian : 2025.5.12
+>>>>>>> develop
 
 ---
 
@@ -99,14 +117,39 @@ Documentation
 
 For more details on auto-kappa, please visit the following webpage: [**HERE**](https://masato1122.github.io/auto-kappa).
 
+Workflow
+---------
+
+| scph | four | No imag. freq.<br>with initial SC | No imag. freq.<br>after SCPH | Use larger SC | FC2 [kappa(init SC)] | FC2 [kappa(larger SC)] | Anharmonic FCs | kappa(init SC) | kappa(larger SC) |
+|------|------|------------------------------------|------------------------------|---------------|----------------------|------------------------|----------------|----------------|------------------|
+| 0 | 0 | TRUE | - | × | init SC | - | FC3(init SC) | 3ph | - |
+| 0 | 1 | TRUE | - | × | init SC | - | Higher(init SC) | 4ph | - |
+| 1, 2 | 0 | TRUE | - | × | renorm(init SC) | - | Higher(init SC) | SCPH+3ph | - |
+| 1, 2 | 1 | TRUE | - | × | renorm(init SC) | - | Higher(init SC) | SCPH+4ph | - |
+| 0 | 0 | FALSE | - | ○ | - | larger SC | FC3(init SC) | - | 3ph |
+| 0 | 1 | FALSE | - | ○ | - | larger SC | Higher(init SC) | - | 4ph |
+| 1 | 0 | FALSE | TRUE | × | renorm(init SC) | - | Higher(init SC) | SCPH | - |
+| 1 | 1 | FALSE | TRUE | × | renorm(init SC) | - | Higher(init SC) | SCPH+4ph | - |
+| 1, 2 | 0 | FALSE | FALSE | ○ | - | renorm(larger SC) | Higher(init SC) | - | SCPH |
+| 1, 2 | 1 | FALSE | FALSE | ○ | - | renorm(larger SC) | Higher(init SC) | - | SCPH+4ph |
+| 2 | 0 | FALSE | TRUE | ○ | renorm(init SC) | renorm(larger SC) | Higher(init SC) | SCPH | SCPH |
+| 2 | 1 | FALSE | TRUE | ○ | renorm(init SC) | renorm(larger SC) | Higher(init SC) | SCPH+4ph | SCPH+4ph |
+
+- init SC: Initial supercell determined by --max_natoms.
+- larger SC: Larger supercell determined by parameters such as --delta_max_natoms.
+- kappa(init/larger SC): Thermal conductivity calculated using the initial/larger supercell.
+- FC2 [kappa(init/larger SC)]: Harmonic force constants (FC2) used to compute kappa(init/larger SC).
+- renorm(init/larger SC): Renormalized harmonic force constants (FC2) derived from the FC2 calculated with the initial/larger supercell.
+- FC3/Higher(init SC): Cubic and higher-order force constants, always computed using the initial supercell.
+- SCPH: Self-consistent phonon (SCPH) calculation.
 
 Citation
 ---------
 
 If you use auto-kappa, please cite the following paper, along with any related papers listed in the references:
 
-- M. Ohnishi et al., "Database and deep-learning scalability of anharmonic phonon properties by automated brute-force first-principles calculations", 
-[arXiv:2504.21245](https://arxiv.org/abs/2504.21245) (2025).
+- M. Ohnishi et al., "Database and deep-learning scalability of anharmonic phonon properties by automated brute-force first-principles calculations," 
+npj Computational Materials (2025), [arXiv:2504.21245](https://arxiv.org/abs/2504.21245) (2025).
 
 References
 -----------

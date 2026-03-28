@@ -19,6 +19,7 @@ import shutil
 import json
 import pickle
 import glob
+import re
 
 import ase.io
 from ase.geometry import get_distances
@@ -107,52 +108,52 @@ def _check_alamode_version(params):
                 msg += "\n Please check the anphon version for --command_anphon_ver2."
                 logger.error(msg)
 
-def parse_vasp_params(params_string):
-    """
-    Parameters
-    ------------
-    params_string : string
-        VASP parameters which differ from the default values are given by 
-        ``--vasp_parameters`` option.
-        The parmeters can be given like following.
+# def parse_vasp_params(params_string):
+#     """
+#     Parameters
+#     ------------
+#     params_string : string
+#         VASP parameters which differ from the default values are given by 
+#         ``--vasp_parameters`` option.
+#         The parmeters can be given like following.
 
-    How to set the option
-    ---------------------
-    >>> --vasp_parameters=\"lsorbit=1,ediff=1e-9,ediffg=-1e7\"
+#     How to set the option
+#     ---------------------
+#     >>> --vasp_parameters=\"lsorbit=1,ediff=1e-9,ediffg=-1e7\"
     
-    Return
-    ---------
-    dictionary of the parameters which will be modified
-    """
-    if params_string is None:
-        return None
-
-    ### parse each parameter
-    params_dict = {}
-    list_params_mod = params_string.split(",")
-    for each in list_params_mod:
-
-        data = each.split("=")
-
-        ### check format
-        if len(data) != 2:
-            msg = f"\n Error: vasp_parameters is not given properly ({each})"
-            logger.error(msg)
-        
-        name = data[0].replace(" ", "").upper()
-        
-        ### parse a given value
-        try:
-            val = Incar.proc_val(name, data[1])
-        except Exception:
-            msg = f"\n Error: vasp_parameters may not given properly."
-            msg += f"\n {name} may not exist for VASP parameter."
-            logger.error(msg)
-            sys.exit()
-        
-        params_dict[name] = val
+#     Return
+#     ---------
+#     dictionary of the parameters which will be modified
+#     """
+#     if params_string is None:
+#         return None
     
-    return params_dict
+#     ### parse each parameter
+#     params_dict = {}
+#     list_params_mod = re.split(r'[,:]', params_string)
+#     for each in list_params_mod:
+        
+#         data = each.split("=")
+        
+#         ### check format
+#         if len(data) != 2:
+#             msg = f"\n Error: vasp_parameters is not given properly ({each})"
+#             logger.error(msg)
+        
+#         name = data[0].replace(" ", "").upper()
+        
+#         ### parse a given value
+#         try:
+#             val = Incar.proc_val(name, data[1])
+#         except Exception:
+#             msg = f"\n Error: vasp_parameters may not given properly."
+#             msg += f"\n {name} may not exist for VASP parameter."
+#             logger.error(msg)
+#             sys.exit()
+        
+#         params_dict[name] = val
+    
+#     return params_dict
 
 def _adjust_displacement_magnitude(params, tolerance=1e-5):
     """ Adjust the displacement magnitude for harmonic and cubic force calculations.
@@ -309,8 +310,10 @@ def _check_previous_parameters(given_params, prev_params, file_prev=None, rtol=1
     columns_must_be_same = [
         'cutoff_cubic', 'min_nearest', 'nmax_suggest', 'frac_nrandom',
         'mag_harm', 'mag_cubic', 'negative_freq', 'relaxed_cell', 
-        'k_length', 'max_natoms', 'random_disp_temperature',
-        'volume_relaxation', 'nonanalytic']
+        'k_length', 'optimize_klength', 'energy_tolerance',
+        'max_natoms', 'random_disp_temperature',
+        'volume_relaxation', 'nonanalytic',
+        'config_file']
     
     base_dir = os.path.dirname(file_prev) if file_prev is not None else None
     

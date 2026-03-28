@@ -33,7 +33,7 @@ def get_output(command='anphon'):
         for line in iter(process.stdout.readline, ''):
             lines.append(line.strip())
         return lines
-    except:
+    except Exception:
         lines = None
     return lines
 
@@ -60,11 +60,13 @@ def get_version(command):
                             ver = data[i+1]
                             break
             return ver
-        except:
-            print("\n Failed to get the version of 'anphon'.")
+        except Exception:
+            logger.error("\n Failed to get the version of 'anphon'.")
             return None
     elif 'vasp' in command.lower():
         lines = get_output(f"{command} --version")
+        if lines is None:
+            return None
         ver = None
         for line in lines:
             if 'vasp.' in line.lower():

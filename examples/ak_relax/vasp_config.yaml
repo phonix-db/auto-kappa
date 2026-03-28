@@ -1,0 +1,10 @@
+
+# Default values
+# ediff : 1.0e-8
+# ediffg : -1.0e-6
+
+vasp_parameters:
+  relax-full:
+    ediff: 1.0e-8
+    ediffg: -1.0e-7
+

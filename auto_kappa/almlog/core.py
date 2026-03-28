@@ -20,9 +20,8 @@ logger = logging.getLogger(__name__)
 
 class ALMLOG():
     def __init__(self, filename=None):
-        
         self.filename = filename
-        
+        self._info = {}
         if os.path.exists(self.filename):
             self._info = read_alamode_log(self.filename)
     
@@ -30,14 +29,14 @@ class ALMLOG():
     def duration(self):
         try:
             return self._info['duration']
-        except:
+        except (AttributeError, KeyError):
             return None
     
     @property
     def sections(self):
         try:
             return list(self._info.keys())
-        except:
+        except (AttributeError, KeyError):
             return None
     
     def __getitem__(self, key):
