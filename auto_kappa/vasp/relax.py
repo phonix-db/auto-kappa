@@ -624,22 +624,29 @@ def relaxation_with_different_volumes(
         xc='pbesol',
         verbose=1, dim=3,
         ):
-    """ Structure relaxation with the Birch-Murnaghan equation of state
-    Args
-    ----
-    strains : array of float, shape=(nstrains), unit=[-]
+    """
+    Structure relaxation with the Birch-Murnaghan equation of state
+
+    Parameters
+    ----------
+    struct_init : object
+        Initial structure
+
+    strains : array of float, shape=(n), unit=[-]
         strain values to be applied to the initial structure
-    
+        
     vasp_params : dict
         VASP parameters given as a dictionary for different modes
-        e.g., {'relax': {...}, 'relax-freeze': {...}}
-    
+        e.g., ``{'relax': {...}, 'relax-freeze': {...}}``
+        
     potcar_setups : dict or None
         POTCAR setups to be used in VASP calculations
-        e.g., {'base': 'recommended', 'W': '_sv'}
-    
-    nstrains : integer
-        number of strains to be applied
+        e.g., ``{'base': 'recommended', 'W': '_sv'}``
+            
+    Returns
+    -------
+    object
+        Relaxation results
     """
     ### get results in previous calculations
     df_results = _get_calculated_results(

@@ -17,6 +17,7 @@ Submodules
 
    auto_kappa.alamode.almcalc
    auto_kappa.alamode.compat
+   auto_kappa.alamode.displacements
    auto_kappa.alamode.errors
    auto_kappa.alamode.gruneisen
    auto_kappa.alamode.helpers
