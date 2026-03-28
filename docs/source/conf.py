@@ -1,16 +1,23 @@
 #
 # Configuration file for the Sphinx documentation builder.
 #
-import os, sys
+import os
+import re
+import sys
 sys.path.insert(0, os.path.abspath('..'))
 sys.path.insert(0, os.path.abspath('../..'))
 
 mathjax_path = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
 
 # get version info
-from auto_kappa import __version__ as version
+#from auto_kappa import __version__ as version
 
-version = str(version)
+init_path = os.path.abspath('../../auto_kappa/__init__.py')
+with open(init_path, encoding='utf-8') as f:
+    content = f.read()
+
+match = re.search(r"^__version__\s*=\s*['\"]([^'\"]+)['\"]", content, re.MULTILINE)
+version = match.group(1) if match else "unknown"
 release = version
 
 # -- Project information 
