@@ -9,3 +9,4 @@ ase
 pymatgen
 phonopy
 pyyaml
+psutil
