@@ -6,18 +6,18 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>auto_kappa.alamode.almcalc module &mdash; auto-kappa 1.0.1 documentation</title>
+  <title>auto_kappa.alamode.almcalc module &mdash; auto-kappa 1.1.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=5938bb5a" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=7723fad5" />
 
   
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=292eb321"></script>
+      <script src="../_static/documentation_options.js?v=58fbf978"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -43,7 +43,7 @@
           </a>
 
           <div class="project-version">
-            ver. 1.0.1
+            ver. 1.1.1
           </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -205,7 +205,7 @@ This option is given only when the output directory is not the default one.</p><
 
 <dl class="py method">
 <dt class="sig sig-object py" id="auto_kappa.alamode.almcalc.AlamodeCalc.calc_forces">
-<span class="sig-name descname"><span class="pre">calc_forces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calculator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nmax_suggest</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frac_nrandom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">classical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dfset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amin_params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calculate_both_old_new_structures</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.alamode.almcalc.AlamodeCalc.calc_forces" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">calc_forces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calculator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nmax_suggest</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frac_nrandom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">classical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_abs_disp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_rel_disp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_dfset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amin_params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calculate_both_old_new_structures</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.alamode.almcalc.AlamodeCalc.calc_forces" title="Link to this definition"></a></dt>
 <dd><p>Calculate forces for harmonic or cubic IFCs and make a DFSET file in
 out_dirs[‘result’] directory.</p>
 <p>VASP output will be stored in self.out_dirs[‘harm/cube’][‘force’].
@@ -227,6 +227,10 @@ If True, generated structures will be calculated.</p></li>
 (<code class="docutils literal notranslate"><span class="pre">nrandom</span></code>) to that of the suggested patterns with ALM
 (<code class="docutils literal notranslate"><span class="pre">nsuggest</span></code>).
 <code class="docutils literal notranslate"><span class="pre">nrandom</span></code> = max(<code class="docutils literal notranslate"><span class="pre">frac_nrandom</span></code> x <code class="docutils literal notranslate"><span class="pre">nsuggest</span></code>, <code class="docutils literal notranslate"><span class="pre">nsuggest</span></code>)</p></li>
+<li><p><strong>max_abs_disp</strong> (<em>float</em><em>, </em><em>default=10.0</em>) – Maximum absolute displacement in Angstrom for each Cartesian direction.
+This option is used when LASSO is applied.</p></li>
+<li><p><strong>max_rel_disp</strong> (<em>float</em><em>, </em><em>default=0.1</em>) – Maximum relative displacement to the nearest neighbor distance.
+This option is used when LASSO is applied.</p></li>
 <li><p><strong>output_dfset</strong> (<em>int</em><em> or </em><em>bool</em><em>, </em><em>default=1</em>) – If False or 0, DFSET file is not written.
 If 1, output DFSET file only when it doesn’t exist.
 If 2, output DFSET file even when it exists.</p></li>

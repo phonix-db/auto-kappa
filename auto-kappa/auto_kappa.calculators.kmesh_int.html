@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>auto_kappa.alamode.errors module &mdash; auto-kappa 1.1.1 documentation</title>
+  <title>auto_kappa.calculators.kmesh_int module &mdash; auto-kappa 1.1.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -25,8 +25,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="auto_kappa.alamode.gruneisen module" href="auto_kappa.alamode.gruneisen.html" />
-    <link rel="prev" title="auto_kappa.alamode.displacements module" href="auto_kappa.alamode.displacements.html" /> 
+    <link rel="next" title="auto_kappa.calculators.scph module" href="auto_kappa.calculators.scph.html" />
+    <link rel="prev" title="auto_kappa.calculators.compat module" href="auto_kappa.calculators.compat.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -62,9 +62,9 @@
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">6. auto_kappa</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="auto_kappa.html">6.1. auto_kappa package</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="auto_kappa.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="auto_kappa.alamode.html">auto_kappa.alamode package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.alamode.html">auto_kappa.alamode package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="auto_kappa.almlog.html">auto_kappa.almlog package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="auto_kappa.calculators.html">auto_kappa.calculators package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="auto_kappa.calculators.html">auto_kappa.calculators package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="auto_kappa.cui.html">auto_kappa.cui package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="auto_kappa.io.html">auto_kappa.io package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="auto_kappa.math.html">auto_kappa.math package</a></li>
@@ -99,10 +99,10 @@
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="modules.html"><span class="section-number">6. </span>auto_kappa</a></li>
           <li class="breadcrumb-item"><a href="auto_kappa.html"><span class="section-number">6.1. </span>auto_kappa package</a></li>
-          <li class="breadcrumb-item"><a href="auto_kappa.alamode.html">auto_kappa.alamode package</a></li>
-      <li class="breadcrumb-item active">auto_kappa.alamode.errors module</li>
+          <li class="breadcrumb-item"><a href="auto_kappa.calculators.html">auto_kappa.calculators package</a></li>
+      <li class="breadcrumb-item active">auto_kappa.calculators.kmesh_int module</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/auto-kappa/auto_kappa.alamode.errors.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/auto-kappa/auto_kappa.calculators.kmesh_int.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -110,35 +110,33 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-auto_kappa.alamode.errors">
-<span id="auto-kappa-alamode-errors-module"></span><h1>auto_kappa.alamode.errors module<a class="headerlink" href="#module-auto_kappa.alamode.errors" title="Link to this heading"></a></h1>
+  <section id="module-auto_kappa.calculators.kmesh_int">
+<span id="auto-kappa-calculators-kmesh-int-module"></span><h1>auto_kappa.calculators.kmesh_int module<a class="headerlink" href="#module-auto_kappa.calculators.kmesh_int" title="Link to this heading"></a></h1>
 <dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.alamode.errors.check_unexpected_errors">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.alamode.errors.</span></span><span class="sig-name descname"><span class="pre">check_unexpected_errors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">logfile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dir_base</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.alamode.errors.check_unexpected_errors" title="Link to this definition"></a></dt>
-<dd><p>The initial directory is the same directory where <code class="docutils literal notranslate"><span class="pre">logfile</span></code> is located.</p>
+<dt class="sig sig-object py" id="auto_kappa.calculators.kmesh_int.get_kmesh_interpolate">
+<span class="sig-prename descclassname"><span class="pre">auto_kappa.calculators.kmesh_int.</span></span><span class="sig-name descname"><span class="pre">get_kmesh_interpolate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mat_p2s</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.calculators.kmesh_int.get_kmesh_interpolate" title="Link to this definition"></a></dt>
+<dd><p>Decide KMESH_INTERPOLATE from primitive_matrix (unit-&gt;prim) and
+supercell_matrix (unit-&gt;scell).</p>
+<dl class="simple">
+<dt>Strategy:</dt><dd><ol class="arabic simple">
+<li><p>M_p2s = inv(P) &#64; S  (primitive-&gt;supercell) must be (almost) integer</p></li>
+<li><p>KMESH_INTERPOLATE[i] = gcd of column i of M_p2s  (0 ignored)</p></li>
+<li><p>(optional) ensure kmesh_scph is a multiple of kmesh_interpolate</p></li>
+</ol>
+</dd>
+</dl>
 <dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>0 if no error was found.
-1 error was found</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mat_p2s</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>tol</strong> (<em>float</em>)</p></li>
+</ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>int</p>
+<dd class="field-even"><p>list[int]</p>
 </dd>
 </dl>
 </dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.alamode.errors.found_rank_deficient">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.alamode.errors.</span></span><span class="sig-name descname"><span class="pre">found_rank_deficient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">logfile</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.alamode.errors.found_rank_deficient" title="Link to this definition"></a></dt>
-<dd><p>Check the previous force constant calculation
-If the following line is found in the logfile, return True.</p>
-<p>If “WARNING : Rank deficient</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.alamode.errors.is_fc_given">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.alamode.errors.</span></span><span class="sig-name descname"><span class="pre">is_fc_given</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">logfile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.alamode.errors.is_fc_given" title="Link to this definition"></a></dt>
-<dd></dd></dl>
 
 </section>
 
@@ -146,8 +144,8 @@ If the following line is found in the logfile, return True.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="auto_kappa.alamode.displacements.html" class="btn btn-neutral float-left" title="auto_kappa.alamode.displacements module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="auto_kappa.alamode.gruneisen.html" class="btn btn-neutral float-right" title="auto_kappa.alamode.gruneisen module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="auto_kappa.calculators.compat.html" class="btn btn-neutral float-left" title="auto_kappa.calculators.compat module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="auto_kappa.calculators.scph.html" class="btn btn-neutral float-right" title="auto_kappa.calculators.scph module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -9,6 +9,7 @@ Submodules
 
    auto_kappa.utils.config
    auto_kappa.utils.isotopes
+   auto_kappa.utils.system
    auto_kappa.utils.version
 
 Module contents
