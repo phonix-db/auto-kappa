@@ -60,6 +60,8 @@ class Result:
             self.set_result()
     
     def __str__(self):
+        if self._values is None:
+            return "\n Result file: %s (not loaded)" % self.filename
         keys = list(self._values.keys())
         msg = "\n Result file: %s" % self.filename
         msg += "\n"
@@ -81,7 +83,8 @@ class Result:
         return msg
         
     def __getitem__(self, key):
-        
+        if self._values is None:
+            return None
         for k1 in self._values:
             if k1 == key:
                 return self._values[k1]

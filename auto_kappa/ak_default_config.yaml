@@ -1,0 +1,73 @@
+# Default Configuration for auto_kappa
+#
+# This file contains default VASP parameters for auto_kappa calculations.
+# Users can override these values by creating their own configuration file.
+#
+# Copyright (c) 2025 Masato Ohnishi
+# This file is distributed under the terms of the MIT license.
+
+# VASP Parameters
+# According to the VASP manual:
+# "If you have no a priori knowledge of your system, for instance, if you do not know 
+# whether your system is an insulator, semiconductor or metal then always use Gaussian 
+# smearing ISMEAR=0 in combination with a small SIGMA=0.03-0.05."
+vasp_parameters:
+  # Relaxation parameters
+  relax:
+    prec: Accurate
+    ibrion: 2
+    ediffg: -1.0e-6
+    addgrid: true
+
+  # Full relaxation (cell + atoms)
+  relax-full:
+    isif: 3
+  
+  # Freeze cell relaxation (atoms only)
+  relax-freeze:
+    isif: 2
+  
+  # Force calculation
+  force:
+    ibrion: -1
+    prec: Accurate
+  
+  # Born effective charge (NAC) calculation
+  nac:
+    ibrion: -1
+    lepsilon: true
+    prec: Accurate
+  
+  # Molecular dynamics
+  md:
+    ibrion: 0
+    potim: 1.0
+    tebeg: 500.0
+    teend: 500.0
+    nsw: 3000
+  
+  # Shared parameters for all calculations
+  shared:
+    nelmin: 5
+    sigma: 0.02          # Smearing width (in eV)
+    ediff: 1.0e-8        # Electronic convergence criterion
+    ismear: 0            # Gaussian smearing
+    ialgo: 38            # Blocked-Davidson algorithm
+    lreal: false         # No real-space projection (mandatory)
+    addgrid: true
+    lwave: false
+    lcharg: false
+
+# POTCAR Setups
+# Specify which pseudopotential variant to use for each element
+# base: recommended - Use recommended POTCAR for all elements by default
+# Element-specific variants:
+#   _sv  - Include semicore s electrons
+#   _pv  - Include semicore p electrons
+#   _d   - Include d electrons
+#   _h   - Hard pseudopotential (high cutoff)
+potcar_setups:
+  base: recommended
+  W: _sv
+
+xc: pbesol

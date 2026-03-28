@@ -1,5 +1,3 @@
-<!-- Auto-kappa
-============ -->
 
 <p align='left'>
   <a href="https://masato1122.github.io/auto-kappa/" target="_blank">
@@ -7,11 +5,22 @@
   </a>
 </p>
 
-Auto-kappa: ver1.0.0
----------------------
 
-Auto-kappa is an automation framework for first-principles calculations of anharmonic phonon properties
-—including thermal conductivity and mode-dependent phonon lifetimes—based on VASP and ALAMODE.
+# ak-private
+
+**ak-private** is a development version of **auto-kappa**, an automated workflow tool for performing **first-principles calculations of anharmonic phonon properties**, including  
+- **lattice thermal conductivity**,  
+- **mode-dependent phonon lifetimes**,  
+- **three-phonon and four-phonon scattering**,  
+
+using **VASP** and **ALAMODE**.  
+It provides a streamlined pipeline that generates input files, submits calculations, checks convergence, and post-processes results automatically.
+
+Note
+-------
+
+Please use **ak-private** only for collaborative work with the TEEL group at the University of Tokyo.　
+
 
 Requirements
 -------------
@@ -23,11 +32,11 @@ while the required Python libraries are installed automatically along with auto-
 * ALAMODE : 1.4 or 1.5 (1.5 recommended) *
 * [Optional] anphon : 1.9.9 (required for four-phonon scattering)
 * Python : 3.9 or later
-* Phonopy
-* ASE
-* Pymatgen
-* Spglib
-* Custodian
+* Phonopy : 2.45.1
+* ASE : 3.26.0
+* Pymatgen : 2025.10.7
+* Spglib : 2.6.0
+* Custodian : 2025.5.12
 
 ---
 
@@ -96,6 +105,31 @@ Documentation
 
 For more details on auto-kappa, please visit the following webpage: [**HERE**](https://masato1122.github.io/auto-kappa).
 
+Workflow
+---------
+
+| scph | four | No imag. freq.<br>with initial SC | No imag. freq.<br>after SCPH | Use larger SC | FC2 [kappa(init SC)] | FC2 [kappa(larger SC)] | Anharmonic FCs | kappa(init SC) | kappa(larger SC) |
+|------|------|------------------------------------|------------------------------|---------------|----------------------|------------------------|----------------|----------------|------------------|
+| 0 | 0 | TRUE | - | × | init SC | - | FC3(init SC) | 3ph | - |
+| 0 | 1 | TRUE | - | × | init SC | - | Higher(init SC) | 4ph | - |
+| 1, 2 | 0 | TRUE | - | × | renorm(init SC) | - | Higher(init SC) | SCPH+3ph | - |
+| 1, 2 | 1 | TRUE | - | × | renorm(init SC) | - | Higher(init SC) | SCPH+4ph | - |
+| 0 | 0 | FALSE | - | ○ | - | larger SC | FC3(init SC) | - | 3ph |
+| 0 | 1 | FALSE | - | ○ | - | larger SC | Higher(init SC) | - | 4ph |
+| 1 | 0 | FALSE | TRUE | × | renorm(init SC) | - | Higher(init SC) | SCPH | - |
+| 1 | 1 | FALSE | TRUE | × | renorm(init SC) | - | Higher(init SC) | SCPH+4ph | - |
+| 1, 2 | 0 | FALSE | FALSE | ○ | - | renorm(larger SC) | Higher(init SC) | - | SCPH |
+| 1, 2 | 1 | FALSE | FALSE | ○ | - | renorm(larger SC) | Higher(init SC) | - | SCPH+4ph |
+| 2 | 0 | FALSE | TRUE | ○ | renorm(init SC) | renorm(larger SC) | Higher(init SC) | SCPH | SCPH |
+| 2 | 1 | FALSE | TRUE | ○ | renorm(init SC) | renorm(larger SC) | Higher(init SC) | SCPH+4ph | SCPH+4ph |
+
+- init SC: Initial supercell determined by --max_natoms.
+- larger SC: Larger supercell determined by parameters such as --delta_max_natoms.
+- kappa(init/larger SC): Thermal conductivity calculated using the initial/larger supercell.
+- FC2 [kappa(init/larger SC)]: Harmonic force constants (FC2) used to compute kappa(init/larger SC).
+- renorm(init/larger SC): Renormalized harmonic force constants (FC2) derived from the FC2 calculated with the initial/larger supercell.
+- FC3/Higher(init SC): Cubic and higher-order force constants, always computed using the initial supercell.
+- SCPH: Self-consistent phonon (SCPH) calculation.
 
 Citation
 ---------
@@ -139,12 +173,4 @@ Pol Torres,
 Zeyu Wang
 
 (alphabetical order)
-
-
-<!-- To Do
-------
-
-- Iterative calculation
-
-- Cell size for 2D systems: fix cell size for VASP calculations -->
 

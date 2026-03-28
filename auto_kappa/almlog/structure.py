@@ -14,7 +14,11 @@ def _get_cell_vectors(lines, title, dtype=float, BohrToAngstrom=BohrToA):
     for line in extracted_lines:
         line = replace_symbols_to_blank(line)
         parts = line.strip().split()
+        if not parts:
+            continue
         key = parts[-1][0]
+        if key not in vec_list:
+            continue
         try:
             vec_list[key].append([dtype(v) for v in parts[:3]])
         except ValueError:
@@ -97,11 +101,14 @@ def read_structure(lines):
     ## while ALAMODE log uses 2*pi/a.
     try:
         prim = info['primitive']['structure']
+        if prim is None:
+            raise TypeError(" Primitive structure is not available.")
         assert np.allclose(prim.cell.reciprocal() * 2*np.pi, info['primitive']['b'])
-    except AssertionError:
-        print(" Warning: Reciprocal lattice vectors do not match.")
-        pprint.pprint(info['primitive']['b'])
-        pprint.pprint(prim.cell.reciprocal() * 2*np.pi)
+    except (AssertionError, TypeError, AttributeError):
+        # print(" Warning: Reciprocal lattice vectors do not match.")
+        # pprint.pprint(info['primitive']['b'])
+        # pprint.pprint(prim.cell.reciprocal() * 2*np.pi)
+        pass
     
     ### Get atomic masses (u) used in ALAMODE
     try:

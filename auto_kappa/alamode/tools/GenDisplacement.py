@@ -183,7 +183,7 @@ class AlamodeDisplace(object):
                 print(" Displacement mode              : Finite displacement\n")
                 print(" %d displacement patterns are generated from\n"
                       " the given *.pattern_* files" % len(self._pattern))
-                print("")
+                # print("")
             
             for pattern in self._pattern:
                 header, disp = self._get_finite_displacement(pattern)
@@ -201,7 +201,7 @@ class AlamodeDisplace(object):
                       " the original supercell structure." % number_of_displacements)
                 print(" The direction of displacement is random, but the displacement\n"
                       " magnitude of each atom is fixed to %.2f Angstrom." % self._displacement_magnitude)
-                print("")
+                # print("")
 
             disp_random = self._get_random_displacements(number_of_displacements,
                                                          "gauss")
@@ -223,7 +223,7 @@ class AlamodeDisplace(object):
                 print(" Sampling range and interval: [%d:%d], interval = %d"
                       % (list_every[0] + 1, list_every[1], list_every[2]))
                 print(" %d snapshots are sampled from the LOAD_MDDATA file(s)" % len(self._md_snapshots))
-                print("")
+                # print("")
 
             ndisp = len(self._md_snapshots)
 
@@ -254,7 +254,7 @@ class AlamodeDisplace(object):
                 print(" Then, random displacements of %.2f Angstrom are\n"
                       " added to each atom in each snapshot.\n"
                       " The direction of displacement is random." % self._displacement_magnitude)
-                print("")
+                # print("")
 
             ndisp = len(self._md_snapshots)
             disp_random = self._get_random_displacements(ndisp, "gauss")
@@ -289,7 +289,7 @@ class AlamodeDisplace(object):
                     print(" Statistics  : Classical (no zero-point vibration)")
                 else:
                     print(" Statistics  : Quantum (with zero-point vibration)")
-                print("")
+                # print("")
 
             disp_random = self._get_random_displacements_normalcoordinate(number_of_displacements,
                                                                           temperature,
@@ -322,8 +322,8 @@ class AlamodeDisplace(object):
                        self._qpoints[target_q, 1],
                        self._qpoints[target_q, 2]))
                 print(" branch : %d" % (target_mode + 1))
-                print("")
-
+                # print("")
+            
             disp_pes = self._generate_displacements_pes(np.array(Qlist),
                                                         target_q,
                                                         target_mode,
@@ -566,20 +566,20 @@ class AlamodeDisplace(object):
         nmode = self._nmode
         omega = np.zeros((nq, nmode))
         sigma = np.zeros((nq, nmode))
-
+        
         for iq in range(nq):
             for imode in range(nmode):
                 if self._omega2[iq, imode] < 0.0:
                     if ignore_imag:
                         omega[iq, imode] = 0.0
                         if self._verbose > 0:
-                            print("Warning: Detected imaginary mode at iq = %d, imode = %d.\n"
-                                  "This more will be ignored.\n" % (iq + 1, imode + 1))
+                            print(" Warning: Detected imaginary mode at iq = %d, imode = %d.\n"
+                                  " This more will be ignored.\n" % (iq + 1, imode + 1))
                     else:
                         omega[iq, imode] = math.sqrt(-self._omega2[iq, imode])
                         if self._verbose > 0:
-                            print("Warning: Detected imaginary mode at iq = %d, imode = %d.\n"
-                                  "Use the absolute frequency for this mode.\n" % (iq + 1, imode + 1))
+                            print(" Warning: Detected imaginary mode at iq = %d, imode = %d.\n"
+                                  " Use the absolute frequency for this mode.\n" % (iq + 1, imode + 1))
                 else:
                     omega[iq, imode] = math.sqrt(self._omega2[iq, imode])
 

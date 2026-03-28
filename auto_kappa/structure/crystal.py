@@ -233,7 +233,7 @@ def inverse_transformation(supercell: ase.Atoms, sc_mat: np.ndarray) -> ase.Atom
     
     return unitcell
 
-def get_transformation_matrix_prim2scell(primitive_matrix, scell_matrix):
+def get_transformation_matrix_prim2scell(primitive_matrix, scell_matrix, tol=1e-8):
     """ Get the transformation matrix from primitive cell to supercell.
     Every matrix is in the Phonopy representation.
     
@@ -248,9 +248,15 @@ def get_transformation_matrix_prim2scell(primitive_matrix, scell_matrix):
     -------
     mat_p2s : ndarray, int, shape=(3,3)
         transformation matrix from primitive cell to supercell
+    
+    Note
+    ------
+    scell_matrix = primitive_matrix @ mat_p2s
+    mat_p2s = inv(primitive_matrix) @ scell_matrix
     """
     mat_p2s = np.linalg.inv(primitive_matrix) @ scell_matrix
-    if not np.allclose(mat_p2s, np.rint(mat_p2s)):
+    
+    if not np.allclose(mat_p2s, np.rint(mat_p2s), atol=tol):
         raise ValueError("mat_p2s is not an integer matrix.")
     mat_p2s = np.rint(mat_p2s).astype(int)
     return mat_p2s

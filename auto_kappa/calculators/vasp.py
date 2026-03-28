@@ -126,16 +126,21 @@ def run_vasp(calc, atoms, method='custodian', max_errors=10):
         sys.exit()
 
 def get_vasp_calculator(
-    mode, atoms=None, directory=None, kpts=None,
-    encut_scale_factor=1.3, setups='recommended', xc='pbesol', **args
+    vasp_params,
+    atoms=None, directory=None, kpts=None,
+    encut_scale_factor=1.3, 
+    setups={'base': 'recommended', 'W': '_sv'}, 
+    xc='pbesol', 
+    **args
     ):
     """ Get VASP parameters for the given mode. Parameters are similar to those
     used for phonondb.
     
     Args
     -------
-    mode : string
-        "relax", "relax-full", "relax-freeze", "force", "nac", or "md"
+    vasp_params : dict
+        VASP parameters given as a dictionary
+        e.g., {'ediffg': -1e-6, 'ibrion': 2, ...}
     
     atoms : ASE Atoms object
     
@@ -150,46 +155,24 @@ def get_vasp_calculator(
     How to Use
     -----------
     >>> from auto_kappa.calculator import get_vasp_calculator
-    >>> 
     >>> atoms = ase.io.read('POSCAR.primitive', format='vasp')
     >>> mode = 'relax'
-    >>>
-    >>> #atoms = ase.io.read('POSCAR.supercell', format='vasp')
-    >>> #mode = 'force'
-    >>>
-    >>> calc = get_vasp_calculator(
-            mode, directory='./out', kpts=[10,10,10])
+    >>> vasp_params = {'ediffg': -1e-6, 'ibrion': 2, 'nsw': 50}
+    >>> calc = get_vasp_calculator(directory='./out', kpts=[10,10,10], vasp_params=vasp_params)
     >>> calc.command = "mpirun -n 2 vasp"
     >>> calc.write_input(structure)
     
     """
-    from auto_kappa import default_vasp_parameters
-    
-    calc = Vasp(setups={'base': setups, 'W': '_sv'}, xc=xc)
+    calc = Vasp(setups=setups, xc=xc)
     
     ### initialization
     calc.initialize(atoms)
     
-    ### set defualt parameters
-    params = default_vasp_parameters[mode.lower()].copy()
-    
-    ### update for 'relax' mode
-    if 'relax' in mode.lower():
-        params_relax = default_vasp_parameters['relax'].copy()
-        params.update(params_relax)
-    
-    ### shared parameters
-    params.update(default_vasp_parameters['shared'])
+    params = {}
     
     ### encut
     enmax = get_enmax(calc.ppp_list)
     params['encut'] = enmax * encut_scale_factor
-    
-    #### set LREAL
-    #if len(atoms) >= auto_lreal_scell_size:
-    #    params['lreal'] = 'Auto'
-    #else:
-    #    params['lreal'] = False
     
     ### kpoints
     if kpts is not None:
@@ -197,6 +180,7 @@ def get_vasp_calculator(
         params['gamma'] = True
     
     ### update
+    params.update(vasp_params)
     params.update(args)
     
     ### make every keys lowercase letters
@@ -205,7 +189,8 @@ def get_vasp_calculator(
     
     ### output directory
     if directory is None:
-        outdir = 'out_%s' % mode
+        # outdir = 'out_%s' % mode
+        outdir = 'out'
     else:
         outdir = directory
     calc.directory = outdir

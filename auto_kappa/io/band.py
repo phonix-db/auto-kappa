@@ -686,7 +686,7 @@ def get_scph_bands(filename, logfile=None, tol=0.1, verbose=True):
     if availabilities is not None:
         idx_na = []
         for it, temp in enumerate(temperatures):
-            if availabilities[int(temp)] == False:
+            if availabilities.get(int(temp), True) == False:
                 idx_na.append(it)
         temperatures = np.delete(temperatures, idx_na)
         kpoints = [np.delete(ks, idx_na, axis=0) for ks in kpoints]

@@ -11,7 +11,6 @@
 #
 import os.path
 import sys
-import math
 import numpy as np
 import glob
 
@@ -121,7 +120,7 @@ def get_amin_parameter(directory, lattice, **args):
         return None
     
     ### if error exists,
-    amin = None
+    # amin = None
     for j in range(3):
         length = np.linalg.norm(lattice[j])
         if length > amin_params['tol_length']:

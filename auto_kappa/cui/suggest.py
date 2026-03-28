@@ -18,6 +18,7 @@ from pymatgen.core.structure import Structure
 
 from auto_kappa.structure import change_structure_format, get_supercell, transform_unit2prim
 from auto_kappa.structure.supercell import estimate_supercell_matrix
+from auto_kappa.vasp.kmesh import klength2mesh
 
 import logging
 logger = logging.getLogger(__name__)
@@ -140,52 +141,3 @@ def get_unitcell_and_primitive_matrix(structure):
     primitive_matrix = np.dot(cell_prim[0], np.linalg.inv(cell_std[0])).T
     
     return unitcell, primitive_matrix
-
-### Copy from phonopy/structure/grid_points.py in Phonopy
-def klength2mesh(length, lattice, rotations=None):
-    """Convert length to mesh for q-point sampling.
-    
-    This conversion for each reciprocal axis follows VASP convention by
-    
-    >>> N = max(1, int(l * |a|^* + 0.5))
-    
-    int means rounding down, not rounding to nearest integer.
-    
-    Parameters
-    ----------
-    length : float
-        Length having the unit of direct space length.
-    
-    lattice : array_like
-        Basis vectors of primitive cell in row vectors.
-        dtype='double', shape=(3, 3)
-    
-    rotations : array of int, shape=(3,), optional
-        Rotation matrices in real space. When given, mesh numbers that are
-        symmetrically reasonable are returned. Default is None.
-
-    Returns
-    -------
-    array_like : int, shape=(3,)
-    
-    Note
-    -----
-    This function is copied from Phonopy library.
-    
-    """
-    rec_lattice = np.linalg.inv(lattice)
-    rec_lat_lengths = np.sqrt(np.diagonal(np.dot(rec_lattice.T, rec_lattice)))
-    mesh_numbers = np.rint(rec_lat_lengths * length).astype(int)
-
-    if rotations is not None:
-        from phonopy.structure.symmetry import get_lattice_vector_equivalence
-        reclat_equiv = get_lattice_vector_equivalence(
-            [r.T for r in np.array(rotations)])
-        m = mesh_numbers
-        mesh_equiv = [m[1] == m[2], m[2] == m[0], m[0] == m[1]]
-        for i, pair in enumerate(([1, 2], [2, 0], [0, 1])):
-            if reclat_equiv[i] and not mesh_equiv:
-                m[pair] = max(m[pair])
-
-    return np.maximum(mesh_numbers, [1, 1, 1])
-

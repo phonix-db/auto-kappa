@@ -117,7 +117,7 @@ class Scattering():
     def temperatures(self):
         try:
             return self.result['temperatures']
-        except:
+        except (AttributeError, KeyError, TypeError):
             return None
     
     @property
@@ -222,7 +222,7 @@ class Scattering():
             self.set_kmode()
         return self._kappa
     
-    def set_kmode(self):
+    def set_kmode(self, verbose=True):
         """calculate model thermal conductivity
         """
         self._kappa, self._kmode = \
@@ -231,7 +231,8 @@ class Scattering():
                       self.result['frequencies'],
                       self.result['multiplicity'],
                       self.result['velocities'],
-                      self.lifetime)
+                      self.lifetime,
+                      verbose=verbose)
     
     def get_cumulative_kappa(self, temperature=300., grain_size=None,
             wrt='frequency', nbins=200, xscale='linear'):

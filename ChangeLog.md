@@ -1,3 +1,28 @@
+# Ver. 1.1.1 (2026)
+
+- Arrange the workflow related to --analyze_with_larger_sc, --scph, and --four options.
+
+
+# Ver. 1.1.0 (2026)
+
+- Excessive displacements in the random displacement method were limited to the smaller of 10% of the nearest-neighbor distance and 1.0 nm.
+
+- The bug in determining KMESH_INTERPOLATE has been fixed.
+
+- The default value of SCPH iterative was modified to 1,000, default value of ALAMODE.
+
+
+# Ver. 1.0.1 (Dec. 20, 2025)
+
+## New
+
+- Add --config and --optimize_klength.
+
+- Delete --vasp_parameters.
+
+- VASP parameters can be modified with a user configuration file read by --config option.
+
+- K-length can be automatically optimized using --optimize_klength option.
 
 # Ver. 1.0.0 (Nov. 22, 2025)
 

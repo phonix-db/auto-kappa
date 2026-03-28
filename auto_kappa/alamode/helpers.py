@@ -24,6 +24,7 @@ from auto_kappa.alamode.io import wasfinished_alamode, write_displacement_info
 from auto_kappa.alamode.errors import found_rank_deficient
 from auto_kappa.calculators.vasp import run_vasp, backup_vasp
 from auto_kappa.structure.crystal import get_transformation_matrix_prim2scell
+from auto_kappa.alamode.displacements import adjust_random_displacements
 
 import logging
 logger = logging.getLogger(__name__)
@@ -80,8 +81,33 @@ class AlamodeForceCalculator():
     
     def _get_suggested_structures_for_lasso(
         self, order, num_fcs, num_atoms, frac_nrandom, nmax_suggest,
-        temperature=300, classical=False, nmin_generated=10):
+        temperature=300, classical=False, 
+        max_abs_disp=10.0, max_rel_disp=0.1, 
+        nmin_generated=10):
+        """ Get suggested structures for the random displacement.
         
+        Parameters
+        -----------
+        order : int
+            Order of force constants to be calculated.
+        num_fcs : int
+            Number of free force constants to be calculated.
+        num_atoms : int
+            Number of atoms in a supercell.
+        frac_nrandom : float
+            Fractional number of random displacement patterns.
+        nmax_suggest : int
+            Maximum limit of the number of suggested patterns.
+        temperature : float
+            Temperature for random displacement based on normal coordinate.
+        max_rel_disp : float
+            Maximum displacement for random displacement relative to the 
+            nearest neighbor distance.
+        classical : bool
+            Whether to use classical statistics for random displacement.
+        nmin_generated : int
+            Minimum number of generated random displacement patterns.
+        """
         ### number of random displacement patters
         nrandom = int(frac_nrandom * num_fcs / num_atoms)
         ngenerated = max(nmin_generated, nrandom)
@@ -104,6 +130,8 @@ class AlamodeForceCalculator():
         msg += f"\n - frac   : Fractional number of random patterns, {frac_nrandom:.3f}"
         logger.info(msg)
         
+        all_mod_info = None
+        
         if order == 2:
             ## FC3 is obtained with random-displacement method
             ## with a fixed displacement magnitude
@@ -123,7 +151,27 @@ class AlamodeForceCalculator():
                     temperature=temperature,
                     classical=classical
                     )
-        return structures, displacements
+            
+            ## Modify displacements to avoid too large displacements
+            all_mod_info = {}
+            for key, each_disps in displacements.items():
+                mod_structure, mod_disp, mod_info = \
+                    adjust_random_displacements(
+                        self.supercell, each_disps,
+                        max_abs_disp=max_abs_disp,
+                        max_rel_disp=max_rel_disp
+                    )
+                structures[key] = mod_structure
+                displacements[key] = mod_disp
+                all_mod_info[key] = mod_info
+            
+            # ## Print modification information >>>>>>
+            # for key in all_mod_info:
+            #     print(key)
+            #     print(all_mod_info[key])
+            # ## <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+            
+        return structures, displacements, all_mod_info
     
     def _job_for_each_structure(
         self, job_idx, structures, base_dir, order, calculator, **amin_params_set):
@@ -490,23 +538,9 @@ class AlamodeInputWriter():
             mat_p2s = get_transformation_matrix_prim2scell(
                 self.primitive_matrix, self.scell_matrix)
             
-            # from auto_kappa.units import AToBohr
-            # print("# supercell")
-            # print(np.asarray(self.supercell.cell) * AToBohr)
-            # print("# conventional cell")
-            # print(np.asarray(self.unitcell.cell) * AToBohr)
-            # print("# primitive cell")
-            # print(np.asarray(self.primitive.cell) * AToBohr)
-            # print()
-            # print(self.primitive_matrix)
-            # print(self.scell_matrix)
-            # print(mat_p2s)
-            # sys.exit()
-            
             set_parameters_scph(
                 inp, 
                 primitive=self.primitive, 
-                scell=self.supercell,
                 mat_p2s=mat_p2s, 
                 deltak=deltak, 
                 kdensity_limit=10,

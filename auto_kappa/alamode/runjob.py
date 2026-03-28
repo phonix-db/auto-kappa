@@ -19,7 +19,7 @@ import signal
 try:
     import psutil
 except ImportError:
-    pass
+    psutil = None
 
 from auto_kappa.alamode.io import wasfinished_alamode
 from auto_kappa.alamode.errors import check_unexpected_errors
@@ -157,7 +157,11 @@ def _run_job(cmd, logfile="log.txt", file_err="std_err.txt"):
         
         count = 0
         mem_max = 0
-        process = psutil.Process(proc.pid)
+        if psutil is None:
+            proc.wait()
+        else:
+            process = psutil.Process(proc.pid)
+        
         try:
             while True:
                 if proc.poll() is not None:
@@ -177,7 +181,7 @@ def _run_job(cmd, logfile="log.txt", file_err="std_err.txt"):
                         os.killpg(os.getpgid(proc.pid), signal.SIGTERM)
                         break
                 
-                except psutil.NoSuchProcess:
+                except Exception:
                     break
                 
                 time.sleep(min(10, count + 1))
