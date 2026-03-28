@@ -16,6 +16,10 @@ init_path = os.path.abspath('../../auto_kappa/__init__.py')
 with open(init_path, encoding='utf-8') as f:
     content = f.read()
 
+path = os.path.join(os.path.dirname(__file__), "auto_kappa", "version.py")
+with open(path) as f:
+    content = f.read()
+
 match = re.search(r"^__version__\s*=\s*['\"]([^'\"]+)['\"]", content, re.MULTILINE)
 version = match.group(1) if match else "unknown"
 release = version
