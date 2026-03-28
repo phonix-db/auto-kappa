@@ -6,7 +6,7 @@
 </p>
 
 
-# auto-kappa v1.1
+# auto-kappa v1.1.1
 
 **auto-kappa** is an automated framework for performing **first-principles calculations of anharmonic phonon properties**, including  
 - **lattice thermal conductivity**,  
@@ -131,8 +131,8 @@ Citation
 
 If you use auto-kappa, please cite the following paper, along with any related papers listed in the references:
 
-- M. Ohnishi et al., "Database and deep-learning scalability of anharmonic phonon properties by automated brute-force first-principles calculations", 
-[arXiv:2504.21245](https://arxiv.org/abs/2504.21245) (2025).
+- M. Ohnishi et al., "Database and deep-learning scalability of anharmonic phonon properties by automated brute-force first-principles calculations," 
+npj Computational Materials (2025), [arXiv:2504.21245](https://arxiv.org/abs/2504.21245) (2025).
 
 References
 -----------
