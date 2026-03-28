@@ -4,4 +4,4 @@ matplotlib
 ase
 pymatgen
 phonopy
-yaml
+pyyaml
