@@ -32,6 +32,7 @@ jobs:
 
       - name: Build docs
         run: |
+          export PYTHONPATH="${GITHUB_WORKSPACE}"
           cd docs
           make html
 
@@ -65,6 +66,7 @@ jobs:
 
       - name: Build docs
         run: |
+          export PYTHONPATH="${GITHUB_WORKSPACE}"
           cd docs
           make html
 
@@ -74,4 +76,3 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: docs/build/html
-
