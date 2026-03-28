@@ -6,25 +6,16 @@
 </p>
 
 
-<<<<<<< HEAD
-# Auto-kappa: v1.0.1
-
-**Auto-kappa** is an automated workflow tool for performing **first-principles calculations of anharmonic phonon properties**, including  
-=======
 # auto-kappa v1.1.1
 
 **auto-kappa** is an automated framework for performing **first-principles calculations of anharmonic phonon properties**, including  
->>>>>>> develop
 - **lattice thermal conductivity**,  
 - **mode-dependent phonon lifetimes**,  
 - **three-phonon and four-phonon scattering**,  
 
 using **VASP** and **ALAMODE**.  
 It provides a streamlined pipeline that generates input files, submits calculations, checks convergence, and post-processes results automatically.
-<<<<<<< HEAD
-=======
 
->>>>>>> develop
 
 Requirements
 -------------
@@ -36,19 +27,11 @@ while the required Python libraries are installed automatically along with auto-
 * ALAMODE : 1.4 or 1.5 (1.5 recommended) *
 * [Optional] anphon : 1.9.9 (required for four-phonon scattering)
 * Python : 3.9 or later
-<<<<<<< HEAD
-* Phonopy : 2.43.2 or former
-* ASE
-* Pymatgen
-* Spglib
-* Custodian
-=======
 * Phonopy : 2.45.1
 * ASE : 3.26.0
 * Pymatgen : 2025.10.7
 * Spglib : 2.6.0
 * Custodian : 2025.5.12
->>>>>>> develop
 
 ---
 
