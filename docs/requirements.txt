@@ -1,3 +1,5 @@
+sphinx
+sphinx-rtd-theme
 numpy
 pandas
 matplotlib
