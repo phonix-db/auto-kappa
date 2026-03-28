@@ -6,9 +6,9 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>auto_kappa.alamode.log_parser module &mdash; auto-kappa 1.1.1 documentation</title>
+  <title>auto_kappa.alamode.log_parser module &mdash; auto-kappa unknown documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=7723fad5" />
@@ -17,9 +17,9 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=58fbf978"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/documentation_options.js?v=3f1b9271"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/js/theme.js"></script>
@@ -43,7 +43,7 @@
           </a>
 
           <div class="project-version">
-            ver. 1.1.1
+            ver. unknown
           </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -76,7 +76,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#module-auto_kappa">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#module-contents">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -110,192 +110,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-auto_kappa.alamode.log_parser">
-<span id="auto-kappa-alamode-log-parser-module"></span><h1>auto_kappa.alamode.log_parser module<a class="headerlink" href="#module-auto_kappa.alamode.log_parser" title="Link to this heading"></a></h1>
-<dl class="py class">
-<dt class="sig sig-object py" id="auto_kappa.alamode.log_parser.AkLog">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">auto_kappa.alamode.log_parser.</span></span><span class="sig-name descname"><span class="pre">AkLog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.alamode.log_parser.AkLog" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<section id="how-to-use">
-<h2>How to Use<a class="headerlink" href="#how-to-use" title="Link to this heading"></a></h2>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">directory</span> <span class="o">=</span> <span class="s1">&#39;./mp-149&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span> <span class="o">=</span> <span class="n">AkLog</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c1">## file names are automatically set.</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c1">## &quot;log.yaml&quot; and &quot;fig_times.png&quot; are created in directory+&#39;/result&#39;.</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="o">.</span><span class="n">write_yaml</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="o">.</span><span class="n">plot_times</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="o">.</span><span class="n">write_yaml</span><span class="p">(</span><span class="n">outfile</span><span class="o">=</span><span class="s1">&#39;log.yaml&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="o">.</span><span class="n">plot_times</span><span class="p">(</span><span class="n">figname</span><span class="o">=</span><span class="s1">&#39;fig_times.png&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<dl class="py property">
-<dt class="sig sig-object py" id="auto_kappa.alamode.log_parser.AkLog.directory">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">directory</span></span><a class="headerlink" href="#auto_kappa.alamode.log_parser.AkLog.directory" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="auto_kappa.alamode.log_parser.AkLog.get_times">
-<span class="sig-name descname"><span class="pre">get_times</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.alamode.log_parser.AkLog.get_times" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="auto_kappa.alamode.log_parser.AkLog.out">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">out</span></span><a class="headerlink" href="#auto_kappa.alamode.log_parser.AkLog.out" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="auto_kappa.alamode.log_parser.AkLog.plot_times">
-<span class="sig-name descname"><span class="pre">plot_times</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">figname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.alamode.log_parser.AkLog.plot_times" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="auto_kappa.alamode.log_parser.AkLog.write_yaml">
-<span class="sig-name descname"><span class="pre">write_yaml</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.alamode.log_parser.AkLog.write_yaml" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</section>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.alamode.log_parser.exceed_memory">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.alamode.log_parser.</span></span><span class="sig-name descname"><span class="pre">exceed_memory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.alamode.log_parser.exceed_memory" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.alamode.log_parser.get_ak_logs">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.alamode.log_parser.</span></span><span class="sig-name descname"><span class="pre">get_ak_logs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.alamode.log_parser.get_ak_logs" title="Link to this definition"></a></dt>
-<dd><p>Return diffent information in log files</p>
-<section id="id1">
-<h2>How to Use<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">directory</span> <span class="o">=</span> <span class="s1">&#39;./mp-149&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">out_all</span> <span class="o">=</span> <span class="n">get_ak_logs</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">outfile</span> <span class="o">=</span> <span class="n">directory</span> <span class="o">+</span> <span class="s1">&#39;/result/log.yaml&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-<span class="gp">&gt;&gt;&gt; </span>    <span class="n">yaml</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">out_all</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; Output&quot;</span><span class="p">,</span> <span class="n">outfile</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt;</span>
-</pre></div>
-</div>
-</section>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.alamode.log_parser.get_eigenvalues_from_logfile">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.alamode.log_parser.</span></span><span class="sig-name descname"><span class="pre">get_eigenvalues_from_logfile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.alamode.log_parser.get_eigenvalues_from_logfile" title="Link to this definition"></a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>filename</strong> (<em>string</em>) – .log file name made by ALAMODE</p></li>
-<li><p><strong>tar</strong> (<em>tarfile.TarFile</em>)</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.alamode.log_parser.get_kpath">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.alamode.log_parser.</span></span><span class="sig-name descname"><span class="pre">get_kpath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.alamode.log_parser.get_kpath" title="Link to this definition"></a></dt>
-<dd><p>Get k-path from the log file</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>filename</strong> (<em>string</em>) – log file for band</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>each array element contains two dictionary elements with the name of
-symmetry point</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>array of dictionary</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.alamode.log_parser.get_minimum_frequency_from_logfile">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.alamode.log_parser.</span></span><span class="sig-name descname"><span class="pre">get_minimum_frequency_from_logfile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.alamode.log_parser.get_minimum_frequency_from_logfile" title="Link to this definition"></a></dt>
-<dd><p>Get minimum frequency among those written in <code class="docutils literal notranslate"><span class="pre">filename</span></code></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>filename</strong> (<em>string</em>)</p></li>
-<li><p><strong>tar</strong> (<em>tarfile.TarFile</em>)</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.alamode.log_parser.get_parser">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.alamode.log_parser.</span></span><span class="sig-name descname"><span class="pre">get_parser</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.alamode.log_parser.get_parser" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.alamode.log_parser.get_version">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.alamode.log_parser.</span></span><span class="sig-name descname"><span class="pre">get_version</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.alamode.log_parser.get_version" title="Link to this definition"></a></dt>
-<dd><p>Get version of ALAMODE from log file</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.alamode.log_parser.main">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.alamode.log_parser.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.alamode.log_parser.main" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.alamode.log_parser.read_log_eigen">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.alamode.log_parser.</span></span><span class="sig-name descname"><span class="pre">read_log_eigen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'band'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.alamode.log_parser.read_log_eigen" title="Link to this definition"></a></dt>
-<dd><p>Get eigenvalues in log file</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.alamode.log_parser.read_log_fc">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.alamode.log_parser.</span></span><span class="sig-name descname"><span class="pre">read_log_fc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.alamode.log_parser.read_log_fc" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.alamode.log_parser.read_log_fc2">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.alamode.log_parser.</span></span><span class="sig-name descname"><span class="pre">read_log_fc2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.alamode.log_parser.read_log_fc2" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.alamode.log_parser.read_log_forces">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.alamode.log_parser.</span></span><span class="sig-name descname"><span class="pre">read_log_forces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fc3_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.alamode.log_parser.read_log_forces" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.alamode.log_parser.read_log_kappa">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.alamode.log_parser.</span></span><span class="sig-name descname"><span class="pre">read_log_kappa</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.alamode.log_parser.read_log_kappa" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.alamode.log_parser.read_log_kappa_each">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.alamode.log_parser.</span></span><span class="sig-name descname"><span class="pre">read_log_kappa_each</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.alamode.log_parser.read_log_kappa_each" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.alamode.log_parser.read_log_lasso">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.alamode.log_parser.</span></span><span class="sig-name descname"><span class="pre">read_log_lasso</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.alamode.log_parser.read_log_lasso" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.alamode.log_parser.read_log_nac">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.alamode.log_parser.</span></span><span class="sig-name descname"><span class="pre">read_log_nac</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.alamode.log_parser.read_log_nac" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.alamode.log_parser.read_log_relax">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.alamode.log_parser.</span></span><span class="sig-name descname"><span class="pre">read_log_relax</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.alamode.log_parser.read_log_relax" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.alamode.log_parser.read_log_suggest">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.alamode.log_parser.</span></span><span class="sig-name descname"><span class="pre">read_log_suggest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.alamode.log_parser.read_log_suggest" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
+  <section id="auto-kappa-alamode-log-parser-module">
+<h1>auto_kappa.alamode.log_parser module<a class="headerlink" href="#auto-kappa-alamode-log-parser-module" title="Link to this heading"></a></h1>
 </section>
 
 

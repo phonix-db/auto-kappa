@@ -6,9 +6,9 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>auto_kappa.vasp.relax module &mdash; auto-kappa 1.1.1 documentation</title>
+  <title>auto_kappa.vasp.relax module &mdash; auto-kappa unknown documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=7723fad5" />
@@ -17,9 +17,9 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=58fbf978"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/documentation_options.js?v=3f1b9271"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/js/theme.js"></script>
@@ -43,7 +43,7 @@
           </a>
 
           <div class="project-version">
-            ver. 1.1.1
+            ver. unknown
           </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -76,7 +76,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#module-auto_kappa">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#module-contents">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -110,150 +110,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-auto_kappa.vasp.relax">
-<span id="auto-kappa-vasp-relax-module"></span><h1>auto_kappa.vasp.relax module<a class="headerlink" href="#module-auto_kappa.vasp.relax" title="Link to this heading"></a></h1>
-<dl class="py class">
-<dt class="sig sig-object py" id="auto_kappa.vasp.relax.StrictRelaxation">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">auto_kappa.vasp.relax.</span></span><span class="sig-name descname"><span class="pre">StrictRelaxation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">initial_structure</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outdir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'./volume'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.vasp.relax.StrictRelaxation" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>initial_structure</strong> (<em>pymatgen Structure</em><em> or </em><em>ASE Atoms object</em>) – Initial structure to be relaxed</p>
-</dd>
-</dl>
-<dl class="py property">
-<dt class="sig sig-object py" id="auto_kappa.vasp.relax.StrictRelaxation.dim">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dim</span></span><a class="headerlink" href="#auto_kappa.vasp.relax.StrictRelaxation.dim" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="auto_kappa.vasp.relax.StrictRelaxation.energies">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">energies</span></span><a class="headerlink" href="#auto_kappa.vasp.relax.StrictRelaxation.energies" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="auto_kappa.vasp.relax.StrictRelaxation.get_calculated_volumes_and_energies">
-<span class="sig-name descname"><span class="pre">get_calculated_volumes_and_energies</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.vasp.relax.StrictRelaxation.get_calculated_volumes_and_energies" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="auto_kappa.vasp.relax.StrictRelaxation.get_fitting_error">
-<span class="sig-name descname"><span class="pre">get_fitting_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mae'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.vasp.relax.StrictRelaxation.get_fitting_error" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="auto_kappa.vasp.relax.StrictRelaxation.get_optimal_structure">
-<span class="sig-name descname"><span class="pre">get_optimal_structure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pmg'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.vasp.relax.StrictRelaxation.get_optimal_structure" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="auto_kappa.vasp.relax.StrictRelaxation.optimal_volume">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">optimal_volume</span></span><a class="headerlink" href="#auto_kappa.vasp.relax.StrictRelaxation.optimal_volume" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="auto_kappa.vasp.relax.StrictRelaxation.output_structures">
-<span class="sig-name descname"><span class="pre">output_structures</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.vasp.relax.StrictRelaxation.output_structures" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="auto_kappa.vasp.relax.StrictRelaxation.plot_bm">
-<span class="sig-name descname"><span class="pre">plot_bm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">figname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'fig_bm.png'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.vasp.relax.StrictRelaxation.plot_bm" title="Link to this definition"></a></dt>
-<dd><p>Plot a result of fitting with Birch-Murnaghan EOS</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="auto_kappa.vasp.relax.StrictRelaxation.plot_physical_properties">
-<span class="sig-name descname"><span class="pre">plot_physical_properties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">figname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'fig_fitting.png'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fontsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aspect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mew</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'black'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.vasp.relax.StrictRelaxation.plot_physical_properties" title="Link to this definition"></a></dt>
-<dd><p>Plot physical properties vs volume</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="auto_kappa.vasp.relax.StrictRelaxation.print_results">
-<span class="sig-name descname"><span class="pre">print_results</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.vasp.relax.StrictRelaxation.print_results" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="auto_kappa.vasp.relax.StrictRelaxation.volumes">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">volumes</span></span><a class="headerlink" href="#auto_kappa.vasp.relax.StrictRelaxation.volumes" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="auto_kappa.vasp.relax.StrictRelaxation.with_different_volumes">
-<span class="sig-name descname"><span class="pre">with_different_volumes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">initial_strain_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[-0.03,</span> <span class="pre">0.05]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nstrains</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol_strain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kpts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[2,</span> <span class="pre">2,</span> <span class="pre">2]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'mpirun':</span> <span class="pre">'mpirun',</span> <span class="pre">'nprocs':</span> <span class="pre">1,</span> <span class="pre">'vasp':</span> <span class="pre">'vasp'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encut_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vasp_params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">potcar_setups</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pbesol'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.vasp.relax.StrictRelaxation.with_different_volumes" title="Link to this definition"></a></dt>
-<dd><p>Run VASP jobs for different volumes and calculate the energy.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>strain_range</strong> (<em>list</em><em> of </em><em>float</em>) – The range of strain to explore (min, max)</p></li>
-<li><p><strong>nstrains</strong> (<em>int</em>) – The number of strain points to calculate</p></li>
-<li><p><strong>max_strain</strong> (<em>float</em>) – The maximum strain from the minimum energy point</p></li>
-<li><p><strong>kpts</strong> (<em>list</em><em> of </em><em>int</em>) – The k-point grid for VASP calculations</p></li>
-<li><p><strong>command</strong> (<em>dict</em>) – The command to run VASP</p></li>
-<li><p><strong>encut_factor</strong> (<em>float</em>) – The factor to scale the plane-wave cutoff energy</p></li>
-<li><p><strong>verbose</strong> (<em>int</em>) – The verbose level for logging</p></li>
-<li><p><strong>vasp_params</strong> (<em>dict</em>) – VASP parameters given as a dictionary</p></li>
-<li><p><strong>potcar_setups</strong> (<em>dict</em><em> or </em><em>None</em>) – POTCAR setups to be used in VASP calculations
-e.g., {‘base’: ‘recommended’, ‘W’: ‘_sv’}</p></li>
-<li><p><strong>xc</strong> (<em>string</em>) – Exchange-correlation functional to be used in VASP calculations
-e.g., ‘pbesol’</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.vasp.relax.get_optimal_volume">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.vasp.relax.</span></span><span class="sig-name descname"><span class="pre">get_optimal_volume</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">volumes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">energies</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_num_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.vasp.relax.get_optimal_volume" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.vasp.relax.get_strained_structure">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.vasp.relax.</span></span><span class="sig-name descname"><span class="pre">get_strained_structure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">structure0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pmg'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.vasp.relax.get_strained_structure" title="Link to this definition"></a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>structure0</strong> (<em>pymatgen structure obj.</em>) – reference structure</p></li>
-<li><p><strong>strain</strong> (<em>float</em><em>, </em><em>unit=</em><em>[</em><em>-</em><em>]</em>) – applied strain</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>strained structure with the assigened format</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>structure</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.vasp.relax.get_volume">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.vasp.relax.</span></span><span class="sig-name descname"><span class="pre">get_volume</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">struct</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.vasp.relax.get_volume" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.vasp.relax.relaxation_with_different_volumes">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.vasp.relax.</span></span><span class="sig-name descname"><span class="pre">relaxation_with_different_volumes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">struct_init</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strains</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_directory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'./volume'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol_strain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kpts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[2,</span> <span class="pre">2,</span> <span class="pre">2]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encut_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'mpirun':</span> <span class="pre">'mpirun',</span> <span class="pre">'nprocs':</span> <span class="pre">1,</span> <span class="pre">'vasp':</span> <span class="pre">'vasp'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vasp_params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">potcar_setups</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pbesol'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.vasp.relax.relaxation_with_different_volumes" title="Link to this definition"></a></dt>
-<dd><p>Structure relaxation with the Birch-Murnaghan equation of state
-:param strains: strain values to be applied to the initial structure
-:type strains: array of float, shape=(nstrains), unit=[-]
-:param vasp_params: VASP parameters given as a dictionary for different modes</p>
-<blockquote>
-<div><p>e.g., {‘relax’: {…}, ‘relax-freeze’: {…}}</p>
-</div></blockquote>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>potcar_setups</strong> (<em>dict</em><em> or </em><em>None</em>) – POTCAR setups to be used in VASP calculations
-e.g., {‘base’: ‘recommended’, ‘W’: ‘_sv’}</p></li>
-<li><p><strong>nstrains</strong> (<em>integer</em>) – number of strains to be applied</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
+  <section id="auto-kappa-vasp-relax-module">
+<h1>auto_kappa.vasp.relax module<a class="headerlink" href="#auto-kappa-vasp-relax-module" title="Link to this heading"></a></h1>
 </section>
 
 

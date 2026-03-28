@@ -6,9 +6,9 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>auto_kappa.alamode.compat module &mdash; auto-kappa 1.1.1 documentation</title>
+  <title>auto_kappa.alamode.compat module &mdash; auto-kappa unknown documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=7723fad5" />
@@ -17,9 +17,9 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=58fbf978"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/documentation_options.js?v=3f1b9271"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/js/theme.js"></script>
@@ -43,7 +43,7 @@
           </a>
 
           <div class="project-version">
-            ver. 1.1.1
+            ver. unknown
           </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -76,7 +76,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#module-auto_kappa">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#module-contents">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -110,118 +110,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-auto_kappa.alamode.compat">
-<span id="auto-kappa-alamode-compat-module"></span><h1>auto_kappa.alamode.compat module<a class="headerlink" href="#module-auto_kappa.alamode.compat" title="Link to this heading"></a></h1>
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.alamode.compat.adjust_keys_of_suggested_structures">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.alamode.compat.</span></span><span class="sig-name descname"><span class="pre">adjust_keys_of_suggested_structures</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_structures</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outdir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nprocs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.alamode.compat.adjust_keys_of_suggested_structures" title="Link to this definition"></a></dt>
-<dd><p>Sort the suggested structures and their displacement patterns
-to align with those from the previous version.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>new_structures</strong> (<em>dict</em>) – The new structures</p></li>
-<li><p><strong>outdir</strong> (<em>str</em>) – The output directory where the previous structures are stored.</p></li>
-<li><p><strong>tolerance</strong> (<em>float</em>) – The tolerance for the distance between the new and previous structures.</p></li>
-<li><p><strong>mag</strong> (<em>float</em>) – The magnitude of the atom displacement.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.alamode.compat.backup_previous_results">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.alamode.compat.</span></span><span class="sig-name descname"><span class="pre">backup_previous_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">propt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.alamode.compat.backup_previous_results" title="Link to this definition"></a></dt>
-<dd><p>Backup the previous results for ALAMODE in directory.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.alamode.compat.check_directory_name_for_pristine">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.alamode.compat.</span></span><span class="sig-name descname"><span class="pre">check_directory_name_for_pristine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path_force</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pristine</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.alamode.compat.check_directory_name_for_pristine" title="Link to this definition"></a></dt>
-<dd><p>Check the directory name for the pristine structure.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>dir_force</strong> (<em>str</em>) – The directory name for the force calculation.</p></li>
-<li><p><strong>pristine</strong> (<em>ase.Atoms</em>) – The pristine structure.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.alamode.compat.check_previous_borninfo">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.alamode.compat.</span></span><span class="sig-name descname"><span class="pre">check_previous_borninfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_work</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">born_xml</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fc2xml</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fc3xml</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fcsxml</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.alamode.compat.check_previous_borninfo" title="Link to this definition"></a></dt>
-<dd><p>Check the previous BORNINFO file and update it if necessary.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.alamode.compat.check_previous_structures">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.alamode.compat.</span></span><span class="sig-name descname"><span class="pre">check_previous_structures</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outdirs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">primitive</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unitcell</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prim_mat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sc_mat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.alamode.compat.check_previous_structures" title="Link to this definition"></a></dt>
-<dd><p>Check the previous structures used for force and FCs calculations.
-If multiple structures are found, the first one is used.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>outdirs</strong> (<em>dict</em>) – The output directories for force and FCs calculations.</p></li>
-<li><p><strong>primitive</strong> (<em>ase.Atoms</em>) – The primitive cell.</p></li>
-<li><p><strong>unitcell</strong> (<em>ase.Atoms</em>) – The unit cell.</p></li>
-<li><p><strong>prim_mat</strong> (<em>array-like</em>) – The transformation matrix from the unit cell to the primitive cell with the Phonopy representation.</p></li>
-<li><p><strong>sc_mat</strong> (<em>array-like</em>) – The transformation matrix from the primitive cell to the supercell with the Phonopy representation.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.alamode.compat.get_number_of_same_structures">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.alamode.compat.</span></span><span class="sig-name descname"><span class="pre">get_number_of_same_structures</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">structures1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">structures2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.alamode.compat.get_number_of_same_structures" title="Link to this definition"></a></dt>
-<dd><p>Get the number of same structures.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>structures1</strong> (<em>dict</em>) – The first set of structures.</p></li>
-<li><p><strong>structures2</strong> (<em>dict</em>) – The second set of structures.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.alamode.compat.get_previously_calculated_structure">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.alamode.compat.</span></span><span class="sig-name descname"><span class="pre">get_previously_calculated_structure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_forces</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_pristine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.alamode.compat.get_previously_calculated_structure" title="Link to this definition"></a></dt>
-<dd><p>Get already calculated structures with displacement.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.alamode.compat.was_primitive_changed">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.alamode.compat.</span></span><span class="sig-name descname"><span class="pre">was_primitive_changed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">struct_tmp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol_prev</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol_new</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.alamode.compat.was_primitive_changed" title="Link to this definition"></a></dt>
-<dd><p>Check whether the primitive cell was changed.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>structure</strong> (<em>ase.Atoms</em>) – The structure to be checked.</p></li>
-<li><p><strong>tol_prev</strong> (<em>float</em>) – The tolerance for the previous version.</p></li>
-<li><p><strong>tol_new</strong> (<em>float</em>) – The tolerance for the new version.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.alamode.compat.was_tolerance_changed">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.alamode.compat.</span></span><span class="sig-name descname"><span class="pre">was_tolerance_changed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_prev</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.alamode.compat.was_tolerance_changed" title="Link to this definition"></a></dt>
-<dd><p>Check whether the new parameters are different from the previous ones.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>file_prev</strong> (<em>str</em>) – The name of the previous ALAMODE input file.</p></li>
-<li><p><strong>new_params</strong> (<em>dict</em>) – The new parameters to be compared with the previous ones.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
+  <section id="auto-kappa-alamode-compat-module">
+<h1>auto_kappa.alamode.compat module<a class="headerlink" href="#auto-kappa-alamode-compat-module" title="Link to this heading"></a></h1>
 </section>
 
 

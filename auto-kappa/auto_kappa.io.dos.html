@@ -6,9 +6,9 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>auto_kappa.io.dos module &mdash; auto-kappa 1.1.1 documentation</title>
+  <title>auto_kappa.io.dos module &mdash; auto-kappa unknown documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=7723fad5" />
@@ -17,9 +17,9 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=58fbf978"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/documentation_options.js?v=3f1b9271"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/js/theme.js"></script>
@@ -43,7 +43,7 @@
           </a>
 
           <div class="project-version">
-            ver. 1.1.1
+            ver. unknown
           </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -76,7 +76,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#module-auto_kappa">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#module-contents">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -110,134 +110,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-auto_kappa.io.dos">
-<span id="auto-kappa-io-dos-module"></span><h1>auto_kappa.io.dos module<a class="headerlink" href="#module-auto_kappa.io.dos" title="Link to this heading"></a></h1>
-<dl class="py class">
-<dt class="sig sig-object py" id="auto_kappa.io.dos.Dos">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">auto_kappa.io.dos.</span></span><span class="sig-name descname"><span class="pre">Dos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.io.dos.Dos" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<section id="variables">
-<h2>Variables<a class="headerlink" href="#variables" title="Link to this heading"></a></h2>
-<dl class="simple">
-<dt>nfreq<span class="classifier">integer</span></dt><dd><p># of frequency points</p>
-</dd>
-<dt>frequencies<span class="classifier">array, float, shape=(nfreq)</span></dt><dd><p>frequencies</p>
-</dd>
-<dt>dos<span class="classifier">array, float, shape=(nfreq)</span></dt><dd><p>total DOS</p>
-</dd>
-<dt>dos_atom<span class="classifier">ndarray, float, shape=(nfreq, nat)</span></dt><dd><p>Atom projected DOS</p>
-</dd>
-<dt>elements<span class="classifier">array, string, shape=(nel)</span></dt><dd><p>elements</p>
-</dd>
-<dt>nat_el<span class="classifier">array, integer, shape=(nel)</span></dt><dd><p># of atoms for each element</p>
-</dd>
-</dl>
-<dl class="py property">
-<dt class="sig sig-object py" id="auto_kappa.io.dos.Dos.elem_natoms">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">elem_natoms</span></span><a class="headerlink" href="#auto_kappa.io.dos.Dos.elem_natoms" title="Link to this definition"></a></dt>
-<dd><p>Number of atoms for each element</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="auto_kappa.io.dos.Dos.filename">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">filename</span></span><a class="headerlink" href="#auto_kappa.io.dos.Dos.filename" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="auto_kappa.io.dos.Dos.natoms">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">natoms</span></span><a class="headerlink" href="#auto_kappa.io.dos.Dos.natoms" title="Link to this definition"></a></dt>
-<dd><p>Number of atoms in a primitive cell</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="auto_kappa.io.dos.Dos.nelems">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">nelems</span></span><a class="headerlink" href="#auto_kappa.io.dos.Dos.nelems" title="Link to this definition"></a></dt>
-<dd><p>Number of elements</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="auto_kappa.io.dos.Dos.nfreq">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">nfreq</span></span><a class="headerlink" href="#auto_kappa.io.dos.Dos.nfreq" title="Link to this definition"></a></dt>
-<dd><p>Number of frequency points</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="auto_kappa.io.dos.Dos.plot">
-<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_pdos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rotate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_legend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linestyle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'-'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'black'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lw</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frac_lw</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Frequency</span> <span class="pre">(${\\rm</span> <span class="pre">cm^{-1}}$)'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'DOS</span> <span class="pre">(a.u.)'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.io.dos.Dos.plot" title="Link to this definition"></a></dt>
-<dd><p>Plot total DOS and atom projected DOS.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="auto_kappa.io.dos.Dos.plot_pdos">
-<span class="sig-name descname"><span class="pre">plot_pdos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linestyle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'-'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lw</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rotate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.io.dos.Dos.plot_pdos" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="auto_kappa.io.dos.Dos.read_file">
-<span class="sig-name descname"><span class="pre">read_file</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.io.dos.Dos.read_file" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</section>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.io.dos.get_dos">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.io.dos.</span></span><span class="sig-name descname"><span class="pre">get_dos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.io.dos.get_dos" title="Link to this definition"></a></dt>
-<dd><p>Read DOS file with atom projected DOS.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>filename</strong> (<em>string</em>) – DOS file name (.dos file generated by Alamode)</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><ul class="simple">
-<li><p><strong>dos_total</strong> (<em>array, float, shape=(nfreq)</em>) – Total DOS</p></li>
-<li><p><strong>dos_atom</strong> (<em>ndarray, float, shape=(nfreq, nat)</em>) – Atom projected DOS</p></li>
-</ul>
-</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.io.dos.get_elements">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.io.dos.</span></span><span class="sig-name descname"><span class="pre">get_elements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.io.dos.get_elements" title="Link to this definition"></a></dt>
-<dd><p>Read atomic species and number of atoms for each element from DOS file.
-(The 1st and 2nd lines of .dos file)</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>filename</strong> (<em>string</em>) – DOS file name (.dos file generated by Alamode)</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>elem_natoms</strong> – Dictionary with elements as keys and number of atoms
-for each element as values</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>dict</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.io.dos.get_nfreq">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.io.dos.</span></span><span class="sig-name descname"><span class="pre">get_nfreq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dfile</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.io.dos.get_nfreq" title="Link to this definition"></a></dt>
-<dd><p>Get number of frequencies</p>
-<section id="parameter">
-<h2>Parameter<a class="headerlink" href="#parameter" title="Link to this heading"></a></h2>
-<dl class="simple">
-<dt>dfile<span class="classifier">string</span></dt><dd><p>DOS file name</p>
-</dd>
-</dl>
-<dl class="field-list simple">
-<dt class="field-odd">returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>nline</strong> – # of frequencies</p>
-</dd>
-<dt class="field-even">rtype<span class="colon">:</span></dt>
-<dd class="field-even"><p>integer</p>
-</dd>
-</dl>
-</section>
-</dd></dl>
-
+  <section id="auto-kappa-io-dos-module">
+<h1>auto_kappa.io.dos module<a class="headerlink" href="#auto-kappa-io-dos-module" title="Link to this heading"></a></h1>
 </section>
 
 

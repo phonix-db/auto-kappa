@@ -6,9 +6,9 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>auto_kappa.io.phonondb module &mdash; auto-kappa 1.1.1 documentation</title>
+  <title>auto_kappa.io.phonondb module &mdash; auto-kappa unknown documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=7723fad5" />
@@ -17,9 +17,9 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=58fbf978"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/documentation_options.js?v=3f1b9271"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/js/theme.js"></script>
@@ -43,7 +43,7 @@
           </a>
 
           <div class="project-version">
-            ver. 1.1.1
+            ver. unknown
           </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -76,7 +76,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#module-auto_kappa">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#module-contents">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -110,113 +110,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-auto_kappa.io.phonondb">
-<span id="auto-kappa-io-phonondb-module"></span><h1>auto_kappa.io.phonondb module<a class="headerlink" href="#module-auto_kappa.io.phonondb" title="Link to this heading"></a></h1>
-<dl class="py class">
-<dt class="sig sig-object py" id="auto_kappa.io.phonondb.Phonondb">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">auto_kappa.io.phonondb.</span></span><span class="sig-name descname"><span class="pre">Phonondb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.io.phonondb.Phonondb" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Read files in phonondb
-:param mode: “relax”, “force”, “nac”, …
-:type mode: string</p>
-<dl class="py property">
-<dt class="sig sig-object py" id="auto_kappa.io.phonondb.Phonondb.filenames">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">filenames</span></span><a class="headerlink" href="#auto_kappa.io.phonondb.Phonondb.filenames" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="auto_kappa.io.phonondb.Phonondb.filenames_as_dict">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">filenames_as_dict</span></span><a class="headerlink" href="#auto_kappa.io.phonondb.Phonondb.filenames_as_dict" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="auto_kappa.io.phonondb.Phonondb.get_kpoints">
-<span class="sig-name descname"><span class="pre">get_kpoints</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.io.phonondb.Phonondb.get_kpoints" title="Link to this definition"></a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>kpoints</strong></p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>Kpoints obj for the given mode</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="auto_kappa.io.phonondb.Phonondb.get_primitive">
-<span class="sig-name descname"><span class="pre">get_primitive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'phonopy'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.io.phonondb.Phonondb.get_primitive" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="auto_kappa.io.phonondb.Phonondb.get_supercell">
-<span class="sig-name descname"><span class="pre">get_supercell</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'phonopy'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.io.phonondb.Phonondb.get_supercell" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="auto_kappa.io.phonondb.Phonondb.get_unitcell">
-<span class="sig-name descname"><span class="pre">get_unitcell</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'phonopy'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.io.phonondb.Phonondb.get_unitcell" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="auto_kappa.io.phonondb.Phonondb.nac">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">nac</span></span><a class="headerlink" href="#auto_kappa.io.phonondb.Phonondb.nac" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="auto_kappa.io.phonondb.Phonondb.phonon">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">phonon</span></span><a class="headerlink" href="#auto_kappa.io.phonondb.Phonondb.phonon" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="auto_kappa.io.phonondb.Phonondb.primitive">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">primitive</span></span><a class="headerlink" href="#auto_kappa.io.phonondb.Phonondb.primitive" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="auto_kappa.io.phonondb.Phonondb.primitive_matrix">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">primitive_matrix</span></span><a class="headerlink" href="#auto_kappa.io.phonondb.Phonondb.primitive_matrix" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="auto_kappa.io.phonondb.Phonondb.scell_matrix">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">scell_matrix</span></span><a class="headerlink" href="#auto_kappa.io.phonondb.Phonondb.scell_matrix" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="auto_kappa.io.phonondb.Phonondb.supercell">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">supercell</span></span><a class="headerlink" href="#auto_kappa.io.phonondb.Phonondb.supercell" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="auto_kappa.io.phonondb.Phonondb.unitcell">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">unitcell</span></span><a class="headerlink" href="#auto_kappa.io.phonondb.Phonondb.unitcell" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.io.phonondb.read_forcesets">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.io.phonondb.</span></span><span class="sig-name descname"><span class="pre">read_forcesets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.io.phonondb.read_forcesets" title="Link to this definition"></a></dt>
-<dd><p>Read and return data in <code class="docutils literal notranslate"><span class="pre">FORCE_SETS</span></code> in phonondb</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.io.phonondb.read_phonopy_conf">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.io.phonondb.</span></span><span class="sig-name descname"><span class="pre">read_phonopy_conf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.io.phonondb.read_phonopy_conf" title="Link to this definition"></a></dt>
-<dd><p>Read phonopy.conf in phonondb
-:param filename:
-:type filename: string, phonopy.conf</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><ul class="simple">
-<li><p><strong>sc_mat</strong> (<em>shape=(3,3), int</em>)</p></li>
-<li><p><strong>prim_mat</strong> (<em>shape=(3,3), flaot</em>) – default: identity matrix</p></li>
-</ul>
-</p>
-</dd>
-</dl>
-</dd></dl>
-
+  <section id="auto-kappa-io-phonondb-module">
+<h1>auto_kappa.io.phonondb module<a class="headerlink" href="#auto-kappa-io-phonondb-module" title="Link to this heading"></a></h1>
 </section>
 
 

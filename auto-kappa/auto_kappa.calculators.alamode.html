@@ -6,9 +6,9 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>auto_kappa.calculators.alamode module &mdash; auto-kappa 1.1.1 documentation</title>
+  <title>auto_kappa.calculators.alamode module &mdash; auto-kappa unknown documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=7723fad5" />
@@ -17,9 +17,9 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=58fbf978"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/documentation_options.js?v=3f1b9271"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/js/theme.js"></script>
@@ -43,7 +43,7 @@
           </a>
 
           <div class="project-version">
-            ver. 1.1.1
+            ver. unknown
           </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -76,7 +76,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#module-auto_kappa">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#module-contents">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -110,93 +110,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-auto_kappa.calculators.alamode">
-<span id="auto-kappa-calculators-alamode-module"></span><h1>auto_kappa.calculators.alamode module<a class="headerlink" href="#module-auto_kappa.calculators.alamode" title="Link to this heading"></a></h1>
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.calculators.alamode.analyze_harmonic_properties">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.calculators.alamode.</span></span><span class="sig-name descname"><span class="pre">analyze_harmonic_properties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">almcalc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calculator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_log</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_num_corrections</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deltak</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reciprocal_density</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">negative_freq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params_nac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'apdb':</span> <span class="pre">None,</span> <span class="pre">'kpts':</span> <span class="pre">None}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.calculators.alamode.analyze_harmonic_properties" title="Link to this definition"></a></dt>
-<dd><p>Analyze harmonic FCs and phonon properties.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>almcalc</strong> (<em>AlamodeCalc obj</em>)</p></li>
-<li><p><strong>calculator</strong> (<em>ASE calculator for VASP</em>)</p></li>
-<li><p><strong>deltak</strong> (<em>float</em>) – resolution of phonon dispersion</p></li>
-<li><p><strong>reciprocal_density</strong> (<em>float</em>) – resolution of DOS</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.calculators.alamode.analyze_harmonic_with_larger_supercells">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.calculators.alamode.</span></span><span class="sig-name descname"><span class="pre">analyze_harmonic_with_larger_supercells</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">almcalc_orig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vasp_config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_natoms_init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta_max_natoms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_loop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">negative_freq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">restart</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.calculators.alamode.analyze_harmonic_with_larger_supercells" title="Link to this definition"></a></dt>
-<dd><p>Analyze harmonic properties with larger supercell(s)</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.calculators.alamode.analyze_phonon_properties">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.calculators.alamode.</span></span><span class="sig-name descname"><span class="pre">analyze_phonon_properties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">almcalc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calc_force</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">negative_freq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_log</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">harmonic_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calc_kappa</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nmax_suggest</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frac_nrandom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params_nac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'apdb':</span> <span class="pre">None,</span> <span class="pre">'kpts':</span> <span class="pre">None}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kdensities_for_kappa</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scph</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">disp_temp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frac_nrandom_higher</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scph_temperatures</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'kappa':</span> <span class="pre">300,</span> <span class="pre">'scph':</span> <span class="pre">array([100,</span> <span class="pre">200,</span> <span class="pre">300,</span> <span class="pre">400,</span> <span class="pre">500,</span> <span class="pre">600,</span> <span class="pre">700,</span> <span class="pre">800,</span> <span class="pre">900,</span> <span class="pre">1000])}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">four</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frac_kdensity_4ph</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.calculators.alamode.analyze_phonon_properties" title="Link to this definition"></a></dt>
-<dd><p>Analyze phonon properties</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>almcalc</strong> (<a class="reference internal" href="auto_kappa.alamode.almcalc.html#auto_kappa.alamode.almcalc.AlamodeCalc" title="auto_kappa.alamode.almcalc.AlamodeCalc"><em>auto_kappa.alamode.almcalc.AlamodeCalc</em></a>)</p></li>
-<li><p><strong>calc_force</strong> (<em>ase.calculators.vasp.vasp.Vasp</em>)</p></li>
-<li><p><strong>negative_freq</strong> (<em>float</em>) – threshold for negative frequency</p></li>
-<li><p><strong>harmonic_only</strong> (<em>int</em><em>, </em><em>0</em>) – 0 : stop the calculation after harmonic properties are calculated.</p></li>
-<li><p><strong>calc_kappa</strong> (<em>bool</em>) – Calculate thermal conductivity (True) or not (False)</p></li>
-<li><p><strong>nmax_suggest</strong> (<em>int</em>) – Maximum number of suggested partterns for finite displacement method. If
-the number exceeds this value, LASSO is used for cubic FCs.</p></li>
-<li><p><strong>frac_nrandom</strong> (<em>int</em>) – Coefficient to determine the number of random patterns for LASSO.</p></li>
-<li><p><strong>params_nac</strong> (<em>dict</em>) – parameters for NAC calculation.
-<code class="docutils literal notranslate"><span class="pre">params_nac[apdb]</span></code>: auto_kappa.apdb.ApdbVasp</p></li>
-<li><p><strong>scph</strong> (<em>int</em>) – Self-consistent phonon approach is used (1) or not (0).</p></li>
-<li><p><strong>disp_temp</strong> (<em>float</em><em>, </em><em>500</em>) – temperature for random displacement</p></li>
-<li><p><strong>frac_nrandom_higher</strong> (<em>float</em><em>, </em><em>0.34</em>) – fractional number of random displacement patterns for high-order FCs</p></li>
-<li><p><strong>scph_temperatures</strong> (<em>float</em><em>, </em><em>[</em><em>100</em><em>, </em><em>200</em><em>, </em><em>...</em><em>, </em><em>1000</em><em>]</em>) – temperatures for SCPH</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">0</span></code> when the calculation was finished properly,
-<code class="docutils literal notranslate"><span class="pre">-1</span></code> when negative frequencies were found,</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>integer</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.calculators.alamode.analyze_phonon_properties_with_larger_supercells">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.calculators.alamode.</span></span><span class="sig-name descname"><span class="pre">analyze_phonon_properties_with_larger_supercells</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">almcalc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calc_force</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">negative_freq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_log</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">harmonic_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nmax_suggest</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frac_nrandom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vasp_config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_natoms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">300</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta_max_natoms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_loop_for_largesc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">restart</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frac_nrandom_higher</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">disp_temp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scph</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scph_temperatures</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'kappa':</span> <span class="pre">300,</span> <span class="pre">'scph':</span> <span class="pre">array([100,</span> <span class="pre">200,</span> <span class="pre">300,</span> <span class="pre">400,</span> <span class="pre">500,</span> <span class="pre">600,</span> <span class="pre">700,</span> <span class="pre">800,</span> <span class="pre">900,</span> <span class="pre">1000])}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">four</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frac_kdensity_4ph</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.13</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.calculators.alamode.analyze_phonon_properties_with_larger_supercells" title="Link to this definition"></a></dt>
-<dd><p>Analyze phonon properties with larger supercells</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.calculators.alamode.calculate_cubic_force_constants">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.calculators.alamode.</span></span><span class="sig-name descname"><span class="pre">calculate_cubic_force_constants</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">almcalc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calculator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nmax_suggest</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frac_nrandom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_log</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.calculators.alamode.calculate_cubic_force_constants" title="Link to this definition"></a></dt>
-<dd><p>Calculate cubic force constants</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.calculators.alamode.calculate_thermal_conductivities">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.calculators.alamode.</span></span><span class="sig-name descname"><span class="pre">calculate_thermal_conductivities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">almcalc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kdensities</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[500,</span> <span class="pre">1000,</span> <span class="pre">1500]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_log</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperatures_for_spectral</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'300:500'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calc_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cubic'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frac_kdensity_4ph</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.calculators.alamode.calculate_thermal_conductivities" title="Link to this definition"></a></dt>
-<dd><p>Calculate thermal conductivities and plot spectral info</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>almcalc</strong> (<em>AlamodeCalc obj</em>)</p></li>
-<li><p><strong>kdensities</strong> (<em>array</em><em> of </em><em>float</em>)</p></li>
-<li><p><strong>ignore_log</strong> (<em>bool</em>)</p></li>
-<li><p><strong>temperatures_for_spectral</strong> (<em>string</em><em> of </em><em>floats seperated by &quot;:&quot;</em>)</p></li>
-<li><p><strong>calc_type</strong> (<em>string</em>) – “cubic”, “scph”, “4phonon”, or “scph+4phonon”</p></li>
-<li><p><strong>kwargs</strong> (<em>dict</em>) – Parameters for ALAMODE</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
+  <section id="auto-kappa-calculators-alamode-module">
+<h1>auto_kappa.calculators.alamode module<a class="headerlink" href="#auto-kappa-calculators-alamode-module" title="Link to this heading"></a></h1>
 </section>
 
 

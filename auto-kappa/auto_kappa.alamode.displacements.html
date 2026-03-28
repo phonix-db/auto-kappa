@@ -6,9 +6,9 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>auto_kappa.alamode.displacements module &mdash; auto-kappa 1.1.1 documentation</title>
+  <title>auto_kappa.alamode.displacements module &mdash; auto-kappa unknown documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=7723fad5" />
@@ -17,9 +17,9 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=58fbf978"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/documentation_options.js?v=3f1b9271"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/js/theme.js"></script>
@@ -43,7 +43,7 @@
           </a>
 
           <div class="project-version">
-            ver. 1.1.1
+            ver. unknown
           </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -76,7 +76,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#module-auto_kappa">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#module-contents">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -110,42 +110,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-auto_kappa.alamode.displacements">
-<span id="auto-kappa-alamode-displacements-module"></span><h1>auto_kappa.alamode.displacements module<a class="headerlink" href="#module-auto_kappa.alamode.displacements" title="Link to this heading"></a></h1>
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.alamode.displacements.adjust_random_displacements">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.alamode.displacements.</span></span><span class="sig-name descname"><span class="pre">adjust_random_displacements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">structure</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">displacements</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_abs_disp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_rel_disp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.alamode.displacements.adjust_random_displacements" title="Link to this definition"></a></dt>
-<dd><p>Adjust random displacements to be within the specified limits.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>structure</strong> (<em>ase.Atoms</em>) – The pristine supercell structure</p></li>
-<li><p><strong>displacements</strong> (<em>np.ndarray</em><em>, </em><em>shape=</em><em>(</em><em>N</em><em>, </em><em>3</em><em>)</em>) – The array of displacements to be adjusted.</p></li>
-<li><p><strong>max_abs_disp</strong> (<em>float</em><em>, </em><em>optional</em>) – The maximum absolute displacement allowed. Default is 1.0.
-If None, only relative displacement is considered.</p></li>
-<li><p><strong>max_rel_disp</strong> (<em>float</em><em>, </em><em>optional</em>) – The maximum relative displacement allowed, as a fraction of the
-nearest neighbor distance. Default is 0.1 (10%).</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>adjusted_displacements</strong> – The adjusted displacements within the specified limits.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>np.ndarray, shape=(N, 3)</p>
-</dd>
-</dl>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>disp_max = min(max_abs_disp, max_rel_disp * nearest_neighbor_distance)</p>
-</div>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.alamode.displacements.generate_displaced_structures">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.alamode.displacements.</span></span><span class="sig-name descname"><span class="pre">generate_displaced_structures</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">structure</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">all_disps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">structures</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.alamode.displacements.generate_displaced_structures" title="Link to this definition"></a></dt>
-<dd><p>Generate displaced structures from the given displacements.</p>
-</dd></dl>
-
+  <section id="auto-kappa-alamode-displacements-module">
+<h1>auto_kappa.alamode.displacements module<a class="headerlink" href="#auto-kappa-alamode-displacements-module" title="Link to this heading"></a></h1>
 </section>
 
 

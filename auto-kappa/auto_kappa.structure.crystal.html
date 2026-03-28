@@ -6,9 +6,9 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>auto_kappa.structure.crystal module &mdash; auto-kappa 1.1.1 documentation</title>
+  <title>auto_kappa.structure.crystal module &mdash; auto-kappa unknown documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=7723fad5" />
@@ -17,9 +17,9 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=58fbf978"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/documentation_options.js?v=3f1b9271"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/js/theme.js"></script>
@@ -43,7 +43,7 @@
           </a>
 
           <div class="project-version">
-            ver. 1.1.1
+            ver. unknown
           </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -76,7 +76,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#module-auto_kappa">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#module-contents">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -110,158 +110,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-auto_kappa.structure.crystal">
-<span id="auto-kappa-structure-crystal-module"></span><h1>auto_kappa.structure.crystal module<a class="headerlink" href="#module-auto_kappa.structure.crystal" title="Link to this heading"></a></h1>
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.structure.crystal.get_atomic_distance_list">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.structure.crystal.</span></span><span class="sig-name descname"><span class="pre">get_atomic_distance_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">structure</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-05</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.structure.crystal.get_atomic_distance_list" title="Link to this definition"></a></dt>
-<dd><p>Get unique atomic distances</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.structure.crystal.get_automatic_kmesh">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.structure.crystal.</span></span><span class="sig-name descname"><span class="pre">get_automatic_kmesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">struct_init</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reciprocal_density</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1500</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'reciprocal_density'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.structure.crystal.get_automatic_kmesh" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.structure.crystal.get_commensurate_points">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.structure.crystal.</span></span><span class="sig-name descname"><span class="pre">get_commensurate_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">supercell_matrix</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.structure.crystal.get_commensurate_points" title="Link to this definition"></a></dt>
-<dd><p>Get commensurate q-points.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>supercell_matrix</strong> (<em>ndarray</em><em>, </em><em>int</em><em>, </em><em>shape=</em><em>(</em><em>3</em><em>,</em><em>3</em><em>)</em>) – supercell matrix with respect to the primitive cell</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>q_pos</strong> – shape=(N, 3), N = det(supercell_matrix).
-Commensurate q-points</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>ndarray, float</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.structure.crystal.get_formula">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.structure.crystal.</span></span><span class="sig-name descname"><span class="pre">get_formula</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">str_orig</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.structure.crystal.get_formula" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.structure.crystal.get_primitive_structure_spglib">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.structure.crystal.</span></span><span class="sig-name descname"><span class="pre">get_primitive_structure_spglib</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">structure</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ase'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.structure.crystal.get_primitive_structure_spglib" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.structure.crystal.get_spg_number">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.structure.crystal.</span></span><span class="sig-name descname"><span class="pre">get_spg_number</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">str_orig</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.structure.crystal.get_spg_number" title="Link to this definition"></a></dt>
-<dd><p>Return the international space group number</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.structure.crystal.get_standardized_structure">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.structure.crystal.</span></span><span class="sig-name descname"><span class="pre">get_standardized_structure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">struct_orig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_primitive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ase'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'spglib'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.structure.crystal.get_standardized_structure" title="Link to this definition"></a></dt>
-<dd><p>Get a standardized cell shape and return its structure</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>structure</strong> (<em>ase</em><em>, </em><em>phonopy</em><em>, </em><em>pymatgen</em><em>, </em><em>...</em>)</p></li>
-<li><p><strong>version</strong> (<em>string</em><em>, </em><em>'new'</em><em> or </em><em>'old'</em>) – If ‘old’, spglib is used.
-If ‘new’, pymatgen is used.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.structure.crystal.get_standardized_structure_spglib">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.structure.crystal.</span></span><span class="sig-name descname"><span class="pre">get_standardized_structure_spglib</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">struct_orig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_primitive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ase'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.structure.crystal.get_standardized_structure_spglib" title="Link to this definition"></a></dt>
-<dd><p>Get a standardized cell shape with spglib and return its structure</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>structure</strong> (<em>ase</em><em>, </em><em>phonopy</em><em>, </em><em>pymatgen</em><em>, </em><em>...</em>)</p></li>
-<li><p><strong>version</strong> (<em>string</em><em>, </em><em>'new'</em><em> or </em><em>'old'</em>) – If ‘old’, spglib is used.
-If ‘new’, pymatgen is used.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.structure.crystal.get_supercell">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.structure.crystal.</span></span><span class="sig-name descname"><span class="pre">get_supercell</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">structure</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transformation_matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ase'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.structure.crystal.get_supercell" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.structure.crystal.get_symmetry_dataset">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.structure.crystal.</span></span><span class="sig-name descname"><span class="pre">get_symmetry_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">str_orig</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.structure.crystal.get_symmetry_dataset" title="Link to this definition"></a></dt>
-<dd><p>Return the international space group number</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.structure.crystal.get_transformation_matrix_prim2scell">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.structure.crystal.</span></span><span class="sig-name descname"><span class="pre">get_transformation_matrix_prim2scell</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">primitive_matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scell_matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.structure.crystal.get_transformation_matrix_prim2scell" title="Link to this definition"></a></dt>
-<dd><p>Get the transformation matrix from primitive cell to supercell.
-Every matrix is in the Phonopy representation.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>primitive_matrix</strong> (<em>ndarray</em><em>, </em><em>int</em><em>, </em><em>shape=</em><em>(</em><em>3</em><em>,</em><em>3</em><em>)</em>) – transformation matrix from unitcell to primitive cell</p></li>
-<li><p><strong>scell_matrix</strong> (<em>ndarray</em><em>, </em><em>int</em><em>, </em><em>shape=</em><em>(</em><em>3</em><em>,</em><em>3</em><em>)</em>) – transformation matrix from unitcell to supercell</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>mat_p2s</strong> – transformation matrix from primitive cell to supercell</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>ndarray, int, shape=(3,3)</p>
-</dd>
-</dl>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>scell_matrix = primitive_matrix &#64; mat_p2s
-mat_p2s = inv(primitive_matrix) &#64; scell_matrix</p>
-</div>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.structure.crystal.inverse_transformation">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.structure.crystal.</span></span><span class="sig-name descname"><span class="pre">inverse_transformation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">supercell</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sc_mat</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.structure.crystal.inverse_transformation" title="Link to this definition"></a></dt>
-<dd><p>Get the small cell (e.g. unitcell) from the supercell and the transformation matrix
-from the small cell to the supercell.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>supercell</strong> (<em>ase.Atoms</em>) – The supercell structure.</p></li>
-<li><p><strong>sc_mat</strong> (<em>array-like</em>) – The transformation matrix from the small cell to the supercell with the Phonopy representation.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>Atoms</em></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.structure.crystal.transform_prim2unit">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.structure.crystal.</span></span><span class="sig-name descname"><span class="pre">transform_prim2unit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">primitive</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">primitive_matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ase'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.structure.crystal.transform_prim2unit" title="Link to this definition"></a></dt>
-<dd><p>Get the unitcell from the primitive cell and the transformation matrix
-from the unitcell to the primitive cell.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>primitive</strong> (<em>ase.Atoms</em>) – The primitive structure.</p></li>
-<li><p><strong>primitive_matrix</strong> (<em>array-like</em>) – The transformation matrix from the unitcell to the primitive cell with the Phonopy representation.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.structure.crystal.transform_unit2prim">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.structure.crystal.</span></span><span class="sig-name descname"><span class="pre">transform_unit2prim</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unitcell</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">primitive_matrix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ase'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.structure.crystal.transform_unit2prim" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
+  <section id="auto-kappa-structure-crystal-module">
+<h1>auto_kappa.structure.crystal module<a class="headerlink" href="#auto-kappa-structure-crystal-module" title="Link to this heading"></a></h1>
 </section>
 
 

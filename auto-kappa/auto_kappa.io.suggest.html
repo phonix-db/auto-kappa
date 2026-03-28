@@ -6,9 +6,9 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>auto_kappa.io.suggest module &mdash; auto-kappa 1.1.1 documentation</title>
+  <title>auto_kappa.io.suggest module &mdash; auto-kappa unknown documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=7723fad5" />
@@ -17,9 +17,9 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=58fbf978"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/documentation_options.js?v=3f1b9271"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/js/theme.js"></script>
@@ -43,7 +43,7 @@
           </a>
 
           <div class="project-version">
-            ver. 1.1.1
+            ver. unknown
           </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -76,7 +76,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#module-auto_kappa">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#module-contents">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -110,162 +110,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-auto_kappa.io.suggest">
-<span id="auto-kappa-io-suggest-module"></span><h1>auto_kappa.io.suggest module<a class="headerlink" href="#module-auto_kappa.io.suggest" title="Link to this heading"></a></h1>
-<dl class="py class">
-<dt class="sig sig-object py" id="auto_kappa.io.suggest.Pattern">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">auto_kappa.io.suggest.</span></span><span class="sig-name descname"><span class="pre">Pattern</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">structure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.io.suggest.Pattern" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Class to handle “.pattern_{HARMONIC/ANHARM*}” files</p>
-<section id="how-to-use">
-<h2>How to use<a class="headerlink" href="#how-to-use" title="Link to this heading"></a></h2>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">auto_kappa.io.alm</span><span class="w"> </span><span class="kn">import</span> <span class="n">read_structure_from_file</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">structure</span> <span class="o">=</span> <span class="n">read_structure_from_file</span><span class="p">(</span><span class="s2">&quot;suggest.in&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">auto_kappa.io.suggest</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pattern</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">pattern</span> <span class="o">=</span> <span class="n">Pattern</span><span class="p">(</span><span class="s1">&#39;Si.pattern_ANHARM3&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">pattern</span><span class="o">.</span><span class="n">set_structure</span><span class="p">(</span><span class="n">structure</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mag</span> <span class="o">=</span> <span class="mf">0.03</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">pattern</span><span class="o">.</span><span class="n">get_displacements</span><span class="p">(</span><span class="n">mag</span><span class="o">=</span><span class="n">mag</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">pattern</span><span class="o">.</span><span class="n">get_suggested_structures</span><span class="p">(</span><span class="n">mag</span><span class="o">=</span><span class="n">mag</span><span class="p">)</span>
-</pre></div>
-</div>
-<dl class="py property">
-<dt class="sig sig-object py" id="auto_kappa.io.suggest.Pattern.filename">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">filename</span></span><a class="headerlink" href="#auto_kappa.io.suggest.Pattern.filename" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="auto_kappa.io.suggest.Pattern.get_displacements">
-<span class="sig-name descname"><span class="pre">get_displacements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.io.suggest.Pattern.get_displacements" title="Link to this definition"></a></dt>
-<dd><p>Get displacement patterns from the structure.
-:param mag: Magnitude of the displacement with the unit of Angstrom.
-:type mag: float</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="auto_kappa.io.suggest.Pattern.get_distances">
-<span class="sig-name descname"><span class="pre">get_distances</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.io.suggest.Pattern.get_distances" title="Link to this definition"></a></dt>
-<dd><p>Get distances between displaced atoms. When multiple atoms are displaced,
-the maximum atomic distance is used.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="auto_kappa.io.suggest.Pattern.get_suggested_structures">
-<span class="sig-name descname"><span class="pre">get_suggested_structures</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.io.suggest.Pattern.get_suggested_structures" title="Link to this definition"></a></dt>
-<dd><p>Get suggested structures from the displacement patterns.
-:param mag: Magnitude of the displacement with the unit of Angstrom.
-:type mag: float</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="auto_kappa.io.suggest.Pattern.patterns">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">patterns</span></span><a class="headerlink" href="#auto_kappa.io.suggest.Pattern.patterns" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="auto_kappa.io.suggest.Pattern.print_patterns">
-<span class="sig-name descname"><span class="pre">print_patterns</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.io.suggest.Pattern.print_patterns" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="auto_kappa.io.suggest.Pattern.set_pattern_info">
-<span class="sig-name descname"><span class="pre">set_pattern_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.io.suggest.Pattern.set_pattern_info" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="auto_kappa.io.suggest.Pattern.set_structure">
-<span class="sig-name descname"><span class="pre">set_structure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">structure</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.io.suggest.Pattern.set_structure" title="Link to this definition"></a></dt>
-<dd><p>Set the pristine structure (supercell)</p>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="auto_kappa.io.suggest.Pattern.structure">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">structure</span></span><a class="headerlink" href="#auto_kappa.io.suggest.Pattern.structure" title="Link to this definition"></a></dt>
-<dd><p>Pristine structure (supercell)</p>
-</dd></dl>
-
-</section>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="auto_kappa.io.suggest.SuggestLogParser">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">auto_kappa.io.suggest.</span></span><span class="sig-name descname"><span class="pre">SuggestLogParser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.io.suggest.SuggestLogParser" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Parse the log file for “suggest” mode (suggest.log)</p>
-<section id="id1">
-<h2>How to use<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;suggest.log&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">suggest_log</span> <span class="o">=</span> <span class="n">SuggestLogParser</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">suggest_log</span><span class="o">.</span><span class="n">print_neighboring_info</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">suggest_log</span><span class="o">.</span><span class="n">get_neighboring_distances</span><span class="p">())</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">suggest_log</span><span class="o">.</span><span class="n">structure</span>
-</pre></div>
-</div>
-<dl class="py property">
-<dt class="sig sig-object py" id="auto_kappa.io.suggest.SuggestLogParser.contents">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">contents</span></span><a class="headerlink" href="#auto_kappa.io.suggest.SuggestLogParser.contents" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="auto_kappa.io.suggest.SuggestLogParser.filename">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">filename</span></span><a class="headerlink" href="#auto_kappa.io.suggest.SuggestLogParser.filename" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="auto_kappa.io.suggest.SuggestLogParser.get_neighboring_distances">
-<span class="sig-name descname"><span class="pre">get_neighboring_distances</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Ang'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.io.suggest.SuggestLogParser.get_neighboring_distances" title="Link to this definition"></a></dt>
-<dd><p>Get distances between neighboring atoms with the unit of Angstrom</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>unit</strong> (<em>string</em>) – “Angstrom” or “Bohr”</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A dictionary mapping atom names to their neighboring distances.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>dict</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="auto_kappa.io.suggest.SuggestLogParser.get_neighboring_info">
-<span class="sig-name descname"><span class="pre">get_neighboring_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.io.suggest.SuggestLogParser.get_neighboring_info" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="auto_kappa.io.suggest.SuggestLogParser.print_neighboring_info">
-<span class="sig-name descname"><span class="pre">print_neighboring_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Ang'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.io.suggest.SuggestLogParser.print_neighboring_info" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="auto_kappa.io.suggest.SuggestLogParser.set_neighboring_info">
-<span class="sig-name descname"><span class="pre">set_neighboring_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.io.suggest.SuggestLogParser.set_neighboring_info" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="auto_kappa.io.suggest.SuggestLogParser.space_group">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">space_group</span></span><a class="headerlink" href="#auto_kappa.io.suggest.SuggestLogParser.space_group" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="auto_kappa.io.suggest.SuggestLogParser.structure">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">structure</span></span><a class="headerlink" href="#auto_kappa.io.suggest.SuggestLogParser.structure" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</section>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.io.suggest.parse_neighbor_data">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.io.suggest.</span></span><span class="sig-name descname"><span class="pre">parse_neighbor_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.io.suggest.parse_neighbor_data" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.io.suggest.parse_suggest_log">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.io.suggest.</span></span><span class="sig-name descname"><span class="pre">parse_suggest_log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.io.suggest.parse_suggest_log" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
+  <section id="auto-kappa-io-suggest-module">
+<h1>auto_kappa.io.suggest module<a class="headerlink" href="#auto-kappa-io-suggest-module" title="Link to this heading"></a></h1>
 </section>
 
 

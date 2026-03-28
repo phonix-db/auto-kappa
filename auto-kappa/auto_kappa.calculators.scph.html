@@ -6,9 +6,9 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>auto_kappa.calculators.scph module &mdash; auto-kappa 1.1.1 documentation</title>
+  <title>auto_kappa.calculators.scph module &mdash; auto-kappa unknown documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=7723fad5" />
@@ -17,9 +17,9 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=58fbf978"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/documentation_options.js?v=3f1b9271"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/js/theme.js"></script>
@@ -43,7 +43,7 @@
           </a>
 
           <div class="project-version">
-            ver. 1.1.1
+            ver. unknown
           </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -76,7 +76,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#module-auto_kappa">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#module-contents">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -110,120 +110,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-auto_kappa.calculators.scph">
-<span id="auto-kappa-calculators-scph-module"></span><h1>auto_kappa.calculators.scph module<a class="headerlink" href="#module-auto_kappa.calculators.scph" title="Link to this heading"></a></h1>
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.calculators.scph.calculate_high_order_force_constants">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.calculators.scph.</span></span><span class="sig-name descname"><span class="pre">calculate_high_order_force_constants</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">almcalc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calculator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frac_nrandom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">disp_temp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.calculators.scph.calculate_high_order_force_constants" title="Link to this definition"></a></dt>
-<dd><p>Calculate high-order (up to 6th-order) force constants finally to
-calculate 4th order FCs for phonon renormalization.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.calculators.scph.conduct_scph_calculation">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.calculators.scph.</span></span><span class="sig-name descname"><span class="pre">conduct_scph_calculation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">almcalc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperatures</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">array([100,</span> <span class="pre">200,</span> <span class="pre">300,</span> <span class="pre">400,</span> <span class="pre">500,</span> <span class="pre">600,</span> <span class="pre">700,</span> <span class="pre">800,</span> <span class="pre">900,</span> <span class="pre">1000])</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fcsxml</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fc2xml</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mat_p2s_fcs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.calculators.scph.conduct_scph_calculation" title="Link to this definition"></a></dt>
-<dd><p>Conduct SCPH calculation and obtain effective harmonic FCs</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.calculators.scph.get_availabilities">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.calculators.scph.</span></span><span class="sig-name descname"><span class="pre">get_availabilities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">logfile</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.calculators.scph.get_availabilities" title="Link to this definition"></a></dt>
-<dd><p>Check if SCPH calculation is available for each temperature.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>logfile</strong> (<em>str</em>) – Log file of SCPH calculation.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>True if SCPH calculation is available, False otherwise.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>bool</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.calculators.scph.get_fmin_scph">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.calculators.scph.</span></span><span class="sig-name descname"><span class="pre">get_fmin_scph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.calculators.scph.get_fmin_scph" title="Link to this definition"></a></dt>
-<dd><p>Get the minimum frequency from SCPH bands.
-If temperature is specified, return the minimum frequency at that temperature.
-If temperature is not specified, return a dictionary with temperatures as keys
-and minimum frequencies as values.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>filename</strong> (<em>str</em>) – The filename of the SCPH bands file. (.scph_bands file)</p></li>
-<li><p><strong>logfile</strong> (<em>str</em><em>, </em><em>optional</em>) – The logfile of the SCPH calculation. If None, it will look for ‘scph</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.calculators.scph.get_kmesh_scph">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.calculators.scph.</span></span><span class="sig-name descname"><span class="pre">get_kmesh_scph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">primitive</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kmesh_interpolate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kdensity_limit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.calculators.scph.get_kmesh_scph" title="Link to this definition"></a></dt>
-<dd><p>Propose kmesh_scph based on kmesh_interpolate and kdensity_limit.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>kmesh_interpolate</strong> (<em>list</em><em> of </em><em>int</em>) – Proposed kmesh_interpolate for SCPH calculation.</p></li>
-<li><p><strong>kdensity_limit</strong> (<em>float</em>) – Minimum kdensity for SCPH calculation.</p></li>
-<li><p><strong>dim</strong> (<em>int</em>) – Dimension of the system (default: 3)</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Proposed kmesh_scph for SCPH calculation.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list of int</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.calculators.scph.get_sym_ops_from_pymatgen">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.calculators.scph.</span></span><span class="sig-name descname"><span class="pre">get_sym_ops_from_pymatgen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">primitive</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">symprec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-05</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.calculators.scph.get_sym_ops_from_pymatgen" title="Link to this definition"></a></dt>
-<dd><p>Get symmetry operations from a pymatgen Structure object.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.calculators.scph.is_diagonal_matrix">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.calculators.scph.</span></span><span class="sig-name descname"><span class="pre">is_diagonal_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.calculators.scph.is_diagonal_matrix" title="Link to this definition"></a></dt>
-<dd><p>Check if a given 3x3 matrix A is diagonal within a specified tolerance.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>A</strong> (<em>array-like</em>) – Input 3x3 matrix to be checked.</p></li>
-<li><p><strong>tol</strong> (<em>float</em>) – Tolerance for checking off-diagonal elements.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.calculators.scph.plot_scph_force_constants">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.calculators.scph.</span></span><span class="sig-name descname"><span class="pre">plot_scph_force_constants</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_work</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperatures</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_fc2_0K</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Distance</span> <span class="pre">(${\\rm</span> <span class="pre">\\AA}$)'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylabel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Eff.</span> <span class="pre">harm.</span> <span class="pre">FC</span> <span class="pre">(${\\rm</span> <span class="pre">eV/\\AA^2}$)'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aspect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dpi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">600</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.calculators.scph.plot_scph_force_constants" title="Link to this definition"></a></dt>
-<dd><p>Plot effective harmonic force constants obtained from SCPH calculation.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.calculators.scph.set_parameters_scph">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.calculators.scph.</span></span><span class="sig-name descname"><span class="pre">set_parameters_scph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">primitive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mat_p2s</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deltak</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kdensity_limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.calculators.scph.set_parameters_scph" title="Link to this definition"></a></dt>
-<dd><p>Set ALAMODE parameters for SCPH calculation.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>inp</strong> (<em>auto_kappa.io.AnphonInput</em>)</p></li>
-<li><p><strong>primitive</strong> (<em>primitive structure</em>)</p></li>
-<li><p><strong>mat_p2s</strong> (<em>3x3 integer matrix</em><em> (</em><em>list</em><em> or </em><em>numpy array</em><em>)</em>) – supercell matrix wrt primitive cell</p></li>
-<li><p><strong>deltak</strong> (<em>float</em><em>, </em><em>0.01</em>)</p></li>
-<li><p><strong>kdensity_limit</strong> (<em>array</em><em> of </em><em>float</em><em>,</em>) – minimum kdensity for SCPH calculation
-proposed kmesh_scph will be equal to or larger than this limit</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
+  <section id="auto-kappa-calculators-scph-module">
+<h1>auto_kappa.calculators.scph module<a class="headerlink" href="#auto-kappa-calculators-scph-module" title="Link to this heading"></a></h1>
 </section>
 
 

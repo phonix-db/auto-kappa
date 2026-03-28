@@ -6,9 +6,9 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>auto_kappa.calculators.kmesh_int module &mdash; auto-kappa 1.1.1 documentation</title>
+  <title>auto_kappa.calculators.kmesh_int module &mdash; auto-kappa unknown documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=7723fad5" />
@@ -17,9 +17,9 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=58fbf978"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/documentation_options.js?v=3f1b9271"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/js/theme.js"></script>
@@ -43,7 +43,7 @@
           </a>
 
           <div class="project-version">
-            ver. 1.1.1
+            ver. unknown
           </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -76,7 +76,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#module-auto_kappa">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#module-contents">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -110,34 +110,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-auto_kappa.calculators.kmesh_int">
-<span id="auto-kappa-calculators-kmesh-int-module"></span><h1>auto_kappa.calculators.kmesh_int module<a class="headerlink" href="#module-auto_kappa.calculators.kmesh_int" title="Link to this heading"></a></h1>
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.calculators.kmesh_int.get_kmesh_interpolate">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.calculators.kmesh_int.</span></span><span class="sig-name descname"><span class="pre">get_kmesh_interpolate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mat_p2s</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.calculators.kmesh_int.get_kmesh_interpolate" title="Link to this definition"></a></dt>
-<dd><p>Decide KMESH_INTERPOLATE from primitive_matrix (unit-&gt;prim) and
-supercell_matrix (unit-&gt;scell).</p>
-<dl class="simple">
-<dt>Strategy:</dt><dd><ol class="arabic simple">
-<li><p>M_p2s = inv(P) &#64; S  (primitive-&gt;supercell) must be (almost) integer</p></li>
-<li><p>KMESH_INTERPOLATE[i] = gcd of column i of M_p2s  (0 ignored)</p></li>
-<li><p>(optional) ensure kmesh_scph is a multiple of kmesh_interpolate</p></li>
-</ol>
-</dd>
-</dl>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>mat_p2s</strong> (<em>ndarray</em>)</p></li>
-<li><p><strong>tol</strong> (<em>float</em>)</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>list[int]</p>
-</dd>
-</dl>
-</dd></dl>
-
+  <section id="auto-kappa-calculators-kmesh-int-module">
+<h1>auto_kappa.calculators.kmesh_int module<a class="headerlink" href="#auto-kappa-calculators-kmesh-int-module" title="Link to this heading"></a></h1>
 </section>
 
 

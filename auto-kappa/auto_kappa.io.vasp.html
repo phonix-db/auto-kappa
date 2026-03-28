@@ -6,9 +6,9 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>auto_kappa.io.vasp module &mdash; auto-kappa 1.1.1 documentation</title>
+  <title>auto_kappa.io.vasp module &mdash; auto-kappa unknown documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=7723fad5" />
@@ -17,9 +17,9 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=58fbf978"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/documentation_options.js?v=3f1b9271"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/js/theme.js"></script>
@@ -43,7 +43,7 @@
           </a>
 
           <div class="project-version">
-            ver. 1.1.1
+            ver. unknown
           </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -76,7 +76,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#module-auto_kappa">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#module-contents">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -110,72 +110,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-auto_kappa.io.vasp">
-<span id="auto-kappa-io-vasp-module"></span><h1>auto_kappa.io.vasp module<a class="headerlink" href="#module-auto_kappa.io.vasp" title="Link to this heading"></a></h1>
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.io.vasp.get_dfset">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.io.vasp.</span></span><span class="sig-name descname"><span class="pre">get_dfset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset_xml</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fd2d</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.io.vasp.get_dfset" title="Link to this definition"></a></dt>
-<dd><p>Get dataset of displacements and forces from many vasprun.xml files.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>directory</strong> (<em>string</em>) – vasprun.xml can be found under ${directory}/*/
-while ${directory}/prist/vasprun.xml is ignored.</p></li>
-<li><p><strong>offset_xml</strong> (<em>string</em>) – vasprun.xml name for offset</p></li>
-<li><p><strong>outfile</strong> (<em>string</em>) – if given, dfset is saved.</p></li>
-<li><p><strong>nset</strong> (<em>int</em>) – Number of data set. If not given, all data will be read.</p></li>
-<li><p><strong>fd2d</strong> (<em>bool</em>) – If True, the displacement method was finite difference for 2D systems.
-The translational displacement is allowed along the out-of-plane direction.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.io.vasp.print_vasp_params">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.io.vasp.</span></span><span class="sig-name descname"><span class="pre">print_vasp_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.io.vasp.print_vasp_params" title="Link to this definition"></a></dt>
-<dd><p>print the contents of a dictionary</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.io.vasp.read_dfset">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.io.vasp.</span></span><span class="sig-name descname"><span class="pre">read_dfset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">natoms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nstructures</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.io.vasp.read_dfset" title="Link to this definition"></a></dt>
-<dd><p>Read DFSET with Alamode format and return displacements and forces.
-If natoms and nstrctures are set, size of matrices are determined with
-them.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.io.vasp.read_incar">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.io.vasp.</span></span><span class="sig-name descname"><span class="pre">read_incar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.io.vasp.read_incar" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.io.vasp.read_kpoints">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.io.vasp.</span></span><span class="sig-name descname"><span class="pre">read_kpoints</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.io.vasp.read_kpoints" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.io.vasp.read_outcar">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.io.vasp.</span></span><span class="sig-name descname"><span class="pre">read_outcar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.io.vasp.read_outcar" title="Link to this definition"></a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>filename</strong> (<em>string</em>) – path for OUTCAR</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.io.vasp.wasfinished">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.io.vasp.</span></span><span class="sig-name descname"><span class="pre">wasfinished</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'vasprun.xml'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.io.vasp.wasfinished" title="Link to this definition"></a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>directory</strong> (<em>string</em>) – Path for the directory to be checked. Note that the path should be that
-inside the tar.gz file when tar is not None.</p>
-</dd>
-</dl>
-</dd></dl>
-
+  <section id="auto-kappa-io-vasp-module">
+<h1>auto_kappa.io.vasp module<a class="headerlink" href="#auto-kappa-io-vasp-module" title="Link to this heading"></a></h1>
 </section>
 
 

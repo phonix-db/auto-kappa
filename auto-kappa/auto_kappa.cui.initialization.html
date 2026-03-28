@@ -6,9 +6,9 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>auto_kappa.cui.initialization module &mdash; auto-kappa 1.1.1 documentation</title>
+  <title>auto_kappa.cui.initialization module &mdash; auto-kappa unknown documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
       <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=7723fad5" />
@@ -17,9 +17,9 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=58fbf978"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/documentation_options.js?v=3f1b9271"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/js/theme.js"></script>
@@ -43,7 +43,7 @@
           </a>
 
           <div class="project-version">
-            ver. 1.1.1
+            ver. unknown
           </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -76,7 +76,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#module-auto_kappa">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#module-contents">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -110,100 +110,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-auto_kappa.cui.initialization">
-<span id="auto-kappa-cui-initialization-module"></span><h1>auto_kappa.cui.initialization module<a class="headerlink" href="#module-auto_kappa.cui.initialization" title="Link to this heading"></a></h1>
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.cui.initialization.get_base_directory_name">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.cui.initialization.</span></span><span class="sig-name descname"><span class="pre">get_base_directory_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">restart</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.cui.initialization.get_base_directory_name" title="Link to this definition"></a></dt>
-<dd><p>Return the base directory name with an absolute path</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.cui.initialization.get_previous_nac">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.cui.initialization.</span></span><span class="sig-name descname"><span class="pre">get_previous_nac</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_dir</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.cui.initialization.get_previous_nac" title="Link to this definition"></a></dt>
-<dd><p>Get previously-used NAC parameter. If it cannot be found, return None.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.cui.initialization.get_required_parameters">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.cui.initialization.</span></span><span class="sig-name descname"><span class="pre">get_required_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_directory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dir_phdb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_structure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_natoms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">celltype_relax_given</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.cui.initialization.get_required_parameters" title="Link to this definition"></a></dt>
-<dd><p>Return the required parameters for the automation calculation:
-structures, transformation matrices, and k-meshes.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>base_directory</strong> (<em>string</em>) – base output directory</p></li>
-<li><p><strong>dir_phdb</strong> (<em>string</em>) – Directory of Phonondb</p></li>
-<li><p><strong>file_structure</strong> (<em>string</em>) – structure file name. <code class="docutils literal notranslate"><span class="pre">dir_phdb</span></code> or <code class="docutils literal notranslate"><span class="pre">file_structure</span></code> must be given
-while, if both of them are given, <code class="docutils literal notranslate"><span class="pre">dir_phdb</span></code> is used.</p></li>
-<li><p><strong>max_natoms</strong><strong>(</strong><strong>3</strong><strong>)</strong> (<em>int</em>) – maximum limit of the number of atoms in the supercell for FC2(3)</p></li>
-<li><p><strong>k_length</strong> (<em>float</em>)</p></li>
-<li><p><strong>celltype_relax_given</strong> (<em>string</em>)</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><ul class="simple">
-<li><p><strong>structures</strong> (<em>dict of Structure obj.</em>) – keys=[“primitive”, “unitcell”, “supercell”, “supercell3”]</p></li>
-<li><p><strong>trans_matrices</strong> (<em>dict of arrays</em>) – keys=[“primitive”, “supercell”, “supercell3”]
-transformation matrices for the corresponding structures</p></li>
-<li><p><strong>kpts_suggested</strong> (<em>dict of arrays</em>) – keys=[“primitive”, “unitcell”, “supercell”, supercell3]
-kpoints suggested based on the given structures</p></li>
-<li><p><strong>kpts_prev</strong> (<em>dict of arrays</em>) – keys=[“relax”, “nac”, “harm”, “cube”]
-kpoints which have been used for previous calculations</p></li>
-</ul>
-</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.cui.initialization.read_parameters_from_phonondb">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.cui.initialization.</span></span><span class="sig-name descname"><span class="pre">read_parameters_from_phonondb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir_phdb</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k_length</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.cui.initialization.read_parameters_from_phonondb" title="Link to this definition"></a></dt>
-<dd><p>Read data in the given Phonondb directory and suggest parameters for FC3</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>For Phonondb, the conventional cell is used for both of the
-relaxation and NAC calculations. Auto-kappa, however, can accept
-different cell types while the default types are the conventional and
-primitive cells for the relaxation and NAC, respectively. Therefore,
-the k-meshes used for Phonondb basically will not be used for the
-automation calculation.</p>
-</div>
-<p class="rubric">Example</p>
-<p>The Phonondb data directory typically includes:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">BORN</span>           <span class="n">FORCE_SETS</span>       <span class="n">INCAR</span><span class="o">-</span><span class="n">nac</span>       <span class="n">KPOINTS</span><span class="o">-</span><span class="n">force</span>
-<span class="n">KPOINTS</span><span class="o">-</span><span class="n">relax</span>  <span class="n">phonon</span><span class="o">.</span><span class="n">yaml</span>      <span class="n">POSCAR</span><span class="o">-</span><span class="n">unitcell</span> <span class="n">disp</span><span class="o">.</span><span class="n">yaml</span>
-<span class="n">INCAR</span><span class="o">-</span><span class="n">force</span>    <span class="n">INCAR</span><span class="o">-</span><span class="n">relax</span>      <span class="n">KPOINTS</span><span class="o">-</span><span class="n">nac</span>     <span class="n">PAW_dataset</span><span class="o">.</span><span class="n">txt</span>
-<span class="n">phonopy</span><span class="o">.</span><span class="n">conf</span>   <span class="n">POSCAR</span><span class="o">-</span><span class="n">unitcell</span><span class="o">.</span><span class="n">yaml</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.cui.initialization.read_phonondb">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.cui.initialization.</span></span><span class="sig-name descname"><span class="pre">read_phonondb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.cui.initialization.read_phonondb" title="Link to this definition"></a></dt>
-<dd><p>Read data in Phonondb. Phonondb is used to obtain structures
-(primitive, unit, and super cells) and k-points.</p>
-<p>Note that the definition of transformation matrix in Phononpy (Phonondb)
-is different from that in ASE and Pymatgen.
-With Phonopy definition    : P = mat_u2p_pp   &#64; U
-With ASE or pmg definition : P = mat_u2p_pp.T &#64; U
-_pp in <code class="docutils literal notranslate"><span class="pre">mat_u2p_pp</span></code> and <code class="docutils literal notranslate"><span class="pre">mat_u2s_pp</span></code> denotes Phonopy.</p>
-<section id="to-do">
-<h2>To do<a class="headerlink" href="#to-do" title="Link to this heading"></a></h2>
-<p>If the material is not contained in Phonondb, the trasnformation
-matrices need to be obtained with the same manner as spglib. Pymatgen
-may not be able to be used because of different definitions of the
-transformation matrix in Phonopy and Pymatgen.</p>
-</section>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="auto_kappa.cui.initialization.use_omp_for_anphon">
-<span class="sig-prename descclassname"><span class="pre">auto_kappa.cui.initialization.</span></span><span class="sig-name descname"><span class="pre">use_omp_for_anphon</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_dir</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.cui.initialization.use_omp_for_anphon" title="Link to this definition"></a></dt>
-<dd><p>Read log files for previous calculations and check the memory.</p>
-</dd></dl>
-
+  <section id="auto-kappa-cui-initialization-module">
+<h1>auto_kappa.cui.initialization module<a class="headerlink" href="#auto-kappa-cui-initialization-module" title="Link to this heading"></a></h1>
 </section>
 
 
