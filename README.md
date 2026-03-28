@@ -6,20 +6,15 @@
 </p>
 
 
-# ak-private
+# auto-kappa v1.1
 
-**ak-private** is a development version of **auto-kappa**, an automated workflow tool for performing **first-principles calculations of anharmonic phonon properties**, including  
+**auto-kappa** is an automated framework for performing **first-principles calculations of anharmonic phonon properties**, including  
 - **lattice thermal conductivity**,  
 - **mode-dependent phonon lifetimes**,  
 - **three-phonon and four-phonon scattering**,  
 
 using **VASP** and **ALAMODE**.  
 It provides a streamlined pipeline that generates input files, submits calculations, checks convergence, and post-processes results automatically.
-
-Note
--------
-
-Please use **ak-private** only for collaborative work with the TEEL group at the University of Tokyo.　
 
 
 Requirements
