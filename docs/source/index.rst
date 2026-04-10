@@ -9,7 +9,7 @@ Auto-kappa is an automation framework for first-principles calculations of anhar
 including thermal conductivity and mode-dependent phonon lifetimes, based on VASP and ALAMODE.
 
 **GitHub repository**:
-https://github.com/masato1122/auto-kappa
+https://github.com/phonix-db/auto-kappa
 
 
 Contents
