@@ -1,6 +1,6 @@
 
 <p align='left'>
-  <a href="https://masato1122.github.io/auto-kappa/" target="_blank">
+  <a href="https://phonix-db.github.io/auto-kappa/" target="_blank">
     <img src="./docs/source/img/ak_logo.png" alt="logo" width="250"/>
   </a>
 </p>
@@ -43,7 +43,7 @@ Installation
 
 Follow these steps to install the package:
 
-1. git clone https://github.com/masato1122/auto-kappa.git
+1. git clone https://github.com/phonix-db/auto-kappa.git
 2. cd ./auto-kappa
 3. sh install.sh
 
@@ -68,7 +68,7 @@ Several Important Options
 ---------------------------
 
 You can view the available options by running ``akrun -h`` 
-as well as in the [manual](https://masato1122.github.io/auto-kappa/params_ak.html).
+as well as in the [manual](https://phonix-db.github.io/auto-kappa/params_ak.html).
 Frequently used commands are listed below.
 
 - **file_structure**: Structure file name. Different formats, including POSCAR and CIF, are accepted.
@@ -98,7 +98,7 @@ Frequently used commands are listed below.
 Documentation
 -------------
 
-For more details on auto-kappa, please visit the following webpage: [**HERE**](https://masato1122.github.io/auto-kappa).
+For more details on auto-kappa, please visit the following webpage: [**HERE**](https://phonix-db.github.io/auto-kappa).
 
 Workflow
 ---------
