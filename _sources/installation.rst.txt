@@ -85,7 +85,7 @@ To set ``kappa`` as the default, add the following line in ``.bash_profile``.
 
 .. code-block:: bash
     
-    git clone git@github.com:masato1122/auto-kappa.git
+    git clone git@github.com:phonix-db/auto-kappa.git
 
 Update and install the code:
 
