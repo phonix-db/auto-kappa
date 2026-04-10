@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>auto_kappa.almlog.kpoint module &mdash; auto-kappa unknown documentation</title>
+  <title>auto_kappa.almlog.kpoint module &mdash; auto-kappa 1.1.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -17,7 +17,7 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=3f1b9271"></script>
+      <script src="../_static/documentation_options.js?v=58fbf978"></script>
       <script src="../_static/doctools.js?v=fd6eb6e6"></script>
       <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -43,7 +43,7 @@
           </a>
 
           <div class="project-version">
-            ver. unknown
+            ver. 1.1.1
           </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -76,7 +76,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#module-contents">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#module-auto_kappa">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -110,8 +110,31 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="auto-kappa-almlog-kpoint-module">
-<h1>auto_kappa.almlog.kpoint module<a class="headerlink" href="#auto-kappa-almlog-kpoint-module" title="Link to this heading"></a></h1>
+  <section id="module-auto_kappa.almlog.kpoint">
+<span id="auto-kappa-almlog-kpoint-module"></span><h1>auto_kappa.almlog.kpoint module<a class="headerlink" href="#module-auto_kappa.almlog.kpoint" title="Link to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="auto_kappa.almlog.kpoint.read_kpoints">
+<span class="sig-prename descclassname"><span class="pre">auto_kappa.almlog.kpoint.</span></span><span class="sig-name descname"><span class="pre">read_kpoints</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lines</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_lines_direct</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_lines_regex</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.almlog.kpoint.read_kpoints" title="Link to this definition"></a></dt>
+<dd><p>Read k-point information from log file lines (kpoint section)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lines</strong> (<em>list</em>) – list of lines in the log file</p></li>
+<li><p><strong>search_lines_direct</strong> (<em>dict</em>) – additional search patterns (direct string search)</p></li>
+<li><p><strong>search_lines_regex</strong> (<em>dict</em>) – additional search patterns (regex)
+The value must be a tuple of (pattern, dtype) where pattern is a regex pattern
+and dtype is a type or a tuple of types for multiple values.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>dictionary containing symmetry information</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>info (dict)</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 
 

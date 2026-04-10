@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>6.1. auto_kappa package &mdash; auto-kappa unknown documentation</title>
+  <title>6.1. auto_kappa package &mdash; auto-kappa 1.1.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -17,7 +17,7 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=3f1b9271"></script>
+      <script src="../_static/documentation_options.js?v=58fbf978"></script>
       <script src="../_static/doctools.js?v=fd6eb6e6"></script>
       <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -43,7 +43,7 @@
           </a>
 
           <div class="project-version">
-            ver. unknown
+            ver. 1.1.1
           </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -82,7 +82,7 @@
 <li class="toctree-l4"><a class="reference internal" href="auto_kappa.version.html">auto_kappa.version module</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#module-contents">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-auto_kappa">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -124,7 +124,7 @@
 <li class="toctree-l2"><a class="reference internal" href="auto_kappa.alamode.html#subpackages">Subpackages</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="auto_kappa.alamode.tools.html">auto_kappa.alamode.tools package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="auto_kappa.alamode.tools.html#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="auto_kappa.alamode.tools.html#module-contents">Module contents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.alamode.tools.html#module-auto_kappa.alamode.tools">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -132,61 +132,176 @@
 <li class="toctree-l2"><a class="reference internal" href="auto_kappa.alamode.html#submodules">Submodules</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="auto_kappa.alamode.almcalc.html">auto_kappa.alamode.almcalc module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="auto_kappa.alamode.compat.html">auto_kappa.alamode.compat module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.alamode.displacements.html">auto_kappa.alamode.displacements module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.alamode.errors.html">auto_kappa.alamode.errors module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.alamode.gruneisen.html">auto_kappa.alamode.gruneisen module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.alamode.helpers.html">auto_kappa.alamode.helpers module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.alamode.io.html">auto_kappa.alamode.io module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.alamode.log_parser.html">auto_kappa.alamode.log_parser module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.alamode.memory.html">auto_kappa.alamode.memory module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.alamode.parameters.html">auto_kappa.alamode.parameters module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.alamode.pes.html">auto_kappa.alamode.pes module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.alamode.plotter.html">auto_kappa.alamode.plotter module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.alamode.runjob.html">auto_kappa.alamode.runjob module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.alamode.displacements.html">auto_kappa.alamode.displacements module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.alamode.displacements.html#auto_kappa.alamode.displacements.adjust_random_displacements"><code class="docutils literal notranslate"><span class="pre">adjust_random_displacements()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.alamode.displacements.html#auto_kappa.alamode.displacements.generate_displaced_structures"><code class="docutils literal notranslate"><span class="pre">generate_displaced_structures()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="auto_kappa.alamode.html#module-contents">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.alamode.errors.html">auto_kappa.alamode.errors module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.alamode.errors.html#auto_kappa.alamode.errors.check_unexpected_errors"><code class="docutils literal notranslate"><span class="pre">check_unexpected_errors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.alamode.errors.html#auto_kappa.alamode.errors.found_rank_deficient"><code class="docutils literal notranslate"><span class="pre">found_rank_deficient()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.alamode.errors.html#auto_kappa.alamode.errors.is_fc_given"><code class="docutils literal notranslate"><span class="pre">is_fc_given()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.alamode.gruneisen.html">auto_kappa.alamode.gruneisen module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.alamode.helpers.html">auto_kappa.alamode.helpers module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.alamode.io.html">auto_kappa.alamode.io module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.alamode.io.html#auto_kappa.alamode.io.get_status"><code class="docutils literal notranslate"><span class="pre">get_status()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.alamode.io.html#auto_kappa.alamode.io.wasfinished_alamode"><code class="docutils literal notranslate"><span class="pre">wasfinished_alamode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.alamode.io.html#auto_kappa.alamode.io.write_displacement_info"><code class="docutils literal notranslate"><span class="pre">write_displacement_info()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.alamode.log_parser.html">auto_kappa.alamode.log_parser module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.alamode.log_parser.html#auto_kappa.alamode.log_parser.AkLog"><code class="docutils literal notranslate"><span class="pre">AkLog</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.alamode.log_parser.html#auto_kappa.alamode.log_parser.exceed_memory"><code class="docutils literal notranslate"><span class="pre">exceed_memory()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.alamode.log_parser.html#auto_kappa.alamode.log_parser.get_ak_logs"><code class="docutils literal notranslate"><span class="pre">get_ak_logs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.alamode.log_parser.html#auto_kappa.alamode.log_parser.get_eigenvalues_from_logfile"><code class="docutils literal notranslate"><span class="pre">get_eigenvalues_from_logfile()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.alamode.log_parser.html#auto_kappa.alamode.log_parser.get_kpath"><code class="docutils literal notranslate"><span class="pre">get_kpath()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.alamode.log_parser.html#auto_kappa.alamode.log_parser.get_minimum_frequency_from_logfile"><code class="docutils literal notranslate"><span class="pre">get_minimum_frequency_from_logfile()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.alamode.log_parser.html#auto_kappa.alamode.log_parser.get_parser"><code class="docutils literal notranslate"><span class="pre">get_parser()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.alamode.log_parser.html#auto_kappa.alamode.log_parser.get_version"><code class="docutils literal notranslate"><span class="pre">get_version()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.alamode.log_parser.html#auto_kappa.alamode.log_parser.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.alamode.log_parser.html#auto_kappa.alamode.log_parser.read_log_eigen"><code class="docutils literal notranslate"><span class="pre">read_log_eigen()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.alamode.log_parser.html#auto_kappa.alamode.log_parser.read_log_fc"><code class="docutils literal notranslate"><span class="pre">read_log_fc()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.alamode.log_parser.html#auto_kappa.alamode.log_parser.read_log_fc2"><code class="docutils literal notranslate"><span class="pre">read_log_fc2()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.alamode.log_parser.html#auto_kappa.alamode.log_parser.read_log_forces"><code class="docutils literal notranslate"><span class="pre">read_log_forces()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.alamode.log_parser.html#auto_kappa.alamode.log_parser.read_log_kappa"><code class="docutils literal notranslate"><span class="pre">read_log_kappa()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.alamode.log_parser.html#auto_kappa.alamode.log_parser.read_log_kappa_each"><code class="docutils literal notranslate"><span class="pre">read_log_kappa_each()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.alamode.log_parser.html#auto_kappa.alamode.log_parser.read_log_lasso"><code class="docutils literal notranslate"><span class="pre">read_log_lasso()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.alamode.log_parser.html#auto_kappa.alamode.log_parser.read_log_nac"><code class="docutils literal notranslate"><span class="pre">read_log_nac()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.alamode.log_parser.html#auto_kappa.alamode.log_parser.read_log_relax"><code class="docutils literal notranslate"><span class="pre">read_log_relax()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.alamode.log_parser.html#auto_kappa.alamode.log_parser.read_log_suggest"><code class="docutils literal notranslate"><span class="pre">read_log_suggest()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.alamode.memory.html">auto_kappa.alamode.memory module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.alamode.memory.html#auto_kappa.alamode.memory.get_used_memory"><code class="docutils literal notranslate"><span class="pre">get_used_memory()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.alamode.memory.html#auto_kappa.alamode.memory.is_node_busy"><code class="docutils literal notranslate"><span class="pre">is_node_busy()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.alamode.parameters.html">auto_kappa.alamode.parameters module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.alamode.parameters.html#auto_kappa.alamode.parameters.set_parameters_evec"><code class="docutils literal notranslate"><span class="pre">set_parameters_evec()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.alamode.parameters.html#auto_kappa.alamode.parameters.set_parameters_kappa"><code class="docutils literal notranslate"><span class="pre">set_parameters_kappa()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.alamode.pes.html">auto_kappa.alamode.pes module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.alamode.plotter.html">auto_kappa.alamode.plotter module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.alamode.runjob.html">auto_kappa.alamode.runjob module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.alamode.runjob.html#auto_kappa.alamode.runjob.run_alamode"><code class="docutils literal notranslate"><span class="pre">run_alamode()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="auto_kappa.alamode.html#module-auto_kappa.alamode">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="auto_kappa.almlog.html">auto_kappa.almlog package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="auto_kappa.almlog.html#submodules">Submodules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.almlog.core.html">auto_kappa.almlog.core module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.almlog.dmatrix.html">auto_kappa.almlog.dmatrix module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.almlog.fcs.html">auto_kappa.almlog.fcs module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.almlog.frequencies.html">auto_kappa.almlog.frequencies module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.almlog.interaction.html">auto_kappa.almlog.interaction module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.almlog.kpoint.html">auto_kappa.almlog.kpoint module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.almlog.structure.html">auto_kappa.almlog.structure module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.almlog.symmetry.html">auto_kappa.almlog.symmetry module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.almlog.system.html">auto_kappa.almlog.system module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.almlog.utils.html">auto_kappa.almlog.utils module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.almlog.variables.html">auto_kappa.almlog.variables module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.almlog.core.html">auto_kappa.almlog.core module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.almlog.core.html#auto_kappa.almlog.core.ALMLOG"><code class="docutils literal notranslate"><span class="pre">ALMLOG</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.almlog.core.html#auto_kappa.almlog.core.read_alamode_log"><code class="docutils literal notranslate"><span class="pre">read_alamode_log()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="auto_kappa.almlog.html#module-contents">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.almlog.dmatrix.html">auto_kappa.almlog.dmatrix module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.almlog.dmatrix.html#auto_kappa.almlog.dmatrix.read_dmatrix"><code class="docutils literal notranslate"><span class="pre">read_dmatrix()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.almlog.fcs.html">auto_kappa.almlog.fcs module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.almlog.fcs.html#auto_kappa.almlog.fcs.read_fcs"><code class="docutils literal notranslate"><span class="pre">read_fcs()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.almlog.frequencies.html">auto_kappa.almlog.frequencies module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.almlog.frequencies.html#auto_kappa.almlog.frequencies.read_frequencies"><code class="docutils literal notranslate"><span class="pre">read_frequencies()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.almlog.interaction.html">auto_kappa.almlog.interaction module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.almlog.interaction.html#auto_kappa.almlog.interaction.Atom"><code class="docutils literal notranslate"><span class="pre">Atom</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.almlog.interaction.html#auto_kappa.almlog.interaction.NeighborAtoms"><code class="docutils literal notranslate"><span class="pre">NeighborAtoms</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.almlog.interaction.html#auto_kappa.almlog.interaction.PairAtoms"><code class="docutils literal notranslate"><span class="pre">PairAtoms</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.almlog.interaction.html#auto_kappa.almlog.interaction.read_interaction"><code class="docutils literal notranslate"><span class="pre">read_interaction()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.almlog.kpoint.html">auto_kappa.almlog.kpoint module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.almlog.kpoint.html#auto_kappa.almlog.kpoint.read_kpoints"><code class="docutils literal notranslate"><span class="pre">read_kpoints()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.almlog.structure.html">auto_kappa.almlog.structure module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.almlog.structure.html#auto_kappa.almlog.structure.read_structure"><code class="docutils literal notranslate"><span class="pre">read_structure()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.almlog.symmetry.html">auto_kappa.almlog.symmetry module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.almlog.symmetry.html#auto_kappa.almlog.symmetry.read_symmetry"><code class="docutils literal notranslate"><span class="pre">read_symmetry()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.almlog.system.html">auto_kappa.almlog.system module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.almlog.system.html#auto_kappa.almlog.system.read_system"><code class="docutils literal notranslate"><span class="pre">read_system()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.almlog.utils.html">auto_kappa.almlog.utils module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.almlog.utils.html#auto_kappa.almlog.utils.extract_afterward_lines"><code class="docutils literal notranslate"><span class="pre">extract_afterward_lines()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.almlog.utils.html#auto_kappa.almlog.utils.extract_lines_with_index"><code class="docutils literal notranslate"><span class="pre">extract_lines_with_index()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.almlog.utils.html#auto_kappa.almlog.utils.get_position_list"><code class="docutils literal notranslate"><span class="pre">get_position_list()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.almlog.utils.html#auto_kappa.almlog.utils.parse_data_line"><code class="docutils literal notranslate"><span class="pre">parse_data_line()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.almlog.utils.html#auto_kappa.almlog.utils.read_section"><code class="docutils literal notranslate"><span class="pre">read_section()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.almlog.utils.html#auto_kappa.almlog.utils.replace_symbols_to_blank"><code class="docutils literal notranslate"><span class="pre">replace_symbols_to_blank()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.almlog.variables.html">auto_kappa.almlog.variables module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.almlog.variables.html#auto_kappa.almlog.variables.read_variables"><code class="docutils literal notranslate"><span class="pre">read_variables()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="auto_kappa.almlog.html#module-auto_kappa.almlog">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="auto_kappa.calculators.html">auto_kappa.calculators package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="auto_kappa.calculators.html#submodules">Submodules</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="auto_kappa.calculators.alamode.html">auto_kappa.calculators.alamode module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.calculators.compat.html">auto_kappa.calculators.compat module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.calculators.kmesh_int.html">auto_kappa.calculators.kmesh_int module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.calculators.compat.html">auto_kappa.calculators.compat module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.calculators.compat.html#auto_kappa.calculators.compat.remove_old_kappa_data"><code class="docutils literal notranslate"><span class="pre">remove_old_kappa_data()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.calculators.kmesh_int.html">auto_kappa.calculators.kmesh_int module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.calculators.kmesh_int.html#auto_kappa.calculators.kmesh_int.get_kmesh_interpolate"><code class="docutils literal notranslate"><span class="pre">get_kmesh_interpolate()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="auto_kappa.calculators.scph.html">auto_kappa.calculators.scph module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="auto_kappa.calculators.vasp.html">auto_kappa.calculators.vasp module</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="auto_kappa.calculators.html#module-contents">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_kappa.calculators.html#module-auto_kappa.calculators">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="auto_kappa.cui.html">auto_kappa.cui package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="auto_kappa.cui.html#submodules">Submodules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.cui.ak_log.html">auto_kappa.cui.ak_log module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.cui.ak_log.html">auto_kappa.cui.ak_log module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.cui.ak_log.html#auto_kappa.cui.ak_log.end_autokappa"><code class="docutils literal notranslate"><span class="pre">end_autokappa()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.cui.ak_log.html#auto_kappa.cui.ak_log.negative_frequency"><code class="docutils literal notranslate"><span class="pre">negative_frequency()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.cui.ak_log.html#auto_kappa.cui.ak_log.print_conditions"><code class="docutils literal notranslate"><span class="pre">print_conditions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.cui.ak_log.html#auto_kappa.cui.ak_log.print_cpu_info"><code class="docutils literal notranslate"><span class="pre">print_cpu_info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.cui.ak_log.html#auto_kappa.cui.ak_log.print_hostname"><code class="docutils literal notranslate"><span class="pre">print_hostname()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.cui.ak_log.html#auto_kappa.cui.ak_log.print_options"><code class="docutils literal notranslate"><span class="pre">print_options()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.cui.ak_log.html#auto_kappa.cui.ak_log.print_os_info"><code class="docutils literal notranslate"><span class="pre">print_os_info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.cui.ak_log.html#auto_kappa.cui.ak_log.print_space_group"><code class="docutils literal notranslate"><span class="pre">print_space_group()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.cui.ak_log.html#auto_kappa.cui.ak_log.print_system_info"><code class="docutils literal notranslate"><span class="pre">print_system_info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.cui.ak_log.html#auto_kappa.cui.ak_log.print_times"><code class="docutils literal notranslate"><span class="pre">print_times()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.cui.ak_log.html#auto_kappa.cui.ak_log.rerun_with_omp"><code class="docutils literal notranslate"><span class="pre">rerun_with_omp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.cui.ak_log.html#auto_kappa.cui.ak_log.set_logging"><code class="docutils literal notranslate"><span class="pre">set_logging()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.cui.ak_log.html#auto_kappa.cui.ak_log.start_autokappa"><code class="docutils literal notranslate"><span class="pre">start_autokappa()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.cui.ak_log.html#auto_kappa.cui.ak_log.start_larger_supercell"><code class="docutils literal notranslate"><span class="pre">start_larger_supercell()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.cui.ak_log.html#auto_kappa.cui.ak_log.symmetry_error"><code class="docutils literal notranslate"><span class="pre">symmetry_error()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.cui.ak_log.html#auto_kappa.cui.ak_log.write_parameters"><code class="docutils literal notranslate"><span class="pre">write_parameters()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="auto_kappa.cui.ak_parser.html">auto_kappa.cui.ak_parser module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="auto_kappa.cui.ak_parser.html#auto_kappa.cui.ak_parser.get_parser"><code class="docutils literal notranslate"><span class="pre">get_parser()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="auto_kappa.cui.ak_scripts.html">auto_kappa.cui.ak_scripts module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.cui.compat.html">auto_kappa.cui.compat module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.cui.compat.html">auto_kappa.cui.compat module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.cui.compat.html#auto_kappa.cui.compat.check_ak_options"><code class="docutils literal notranslate"><span class="pre">check_ak_options()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="auto_kappa.cui.initialization.html">auto_kappa.cui.initialization module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="auto_kappa.cui.suggest.html">auto_kappa.cui.suggest module</a></li>
 </ul>
@@ -196,13 +311,42 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="auto_kappa.io.html">auto_kappa.io package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="auto_kappa.io.html#submodules">Submodules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.io.alm.html">auto_kappa.io.alm module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.io.alm.html">auto_kappa.io.alm module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.io.alm.html#auto_kappa.io.alm.AlamodeInput"><code class="docutils literal notranslate"><span class="pre">AlamodeInput</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.io.alm.html#auto_kappa.io.alm.AlmInput"><code class="docutils literal notranslate"><span class="pre">AlmInput</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.io.alm.html#auto_kappa.io.alm.AnphonInput"><code class="docutils literal notranslate"><span class="pre">AnphonInput</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.io.alm.html#auto_kappa.io.alm.calc_g2_factor"><code class="docutils literal notranslate"><span class="pre">calc_g2_factor()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.io.alm.html#auto_kappa.io.alm.get_alamode_variables_from_structure"><code class="docutils literal notranslate"><span class="pre">get_alamode_variables_from_structure()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.io.alm.html#auto_kappa.io.alm.get_isofact_info"><code class="docutils literal notranslate"><span class="pre">get_isofact_info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.io.alm.html#auto_kappa.io.alm.get_kpoint_path"><code class="docutils literal notranslate"><span class="pre">get_kpoint_path()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.io.alm.html#auto_kappa.io.alm.get_mass_info"><code class="docutils literal notranslate"><span class="pre">get_mass_info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.io.alm.html#auto_kappa.io.alm.proc_val"><code class="docutils literal notranslate"><span class="pre">proc_val()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.io.alm.html#auto_kappa.io.alm.read_alamode_input"><code class="docutils literal notranslate"><span class="pre">read_alamode_input()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.io.alm.html#auto_kappa.io.alm.read_structure_from_file"><code class="docutils literal notranslate"><span class="pre">read_structure_from_file()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="auto_kappa.io.analyzer.html">auto_kappa.io.analyzer module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.io.band.html">auto_kappa.io.band module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.io.band.html">auto_kappa.io.band module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.io.band.html#auto_kappa.io.band.Band"><code class="docutils literal notranslate"><span class="pre">Band</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.io.band.html#auto_kappa.io.band.SCPHBand"><code class="docutils literal notranslate"><span class="pre">SCPHBand</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.io.band.html#auto_kappa.io.band.get_band_section_indices_labels"><code class="docutils literal notranslate"><span class="pre">get_band_section_indices_labels()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.io.band.html#auto_kappa.io.band.get_eigen"><code class="docutils literal notranslate"><span class="pre">get_eigen()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.io.band.html#auto_kappa.io.band.get_nk_nbands"><code class="docutils literal notranslate"><span class="pre">get_nk_nbands()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.io.band.html#auto_kappa.io.band.get_normal_bands"><code class="docutils literal notranslate"><span class="pre">get_normal_bands()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.io.band.html#auto_kappa.io.band.get_scph_bands"><code class="docutils literal notranslate"><span class="pre">get_scph_bands()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.io.band.html#auto_kappa.io.band.get_symmetry_points_from_file"><code class="docutils literal notranslate"><span class="pre">get_symmetry_points_from_file()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.io.band.html#auto_kappa.io.band.get_symmetry_points_from_string"><code class="docutils literal notranslate"><span class="pre">get_symmetry_points_from_string()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="auto_kappa.io.born.html">auto_kappa.io.born module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="auto_kappa.io.dos.html">auto_kappa.io.dos module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="auto_kappa.io.fcs.html">auto_kappa.io.fcs module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.io.files.html">auto_kappa.io.files module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.io.files.html">auto_kappa.io.files module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.io.files.html#auto_kappa.io.files.convert_numpy"><code class="docutils literal notranslate"><span class="pre">convert_numpy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.io.files.html#auto_kappa.io.files.extract_data_from_file"><code class="docutils literal notranslate"><span class="pre">extract_data_from_file()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.io.files.html#auto_kappa.io.files.write_output_yaml"><code class="docutils literal notranslate"><span class="pre">write_output_yaml()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="auto_kappa.io.gruneisen.html">auto_kappa.io.gruneisen module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="auto_kappa.io.isotope.html">auto_kappa.io.isotope module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="auto_kappa.io.kl.html">auto_kappa.io.kl module</a></li>
@@ -221,37 +365,118 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="auto_kappa.math.html">auto_kappa.math package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="auto_kappa.math.html#submodules">Submodules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.math.statistics.html">auto_kappa.math.statistics module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.math.statistics.html">auto_kappa.math.statistics module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.math.statistics.html#auto_kappa.math.statistics.get_bose"><code class="docutils literal notranslate"><span class="pre">get_bose()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.math.statistics.html#auto_kappa.math.statistics.get_diffrential_statistics"><code class="docutils literal notranslate"><span class="pre">get_diffrential_statistics()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.math.statistics.html#auto_kappa.math.statistics.get_diffrential_statistics2"><code class="docutils literal notranslate"><span class="pre">get_diffrential_statistics2()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.math.statistics.html#auto_kappa.math.statistics.get_fd"><code class="docutils literal notranslate"><span class="pre">get_fd()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.math.statistics.html#auto_kappa.math.statistics.get_statistical"><code class="docutils literal notranslate"><span class="pre">get_statistical()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="auto_kappa.math.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="auto_kappa.math.html#module-auto_kappa.math">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="auto_kappa.parameters.html">auto_kappa.parameters package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="auto_kappa.parameters.html#module-contents">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_kappa.parameters.html#module-auto_kappa.parameters">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="auto_kappa.plot.html">auto_kappa.plot package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="auto_kappa.plot.html#submodules">Submodules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.plot.bandos.html">auto_kappa.plot.bandos module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.plot.fitting.html">auto_kappa.plot.fitting module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.plot.initialize.html">auto_kappa.plot.initialize module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.plot.pltalm.html">auto_kappa.plot.pltalm module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.plot.bandos.html">auto_kappa.plot.bandos module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.plot.bandos.html#auto_kappa.plot.bandos.plot_bandos_for_different_sizes"><code class="docutils literal notranslate"><span class="pre">plot_bandos_for_different_sizes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.plot.bandos.html#auto_kappa.plot.bandos.set_xticks_labels"><code class="docutils literal notranslate"><span class="pre">set_xticks_labels()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="auto_kappa.plot.html#module-contents">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.plot.fitting.html">auto_kappa.plot.fitting module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.plot.fitting.html#auto_kappa.plot.fitting.plot_bm_result"><code class="docutils literal notranslate"><span class="pre">plot_bm_result()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.plot.initialize.html">auto_kappa.plot.initialize module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.plot.initialize.html#auto_kappa.plot.initialize.get_both_axis"><code class="docutils literal notranslate"><span class="pre">get_both_axis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.plot.initialize.html#auto_kappa.plot.initialize.get_customized_cmap"><code class="docutils literal notranslate"><span class="pre">get_customized_cmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.plot.initialize.html#auto_kappa.plot.initialize.make_figure"><code class="docutils literal notranslate"><span class="pre">make_figure()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.plot.initialize.html#auto_kappa.plot.initialize.prepare_bandos_axes"><code class="docutils literal notranslate"><span class="pre">prepare_bandos_axes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.plot.initialize.html#auto_kappa.plot.initialize.prepare_two_axes"><code class="docutils literal notranslate"><span class="pre">prepare_two_axes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.plot.initialize.html#auto_kappa.plot.initialize.sci2text"><code class="docutils literal notranslate"><span class="pre">sci2text()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.plot.initialize.html#auto_kappa.plot.initialize.set4bandos"><code class="docutils literal notranslate"><span class="pre">set4bandos()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.plot.initialize.html#auto_kappa.plot.initialize.set_axis"><code class="docutils literal notranslate"><span class="pre">set_axis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.plot.initialize.html#auto_kappa.plot.initialize.set_axis_lim"><code class="docutils literal notranslate"><span class="pre">set_axis_lim()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.plot.initialize.html#auto_kappa.plot.initialize.set_legend"><code class="docutils literal notranslate"><span class="pre">set_legend()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.plot.initialize.html#auto_kappa.plot.initialize.set_matplot"><code class="docutils literal notranslate"><span class="pre">set_matplot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.plot.initialize.html#auto_kappa.plot.initialize.set_second_axis"><code class="docutils literal notranslate"><span class="pre">set_second_axis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.plot.initialize.html#auto_kappa.plot.initialize.set_spaces"><code class="docutils literal notranslate"><span class="pre">set_spaces()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.plot.pltalm.html">auto_kappa.plot.pltalm module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.plot.pltalm.html#auto_kappa.plot.pltalm.plot_all_kappa"><code class="docutils literal notranslate"><span class="pre">plot_all_kappa()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.plot.pltalm.html#auto_kappa.plot.pltalm.plot_cumulative_kappa"><code class="docutils literal notranslate"><span class="pre">plot_cumulative_kappa()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.plot.pltalm.html#auto_kappa.plot.pltalm.plot_cvsets"><code class="docutils literal notranslate"><span class="pre">plot_cvsets()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.plot.pltalm.html#auto_kappa.plot.pltalm.plot_times_with_pie"><code class="docutils literal notranslate"><span class="pre">plot_times_with_pie()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.plot.pltalm.html#auto_kappa.plot.pltalm.savefigure"><code class="docutils literal notranslate"><span class="pre">savefigure()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="auto_kappa.plot.html#module-auto_kappa.plot">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="auto_kappa.structure.html">auto_kappa.structure package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="auto_kappa.structure.html#submodules">Submodules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.structure.comparison.html">auto_kappa.structure.comparison module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.structure.crystal.html">auto_kappa.structure.crystal module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.structure.supercell.html">auto_kappa.structure.supercell module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.structure.two.html">auto_kappa.structure.two module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.structure.utils.html">auto_kappa.structure.utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.structure.comparison.html">auto_kappa.structure.comparison module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.structure.comparison.html#auto_kappa.structure.comparison.atoms_equal"><code class="docutils literal notranslate"><span class="pre">atoms_equal()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.structure.comparison.html#auto_kappa.structure.comparison.cells_equal"><code class="docutils literal notranslate"><span class="pre">cells_equal()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.structure.comparison.html#auto_kappa.structure.comparison.generate_mapping_s2p"><code class="docutils literal notranslate"><span class="pre">generate_mapping_s2p()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.structure.comparison.html#auto_kappa.structure.comparison.get_structure_matcher"><code class="docutils literal notranslate"><span class="pre">get_structure_matcher()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.structure.comparison.html#auto_kappa.structure.comparison.match_structures"><code class="docutils literal notranslate"><span class="pre">match_structures()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="auto_kappa.structure.html#module-contents">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.structure.crystal.html">auto_kappa.structure.crystal module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.structure.crystal.html#auto_kappa.structure.crystal.get_atomic_distance_list"><code class="docutils literal notranslate"><span class="pre">get_atomic_distance_list()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.structure.crystal.html#auto_kappa.structure.crystal.get_automatic_kmesh"><code class="docutils literal notranslate"><span class="pre">get_automatic_kmesh()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.structure.crystal.html#auto_kappa.structure.crystal.get_commensurate_points"><code class="docutils literal notranslate"><span class="pre">get_commensurate_points()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.structure.crystal.html#auto_kappa.structure.crystal.get_formula"><code class="docutils literal notranslate"><span class="pre">get_formula()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.structure.crystal.html#auto_kappa.structure.crystal.get_primitive_structure_spglib"><code class="docutils literal notranslate"><span class="pre">get_primitive_structure_spglib()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.structure.crystal.html#auto_kappa.structure.crystal.get_spg_number"><code class="docutils literal notranslate"><span class="pre">get_spg_number()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.structure.crystal.html#auto_kappa.structure.crystal.get_standardized_structure"><code class="docutils literal notranslate"><span class="pre">get_standardized_structure()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.structure.crystal.html#auto_kappa.structure.crystal.get_standardized_structure_spglib"><code class="docutils literal notranslate"><span class="pre">get_standardized_structure_spglib()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.structure.crystal.html#auto_kappa.structure.crystal.get_supercell"><code class="docutils literal notranslate"><span class="pre">get_supercell()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.structure.crystal.html#auto_kappa.structure.crystal.get_symmetry_dataset"><code class="docutils literal notranslate"><span class="pre">get_symmetry_dataset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.structure.crystal.html#auto_kappa.structure.crystal.get_transformation_matrix_prim2scell"><code class="docutils literal notranslate"><span class="pre">get_transformation_matrix_prim2scell()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.structure.crystal.html#auto_kappa.structure.crystal.inverse_transformation"><code class="docutils literal notranslate"><span class="pre">inverse_transformation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.structure.crystal.html#auto_kappa.structure.crystal.transform_prim2unit"><code class="docutils literal notranslate"><span class="pre">transform_prim2unit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.structure.crystal.html#auto_kappa.structure.crystal.transform_unit2prim"><code class="docutils literal notranslate"><span class="pre">transform_unit2prim()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.structure.supercell.html">auto_kappa.structure.supercell module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.structure.supercell.html#auto_kappa.structure.supercell.estimate_supercell_matrix"><code class="docutils literal notranslate"><span class="pre">estimate_supercell_matrix()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.structure.two.html">auto_kappa.structure.two module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.structure.two.html#auto_kappa.structure.two.adjust_vacuum_size"><code class="docutils literal notranslate"><span class="pre">adjust_vacuum_size()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.structure.two.html#auto_kappa.structure.two.check_2d_structure"><code class="docutils literal notranslate"><span class="pre">check_2d_structure()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.structure.two.html#auto_kappa.structure.two.estimate_supercell_matrix_2d"><code class="docutils literal notranslate"><span class="pre">estimate_supercell_matrix_2d()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.structure.two.html#auto_kappa.structure.two.get_diagonal_length"><code class="docutils literal notranslate"><span class="pre">get_diagonal_length()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.structure.two.html#auto_kappa.structure.two.get_normal_index"><code class="docutils literal notranslate"><span class="pre">get_normal_index()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.structure.two.html#auto_kappa.structure.two.get_thickness"><code class="docutils literal notranslate"><span class="pre">get_thickness()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.structure.two.html#auto_kappa.structure.two.is_perpendicular"><code class="docutils literal notranslate"><span class="pre">is_perpendicular()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.structure.two.html#auto_kappa.structure.two.print_2d_system_notation"><code class="docutils literal notranslate"><span class="pre">print_2d_system_notation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.structure.two.html#auto_kappa.structure.two.print_length_info"><code class="docutils literal notranslate"><span class="pre">print_length_info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.structure.two.html#auto_kappa.structure.two.set_center"><code class="docutils literal notranslate"><span class="pre">set_center()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.structure.two.html#auto_kappa.structure.two.set_vacuum_to_2d_structure"><code class="docutils literal notranslate"><span class="pre">set_vacuum_to_2d_structure()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.structure.two.html#auto_kappa.structure.two.suggest_fc2_cutoff"><code class="docutils literal notranslate"><span class="pre">suggest_fc2_cutoff()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.structure.two.html#auto_kappa.structure.two.switch_abc_axis"><code class="docutils literal notranslate"><span class="pre">switch_abc_axis()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.structure.utils.html">auto_kappa.structure.utils module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.structure.utils.html#auto_kappa.structure.utils.change_structure_format"><code class="docutils literal notranslate"><span class="pre">change_structure_format()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.structure.utils.html#auto_kappa.structure.utils.get_transformation_matrix"><code class="docutils literal notranslate"><span class="pre">get_transformation_matrix()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="auto_kappa.structure.html#module-auto_kappa.structure">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="auto_kappa.utils.html">auto_kappa.utils package</a><ul>
@@ -267,7 +492,13 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="auto_kappa.utils.isotopes.html">auto_kappa.utils.isotopes module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.utils.system.html">auto_kappa.utils.system module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.utils.system.html">auto_kappa.utils.system module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.utils.system.html#auto_kappa.utils.system.get_cpu_info"><code class="docutils literal notranslate"><span class="pre">get_cpu_info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.utils.system.html#auto_kappa.utils.system.get_cpu_model"><code class="docutils literal notranslate"><span class="pre">get_cpu_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.utils.system.html#auto_kappa.utils.system.get_os_info"><code class="docutils literal notranslate"><span class="pre">get_os_info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.utils.system.html#auto_kappa.utils.system.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="auto_kappa.utils.version.html">auto_kappa.utils.version module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="auto_kappa.utils.version.html#auto_kappa.utils.version.get_output"><code class="docutils literal notranslate"><span class="pre">get_output()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="auto_kappa.utils.version.html#auto_kappa.utils.version.get_version"><code class="docutils literal notranslate"><span class="pre">get_version()</span></code></a></li>
@@ -281,11 +512,18 @@
 <li class="toctree-l1"><a class="reference internal" href="auto_kappa.vasp.html">auto_kappa.vasp package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="auto_kappa.vasp.html#submodules">Submodules</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="auto_kappa.vasp.kmesh.html">auto_kappa.vasp.kmesh module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.vasp.params.html">auto_kappa.vasp.params module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.vasp.params.html">auto_kappa.vasp.params module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.vasp.params.html#auto_kappa.vasp.params.get_amin_parameter"><code class="docutils literal notranslate"><span class="pre">get_amin_parameter()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.vasp.params.html#auto_kappa.vasp.params.get_number_of_errors"><code class="docutils literal notranslate"><span class="pre">get_number_of_errors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.vasp.params.html#auto_kappa.vasp.params.get_previous_parameters"><code class="docutils literal notranslate"><span class="pre">get_previous_parameters()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.vasp.params.html#auto_kappa.vasp.params.get_symprec"><code class="docutils literal notranslate"><span class="pre">get_symprec()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="auto_kappa.vasp.params.html#auto_kappa.vasp.params.reflect_previous_jobs"><code class="docutils literal notranslate"><span class="pre">reflect_previous_jobs()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="auto_kappa.vasp.relax.html">auto_kappa.vasp.relax module</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="auto_kappa.vasp.html#module-contents">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auto_kappa.vasp.html#module-auto_kappa.vasp">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -296,14 +534,17 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="auto_kappa.apdb.html">auto_kappa.apdb module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="auto_kappa.compat.html">auto_kappa.compat module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auto_kappa.compat.html">auto_kappa.compat module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="auto_kappa.compat.html#auto_kappa.compat.get_previously_used_structure"><code class="docutils literal notranslate"><span class="pre">get_previously_used_structure()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="auto_kappa.units.html">auto_kappa.units module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auto_kappa.version.html">auto_kappa.version module</a></li>
 </ul>
 </div>
 </section>
-<section id="module-contents">
-<h2>Module contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<section id="module-auto_kappa">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-auto_kappa" title="Link to this heading"></a></h2>
 </section>
 </section>
 

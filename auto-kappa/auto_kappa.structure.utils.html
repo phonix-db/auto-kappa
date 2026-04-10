@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>auto_kappa.structure.utils module &mdash; auto-kappa unknown documentation</title>
+  <title>auto_kappa.structure.utils module &mdash; auto-kappa 1.1.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -17,7 +17,7 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=3f1b9271"></script>
+      <script src="../_static/documentation_options.js?v=58fbf978"></script>
       <script src="../_static/doctools.js?v=fd6eb6e6"></script>
       <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -43,7 +43,7 @@
           </a>
 
           <div class="project-version">
-            ver. unknown
+            ver. 1.1.1
           </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -76,7 +76,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#module-contents">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#module-auto_kappa">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -110,8 +110,44 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="auto-kappa-structure-utils-module">
-<h1>auto_kappa.structure.utils module<a class="headerlink" href="#auto-kappa-structure-utils-module" title="Link to this heading"></a></h1>
+  <section id="module-auto_kappa.structure.utils">
+<span id="auto-kappa-structure-utils-module"></span><h1>auto_kappa.structure.utils module<a class="headerlink" href="#module-auto_kappa.structure.utils" title="Link to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="auto_kappa.structure.utils.change_structure_format">
+<span class="sig-prename descclassname"><span class="pre">auto_kappa.structure.utils.</span></span><span class="sig-name descname"><span class="pre">change_structure_format</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">structure</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pymatgen-IStructure'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.structure.utils.change_structure_format" title="Link to this definition"></a></dt>
+<dd><p>Convert from arbitrary crystal format to an arbitrary crystal format</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>object</strong><strong>)</strong> (<a class="reference internal" href="auto_kappa.io.alm.html#auto_kappa.io.alm.AlmInput.structure" title="auto_kappa.io.alm.AlmInput.structure"><em>structure</em></a><em> (</em><em>Structure</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pymatgen’s IStructure object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="auto_kappa.structure.utils.get_transformation_matrix">
+<span class="sig-prename descclassname"><span class="pre">auto_kappa.structure.utils.</span></span><span class="sig-name descname"><span class="pre">get_transformation_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">from_structure</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_structure</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.structure.utils.get_transformation_matrix" title="Link to this definition"></a></dt>
+<dd><p>Return the transformation matrix from <cite>from_structure</cite> to <cite>to_structure</cite>
+Transformation matrix is defined as follows, which is consistent with Phonopy.
+See also <a class="reference external" href="https://phonopy.github.io/phonopy/setting-tags.html">https://phonopy.github.io/phonopy/setting-tags.html</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>from_structure</strong> (<em>Structure object</em>) – initial structure</p></li>
+<li><p><strong>to_structure</strong> (<em>Structure object</em>) – final structure</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>T = (from_cell.T)^-1 &#64; (to_cell.T)
+(to_cell.T) = (from_cell.T) &#64; T
+(to_cell) = T.T &#64; (from_cell)</p>
+</div>
+</dd></dl>
+
 </section>
 
 

@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>auto_kappa.structure.two module &mdash; auto-kappa unknown documentation</title>
+  <title>auto_kappa.structure.two module &mdash; auto-kappa 1.1.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -17,7 +17,7 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=3f1b9271"></script>
+      <script src="../_static/documentation_options.js?v=58fbf978"></script>
       <script src="../_static/doctools.js?v=fd6eb6e6"></script>
       <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -43,7 +43,7 @@
           </a>
 
           <div class="project-version">
-            ver. unknown
+            ver. 1.1.1
           </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -76,7 +76,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#module-contents">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auto_kappa.html#module-auto_kappa">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -110,8 +110,211 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="auto-kappa-structure-two-module">
-<h1>auto_kappa.structure.two module<a class="headerlink" href="#auto-kappa-structure-two-module" title="Link to this heading"></a></h1>
+  <section id="module-auto_kappa.structure.two">
+<span id="auto-kappa-structure-two-module"></span><h1>auto_kappa.structure.two module<a class="headerlink" href="#module-auto_kappa.structure.two" title="Link to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="auto_kappa.structure.two.adjust_vacuum_size">
+<span class="sig-prename descclassname"><span class="pre">auto_kappa.structure.two.</span></span><span class="sig-name descname"><span class="pre">adjust_vacuum_size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">orig_structure</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scell_matrix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[[1,</span> <span class="pre">0,</span> <span class="pre">0],</span> <span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">0],</span> <span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">1]]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.structure.two.adjust_vacuum_size" title="Link to this definition"></a></dt>
+<dd><p>Modify the vacuum size of a 2D structure so that the cell size in the out-of-plane direction
+is larger than the in-plane dimensions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Structure</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="auto_kappa.structure.two.check_2d_structure">
+<span class="sig-prename descclassname"><span class="pre">auto_kappa.structure.two.</span></span><span class="sig-name descname"><span class="pre">check_2d_structure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">struct_orig</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.structure.two.check_2d_structure" title="Link to this definition"></a></dt>
+<dd><p>Check if the structure is a 2D structure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>structure</strong> (<em>Atoms</em>) – Atoms object</p></li>
+<li><p><strong>struct_orig</strong> (<em>Atoms</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the structure is 2D, False otherwise</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="auto_kappa.structure.two.estimate_supercell_matrix_2d">
+<span class="sig-prename descclassname"><span class="pre">auto_kappa.structure.two.</span></span><span class="sig-name descname"><span class="pre">estimate_supercell_matrix_2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">struct_orig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_num_atoms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">120</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.structure.two.estimate_supercell_matrix_2d" title="Link to this definition"></a></dt>
+<dd><p>Estimate the supercell matrix for 2D structures.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>structure</strong> – unitcell structure</p></li>
+<li><p><strong>max_num_atoms</strong> (<em>int</em>) – Maximum number of atoms in the supercell</p></li>
+<li><p><strong>max_iter</strong> (<em>int</em>) – Maximum number of iterations to find a suitable supercell</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Supercell matrix</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="auto_kappa.structure.two.get_diagonal_length">
+<span class="sig-prename descclassname"><span class="pre">auto_kappa.structure.two.</span></span><span class="sig-name descname"><span class="pre">get_diagonal_length</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">struct_orig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm_idx_abc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">which</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'long'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.structure.two.get_diagonal_length" title="Link to this definition"></a></dt>
+<dd><p>Calculate the longer diagonal length of a 2D structure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="auto_kappa.structure.two.get_normal_index">
+<span class="sig-prename descclassname"><span class="pre">auto_kappa.structure.two.</span></span><span class="sig-name descname"><span class="pre">get_normal_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">struct_orig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'abc'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.structure.two.get_normal_index" title="Link to this definition"></a></dt>
+<dd><p>Estimate the vacuum direction by analyzing the real space gaps in a structure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>struct_orig</strong> – Structure object</p></li>
+<li><p><strong>base</strong> (<em>str</em>) – ‘abc’ for lattice vectors or ‘xyz’ for Cartesian axes</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>Index of the direction with the largest vacuum gap</dt><dd><p>For base=’abc’: (0 for a-axis, 1 for b-axis, 2 for c-axis)
+For base=’xyz’: (0 for x-axis, 1 for y-axis, 2 for z-axis)</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="auto_kappa.structure.two.get_thickness">
+<span class="sig-prename descclassname"><span class="pre">auto_kappa.structure.two.</span></span><span class="sig-name descname"><span class="pre">get_thickness</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">structure</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm_idx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.structure.two.get_thickness" title="Link to this definition"></a></dt>
+<dd><p>Calculate the thickness of a 2D structure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>structure</strong> – pymatgen.Structure object or ase.Atoms object</p></li>
+<li><p><strong>out_idx</strong> (<em>int</em>) – Index of the out-of-plane direction (default is 2 for z-axis)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Thickness of the structure</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="auto_kappa.structure.two.is_perpendicular">
+<span class="sig-prename descclassname"><span class="pre">auto_kappa.structure.two.</span></span><span class="sig-name descname"><span class="pre">is_perpendicular</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">struct_orig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm_idx_abc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-05</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.structure.two.is_perpendicular" title="Link to this definition"></a></dt>
+<dd><p>Check if the angles of the structure are 90 degrees.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>structure</strong> (<em>Structure</em>) – pymatgen Structure object</p></li>
+<li><p><strong>norm_idx</strong> (<em>int</em>) – Index of the out-of-plane direction (default is None)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the angles are 90 degrees, False otherwise</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="auto_kappa.structure.two.print_2d_system_notation">
+<span class="sig-prename descclassname"><span class="pre">auto_kappa.structure.two.</span></span><span class="sig-name descname"><span class="pre">print_2d_system_notation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.structure.two.print_2d_system_notation" title="Link to this definition"></a></dt>
+<dd><p>Print the notation for 2D systems.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="auto_kappa.structure.two.print_length_info">
+<span class="sig-prename descclassname"><span class="pre">auto_kappa.structure.two.</span></span><span class="sig-name descname"><span class="pre">print_length_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">structure</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.structure.two.print_length_info" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="auto_kappa.structure.two.set_center">
+<span class="sig-prename descclassname"><span class="pre">auto_kappa.structure.two.</span></span><span class="sig-name descname"><span class="pre">set_center</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">struct_orig</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.structure.two.set_center" title="Link to this definition"></a></dt>
+<dd><p>Set the position center of the structure to the center of the cell.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>structure</strong> (<em>Structure</em>) – pymatgen Structure object</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Centered structure</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Structure</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="auto_kappa.structure.two.set_vacuum_to_2d_structure">
+<span class="sig-prename descclassname"><span class="pre">auto_kappa.structure.two.</span></span><span class="sig-name descname"><span class="pre">set_vacuum_to_2d_structure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">struct_orig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vacuum_thickness</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.structure.two.set_vacuum_to_2d_structure" title="Link to this definition"></a></dt>
+<dd><p>Add vacuum to a 2D structure by modifying the c-axis length.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>vacuum_thickness</strong> (<em>float</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>Structure</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="auto_kappa.structure.two.suggest_fc2_cutoff">
+<span class="sig-prename descclassname"><span class="pre">auto_kappa.structure.two.</span></span><span class="sig-name descname"><span class="pre">suggest_fc2_cutoff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">orig_sc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">buffer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.structure.two.suggest_fc2_cutoff" title="Link to this definition"></a></dt>
+<dd><p>Suggest a cutoff for harmonic force constants based on the structure’s diagonal length.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Suggested cutoff value in Angstrom.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="auto_kappa.structure.two.switch_abc_axis">
+<span class="sig-prename descclassname"><span class="pre">auto_kappa.structure.two.</span></span><span class="sig-name descname"><span class="pre">switch_abc_axis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">struct_orig</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">idx1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">idx2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#auto_kappa.structure.two.switch_abc_axis" title="Link to this definition"></a></dt>
+<dd><p>Switch the abc axes of the structure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>struct_orig</strong> (<em>Atoms</em>)</p></li>
+<li><p><strong>idx1</strong> (<em>int</em>)</p></li>
+<li><p><strong>idx2</strong> (<em>int</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>Atoms</em></p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 
 
