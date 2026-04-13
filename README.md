@@ -132,7 +132,7 @@ Citation
 If you use auto-kappa, please cite the following paper, along with any related papers listed in the references:
 
 - M. Ohnishi et al., "Database and deep-learning scalability of anharmonic phonon properties by automated brute-force first-principles calculations," 
-npj Computational Materials (2025), [arXiv:2504.21245](https://arxiv.org/abs/2504.21245) (2025).
+npj Computational Materials **12**, 150 (2026) [s41524-026-02033-w](https://www.nature.com/articles/s41524-026-02033-w).
 
 References
 -----------
