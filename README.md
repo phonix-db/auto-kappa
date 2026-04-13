@@ -131,7 +131,10 @@ Citation
 
 If you use auto-kappa, please cite the following paper, along with any related papers listed in the references:
 
-- M. Ohnishi et al., "Database and deep-learning scalability of anharmonic phonon properties by automated brute-force first-principles calculations," 
+- Masato Ohnishi, Tianqi Deng, Pol Torres, Zhihao Xu, Terumasa Tadano, Haoming Zhang, Wei Nong, Masatoshi Hanai, Zeyu Wang, 
+Michimasa Morita, Zhiting Tian, Ming Hu, Xiulin Ruan, Ryo Yoshida, Toyotaro Suzumura, Lucas Lindsay, Alan J. H. McGaughey, 
+Tengfei Luo, Kedar Hippalgaonkar, and Junichiro Shiomi,
+"Database and deep-learning scalability of anharmonic phonon properties by automated brute-force first-principles calculations," 
 npj Computational Materials **12**, 150 (2026) [s41524-026-02033-w](https://www.nature.com/articles/s41524-026-02033-w).
 
 References
