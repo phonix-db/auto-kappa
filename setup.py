@@ -43,7 +43,7 @@ def main(build_dir):
               'psutil', 'scikit-learn', 'lxml'
               ],
             scripts=scripts_autokappa,
-            url='https://github.com/masato1122/auto_kappa.git',
+            url='https://github.com/phonix-db/auto_kappa.git',
             license='MIT',
             provides=['auto_kappa'],
             )
