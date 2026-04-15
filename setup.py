@@ -38,7 +38,7 @@ def main(build_dir):
             packages=find_packages(),
             include_package_data=True,
             install_requires=[
-              'numpy', 'phonopy', 'spglib', 'seekpath', 'ase', 'pymatgen', 
+              'setuptools', 'numpy', 'phonopy', 'spglib', 'seekpath', 'ase', 'pymatgen', 
               'custodian', 'xmltodict', 'mkl', 'f90nml', 'PyYAML',
               'psutil', 'scikit-learn', 'lxml'
               ],
