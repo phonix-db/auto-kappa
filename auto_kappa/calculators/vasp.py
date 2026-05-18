@@ -77,32 +77,19 @@ def run_vasp_with_custodian(calc, atoms, max_errors=10):
     file_vasprun = f"{outdir}/vasprun.xml"
     if os.path.exists(file_vasprun):
         final_atoms = ase.io.read(file_vasprun, index=-1)
-        try:
-            isif = calc.parameters['isif']
-            if not _same_structures(atoms, final_atoms, isif=isif):
-                msg = "\n ❌ Final structure differs from initial structure."
-                msg += "\n This error could be avoided by resubmitting the job."
-                msg += "\n Please resubmit the job to check if the error persists."
-                logger.info(msg)
-                sys.exit(1)
-        except KeyError:
-            pass
+        if not _same_structures(atoms, final_atoms):
+            msg = "\n ❌ Final structure differs from initial structure."
+            msg += "\n This error could be avoided by resubmitting the job."
+            msg += "\n Please resubmit the job to check if the error persists."
+            logger.info(msg)
+            sys.exit(1)
     
     return 1
 
-def _same_structures(atoms1, atoms2, isif=None, rtol=0.001, atol=0.01):
-    if len(atoms1) != len(atoms2):
-        return False
-    if list(atoms1.symbols) != list(atoms2.symbols):
-        return False
-    if isif in [0, 1, 2, 4, 5]:
-        if abs(atoms1.volume - atoms2.volume) > 1e-3:
-            return False
-    if isif < 3:
-        cell1 = atoms1.cell.array.copy()
-        cell2 = atoms2.cell.array.copy()
-        return np.allclose(cell1, cell2, rtol=rtol, atol=atol)
-    return True
+def _same_structures(atoms1, atoms2, rtol=0.001, atol=0.01):
+    cell1 = atoms1.cell.array.copy()
+    cell2 = atoms2.cell.array.copy()
+    return np.allclose(cell1, cell2, rtol=rtol, atol=atol)
 
 def run_vasp(calc, atoms, method='custodian', max_errors=10):
     """ Run a VASP job 
