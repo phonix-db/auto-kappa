@@ -58,7 +58,7 @@ for command in $c_mpirun $c_vasp $c_alm $c_anphon; do
 done
 
 ### Run auto-kappa
-akrun \
+akrun_develop \
     --file_structure $file_structure \
     --outdir $mpid \
     --nprocs $nprocs \

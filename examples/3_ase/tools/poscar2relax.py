@@ -4,12 +4,11 @@ import numpy as np
 import argparse
 
 import ase.io
-from ase.build import make_supercell
+
+import sys
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..')))
 from auto_kappa.apdb import ApdbVasp
-from auto_kappa.structure.crystal import (
-        get_primitive_structure_spglib,
-        get_standardized_structure,
-        )
+from auto_kappa.structure.crystal import get_primitive_structure_spglib
 
 def main(options):
     

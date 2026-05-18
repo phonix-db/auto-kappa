@@ -163,7 +163,11 @@ class ApdbVasp():
     
     @property
     def vasp_params(self):
-        return self._vasp_config.get('params', {})
+        params = self._vasp_config.get('params', None)
+        if params is None:
+            from auto_kappa.utils.config import get_vasp_parameters
+            return get_vasp_parameters()
+        return params
     
     @property
     def potcar_setups(self):
