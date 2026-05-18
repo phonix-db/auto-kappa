@@ -2,6 +2,9 @@
 
 - Arrange the workflow related to --analyze_with_larger_sc, --scph, and --four options.
 
+## Fix
+
+- Fix a bug in ``calculators.vasp._same_structures`` module.
 
 # Ver. 1.1.0 (2026)
 
