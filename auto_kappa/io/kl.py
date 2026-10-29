@@ -249,11 +249,14 @@ def read_kl_file(filename):
         lines = f.readlines()
         for line in lines:
             parts = line.split()
-            if len(parts) < 3:
+            if len(parts) == 0:
                 continue
-            if line[0] == '#':
+            if parts[0].startswith('#'):
                 continue
             if len(parts) != ndata:
+                ## Columns merge when a component overflows the fixed-width
+                ## format, which means the calculation failed. Do not read it.
+                logger.warning(f"\n Warning: Skip an unreadable line in {filename}: {line.rstrip()}")
                 continue
             
             dump['temperature'].append(float(parts[0]))
